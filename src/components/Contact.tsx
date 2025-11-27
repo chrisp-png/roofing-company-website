@@ -9,13 +9,16 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Ready to start your roofing project? Contact us for a free consultation
+            Ready to start your roofing project? Contact All Phase Construction USA for a free consultation
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <form className="space-y-6">
+            <div className="mb-4 text-sm text-slate-300">
+              Send us a message and we'll respond promptly at <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a>
+            </div>
+            <form action="mailto:leads@allphaseusa.com" method="POST" encType="text/plain" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                   Full Name
@@ -112,8 +115,8 @@ export default function Contact() {
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white mb-1">Website</div>
-                    <a href="https://www.AllPhaseUSA.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition-colors duration-200">www.AllPhaseUSA.com</a>
+                    <div className="font-semibold text-white mb-1">Email</div>
+                    <a href="mailto:leads@allphaseusa.com" className="text-slate-300 hover:text-white transition-colors duration-200">leads@allphaseusa.com</a>
                   </div>
                 </div>
 
@@ -156,16 +159,16 @@ export default function Contact() {
 
             <div className="bg-red-600 rounded-xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                24/7 Emergency Service
+                All Phase Construction USA
               </h3>
               <p className="mb-6 leading-relaxed">
-                Roof emergency? We're here to help any time of day or night.
+                24/7 Emergency Service Available. Roof emergency? We're here to help any time of day or night.
               </p>
               <a
                 href="tel:754-227-5605"
                 className="inline-block px-6 py-3 bg-white text-red-600 rounded-lg font-semibold hover:bg-slate-100 transition-all duration-300"
               >
-                Call Emergency Line
+                Call 754-227-5605
               </a>
             </div>
           </div>
