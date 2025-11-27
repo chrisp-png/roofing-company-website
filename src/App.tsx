@@ -119,11 +119,11 @@ const App: React.FC = () => {
             <a href="#grants" className="hover:text-red-400">
               Condo Grants
             </a>
-            <a href="#blog" className="hover:text-red-400">
-              Blog
-            </a>
             <a href="#projects" className="hover:text-red-400">
               Projects
+            </a>
+            <a href="#blog" className="hover:text-red-400">
+              Blog
             </a>
             <a href="#contact" className="hover:text-red-400">
               Contact
