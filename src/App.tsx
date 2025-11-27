@@ -132,6 +132,16 @@ const App: React.FC = () => {
 
       {/* HERO */}
       <section className="relative border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-black overflow-hidden">
+        {/* WATERMARK LOGO */}
+        <div
+          className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.04]"
+          style={{
+            backgroundImage: "url('/allphase-logo.png')",
+            backgroundSize: "60%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        ></div>
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 lg:flex-row lg:items-center lg:py-20">
           <div className="flex-1 space-y-6">
             <p className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-300">
