@@ -3,61 +3,67 @@ import { Phone, Mail } from 'lucide-react'
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+      
+      {/* Background Image */}
       <div
-        className="absolute inset-0 opacity-15"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       />
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%), radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%)',
-        }}
-      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          All Phase Construction USA
-          <span className="block text-red-500">Professional Roofing Solutions</span>
+      {/* Soft overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        {/* MAIN SEO HEADING */}
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+          Broward & Palm Beach Roofing Contractor
+          <span className="block text-red-500 mt-2">
+            All Phase Construction USA
+          </span>
         </h1>
-        <p className="text-[10px] text-neutral-400 mb-4 tracking-wide">
-          Serving Broward & Palm Beach • FL Licenses CGC1526236 • CCC1331464
-        </p>
-        <p className="text-xl md:text-2xl mb-8 text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-          All Phase Construction USA installs code-compliant roofing systems for Broward and Palm Beach Counties from our office in Deerfield Beach, FL.
+
+        {/* LICENSE LINE (bigger text than before) */}
+        <p className="text-sm md:text-base text-neutral-300 tracking-wide mb-4">
+          FL Licenses: CGC1526236 • CCC1331464 • Dual Licensed GC + Roofing Contractor
         </p>
 
+        {/* SUBHEADLINE */}
+        <p className="text-lg md:text-2xl mb-10 text-neutral-200 max-w-3xl mx-auto leading-relaxed">
+          HVHZ-certified roof installations serving all of Broward & Palm Beach Counties — from our headquarters in Deerfield Beach, FL.
+        </p>
+
+        {/* CTA BUTTONS */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          
+          {/* Primary CTA */}
           <a
             href="#contact"
-            className="px-8 py-4 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="px-8 py-4 bg-red-600 text-white rounded-lg font-semibold 
+                       hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Schedule an On-Site Roof Assessment
+            Schedule a Roof Assessment
           </a>
+
+          {/* Call button */}
           <a
             href="tel:754-227-5605"
-            className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-lg font-semibold hover:bg-white/20 transition-all duration-300"
+            className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 
+                       text-white rounded-lg font-semibold hover:bg-white/20 transition-all"
           >
-            Call 754-227-5605
+            Call Now: 754-227-5605
           </a>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm">
-          <div className="flex items-center gap-2">
-            <Phone className="w-5 h-5 text-red-500" />
-            <a href="tel:754-227-5605" className="hover:text-red-500 transition-colors duration-200">754-227-5605</a>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mail className="w-5 h-5 text-red-500" />
-            <a href="https://www.AllPhaseUSA.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors duration-200">www.AllPhaseUSA.com</a>
-          </div>
-        </div>
-      </div>
+        {/* CONTACT ROW — MUCH LARGER */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-lg font-medium">
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
-    </section>
-  )
-}
+          {/* Phone */}
+          <div className="flex items-center gap-2">
+            <Phone className="w-6 h-6 text-red-500" />
+            <a 
+              href="te
