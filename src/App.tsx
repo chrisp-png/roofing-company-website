@@ -19,7 +19,7 @@ function App() {
         <Navigation />
       </header>
 
-      {/* HERO SECTION (you already updated Hero.tsx) */}
+      {/* HERO SECTION */}
       <Hero />
 
       {/* TRUST STRIP – Since 2005 */}
@@ -252,47 +252,53 @@ function App() {
         </div>
       </section>
 
-      {/* EXISTING COMPONENTS – we will refine these in Part 2 */}
+      {/* SERVICES COMPONENT (can be further tuned later if you want) */}
       <Services />
 
-      {/* HVHZ / Code Section (we’ll rewrite for SEO in Part 2) */}
+      {/* HVHZ / CODE COMPLIANCE – REWRITTEN FOR SEO */}
       <section id="hvhz" className="py-20 bg-neutral-950 border-b border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              HVHZ / Code Compliance
+              HVHZ Roofing &amp; Code Compliance
             </h2>
             <p className="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-              High Velocity Hurricane Zone certified roofing solutions
+              Roofing systems engineered for South Florida’s High Velocity Hurricane Zone and local building departments.
             </p>
           </div>
           <div className="prose prose-invert max-w-4xl mx-auto">
             <p className="text-lg text-neutral-300 leading-relaxed mb-4">
-              South Florida is designated as a High Velocity Hurricane Zone (HVHZ), requiring special building codes and
-              certifications. All Phase Construction USA's team is fully certified to install HVHZ-compliant roofing systems
-              that meet or exceed Miami-Dade and Broward County requirements.
+              Broward and Miami-Dade Counties are part of Florida’s High Velocity Hurricane Zone (HVHZ), which has some
+              of the strictest roofing requirements in the country. All Phase Construction USA installs roofing systems
+              that are designed, permitted, and inspected to meet or exceed HVHZ and local building code requirements.
+            </p>
+            <p className="text-lg text-neutral-300 leading-relaxed mb-4">
+              Our team coordinates with engineers, building officials, and inspectors to ensure your roof is installed
+              correctly — from fastening patterns and underlayment to flashing details and final inspections. We also
+              provide the proper documentation that insurance carriers often request, including photos, permits, and
+              wind-mitigation forms where applicable.
             </p>
             <p className="text-lg text-neutral-300 leading-relaxed">
-              All Phase Construction USA ensures your roof meets all local building codes, passes inspections, and provides
-              maximum protection against hurricane-force winds. Our installations come with proper documentation and certification
-              for insurance purposes.
+              Whether you are replacing a residential roof or a large commercial system, code compliance and long-term
+              performance are built into every project we take on.
             </p>
           </div>
           <div className="mt-8 rounded-2xl border border-red-500/40 bg-red-900/10 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <p className="text-neutral-200 text-sm sm:text-base">
-              Ensure your property meets HVHZ requirements. Schedule a code compliance assessment with All Phase Construction USA.
+              Need to be sure your next roof is fully HVHZ-compliant? We can review your existing conditions and help
+              you plan a code-correct replacement.
             </p>
             <a
               href="#contact"
               className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-red-500 transition-colors duration-200 whitespace-nowrap"
             >
-              Schedule an On-Site Roof Assessment
+              Schedule a Code Compliance Review
             </a>
           </div>
         </div>
       </section>
 
-      {/* Financing Section (content improved earlier in Financing.tsx) */}
+      {/* Financing Section */}
       <section id="financing" className="py-20 bg-black border-b border-neutral-800">
         <div className="text-white">
           <Financing />
@@ -332,7 +338,7 @@ function App() {
         </div>
       </section>
 
-      {/* Blog Section – can be expanded later for SEO */}
+      {/* Blog Section */}
       <section id="blog" className="py-20 bg-black border-b border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -340,7 +346,7 @@ function App() {
               Roofing Blog
             </h2>
             <p className="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-              Tips, guides, and insights from All Phase Construction USA's roofing experts
+              Tips, guides, and insights from All Phase Construction USA's roofing experts.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
@@ -381,6 +387,74 @@ function App() {
               className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-red-500 transition-colors duration-200 whitespace-nowrap"
             >
               Book a Consultation with All Phase
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION – SEO + Trust */}
+      <section id="faq" className="py-20 bg-neutral-950 border-b border-neutral-800">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Roofing FAQ – South Florida
+            </h2>
+            <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
+              Common questions homeowners and property managers ask us about roofing in Broward &amp; Palm Beach Counties.
+            </p>
+          </div>
+
+          <div className="space-y-6 text-neutral-200 text-sm md:text-base">
+            <div className="bg-black/40 border border-neutral-800 rounded-xl p-5">
+              <h3 className="font-semibold text-white mb-2">
+                How long does a roof typically last in South Florida?
+              </h3>
+              <p className="text-neutral-300">
+                It depends on the material and installation quality. Many shingle roofs last around 20–25 years, while
+                tile and metal systems can often last much longer when properly installed and maintained. We can evaluate
+                your existing roof and give you an honest opinion on remaining life and replacement timing.
+              </p>
+            </div>
+            <div className="bg-black/40 border border-neutral-800 rounded-xl p-5">
+              <h3 className="font-semibold text-white mb-2">
+                Do you help with insurance claims or wind-mitigation discounts?
+              </h3>
+              <p className="text-neutral-300">
+                Yes. We provide detailed proposals, photos, permits, and documentation that insurance carriers typically
+                request. We can also help you understand wind-mitigation opportunities and how certain upgrades may help
+                reduce your premium, depending on your policy and carrier.
+              </p>
+            </div>
+            <div className="bg-black/40 border border-neutral-800 rounded-xl p-5">
+              <h3 className="font-semibold text-white mb-2">
+                Which areas do you serve?
+              </h3>
+              <p className="text-neutral-300">
+                We serve communities throughout Broward and Palm Beach Counties, including Deerfield Beach, Boca Raton,
+                Delray Beach, Pompano Beach, Coral Springs, and nearby cities. If you are unsure whether we cover your area,
+                just ask — chances are we do.
+              </p>
+            </div>
+            <div className="bg-black/40 border border-neutral-800 rounded-xl p-5">
+              <h3 className="font-semibold text-white mb-2">
+                Can you help me choose between tile, metal, and shingle?
+              </h3>
+              <p className="text-neutral-300">
+                Absolutely. We look at your home, budget, neighborhood, and long-term plans to help you weigh the pros
+                and cons of each system. Our goal is to match you with the roof that makes the most sense for your property.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-neutral-300 mb-4">
+              Have a question that isn’t listed here? We’re happy to help.
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-red-500 transition-colors duration-200"
+            >
+              Ask a Roofing Question
             </a>
           </div>
         </div>
