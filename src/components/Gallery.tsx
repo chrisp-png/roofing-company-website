@@ -38,7 +38,7 @@ export default function Gallery() {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Our Work
         </h2>
-        <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed">
           See the quality and craftsmanship in our completed projects
         </p>
       </div>
@@ -54,9 +54,9 @@ export default function Gallery() {
               alt={project.title}
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-neutral-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-              <div className="text-sm font-semibold text-amber-400 mb-2">
+              <div className="text-sm font-semibold text-red-500 mb-2">
                 {project.category}
               </div>
               <h3 className="text-2xl font-bold">

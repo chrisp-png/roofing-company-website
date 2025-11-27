@@ -9,14 +9,14 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-slate-50">
+    <section id="about" className="py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
               Why Choose Us
             </h2>
-            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+            <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
               With over 25 years of experience in the roofing industry, we've built our reputation
               on quality workmanship, reliable service, and customer satisfaction.
             </p>
@@ -34,8 +34,8 @@ export default function About() {
                 '24/7 emergency services'
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-700 text-lg">{item}</span>
+                  <CheckCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-neutral-700 text-lg">{item}</span>
                 </div>
               ))}
             </div>
@@ -50,14 +50,14 @@ export default function About() {
                   className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="flex justify-center mb-4">
-                    <div className="bg-amber-500 w-14 h-14 rounded-lg flex items-center justify-center">
+                    <div className="bg-red-600 w-14 h-14 rounded-lg flex items-center justify-center">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                   </div>
-                  <div className="text-4xl font-bold text-slate-900 mb-2">
+                  <div className="text-4xl font-bold text-neutral-900 mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-slate-600 font-medium">
+                  <div className="text-neutral-600 font-medium">
                     {stat.label}
                   </div>
                 </div>

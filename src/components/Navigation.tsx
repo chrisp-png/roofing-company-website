@@ -30,7 +30,7 @@ export default function Navigation() {
           <div className="flex items-center">
             <a href="#" className="flex flex-col">
               <span className="text-xl font-bold text-white">All Phase Construction USA</span>
-              <span className="text-xs text-slate-400">Roofing • General Contracting • HVHZ</span>
+              <span className="text-xs text-neutral-400">Roofing • General Contracting • HVHZ</span>
             </a>
           </div>
 
@@ -40,7 +40,7 @@ export default function Navigation() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-slate-800 transition-all duration-200"
+                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-neutral-800 transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -50,7 +50,7 @@ export default function Navigation() {
                 <button
                   onMouseEnter={() => setRoofTypesOpen(true)}
                   onMouseLeave={() => setRoofTypesOpen(false)}
-                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-slate-800 transition-all duration-200 flex items-center gap-1"
+                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-neutral-800 transition-all duration-200 flex items-center gap-1"
                 >
                   Roof Types
                   <ChevronDown className="w-3.5 h-3.5" />
@@ -60,13 +60,13 @@ export default function Navigation() {
                   <div
                     onMouseEnter={() => setRoofTypesOpen(true)}
                     onMouseLeave={() => setRoofTypesOpen(false)}
-                    className="absolute top-full left-0 mt-1 w-40 bg-slate-800 rounded-lg shadow-lg py-2 border border-slate-700"
+                    className="absolute top-full left-0 mt-1 w-40 bg-neutral-900 rounded-lg shadow-lg py-2 border border-neutral-700"
                   >
                     {roofTypes.map((type) => (
                       <a
                         key={type.name}
                         href={type.href}
-                        className="block px-4 py-2 text-sm font-medium text-white hover:bg-slate-700 transition-colors duration-200"
+                        className="block px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800 transition-colors duration-200"
                       >
                         {type.name}
                       </a>
@@ -79,7 +79,7 @@ export default function Navigation() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-slate-800 transition-all duration-200"
+                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-neutral-800 transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -96,7 +96,7 @@ export default function Navigation() {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-300 hover:text-white"
+              className="text-neutral-300 hover:text-white"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -105,13 +105,13 @@ export default function Navigation() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-slate-900 border-t border-slate-800">
+        <div className="lg:hidden bg-neutral-950 border-t border-neutral-800">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navLinks.slice(0, 2).map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800 rounded-full transition-all duration-200"
+                className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800 rounded-full transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -121,7 +121,7 @@ export default function Navigation() {
             <div>
               <button
                 onClick={() => setRoofTypesOpen(!roofTypesOpen)}
-                className="w-full flex items-center justify-between px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800 rounded-full transition-all duration-200"
+                className="w-full flex items-center justify-between px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800 rounded-full transition-all duration-200"
               >
                 Roof Types
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${roofTypesOpen ? 'rotate-180' : ''}`} />
@@ -132,7 +132,7 @@ export default function Navigation() {
                     <a
                       key={type.name}
                       href={type.href}
-                      className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800 rounded-full transition-all duration-200"
+                      className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800 rounded-full transition-all duration-200"
                       onClick={() => {
                         setIsOpen(false);
                         setRoofTypesOpen(false);
@@ -149,7 +149,7 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800 rounded-full transition-all duration-200"
+                className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800 rounded-full transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

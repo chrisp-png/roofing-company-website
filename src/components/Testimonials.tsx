@@ -23,13 +23,13 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-slate-50">
+    <section id="testimonials" className="py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
             Client Testimonials
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             Don't just take our word for it - hear from our satisfied customers
           </p>
         </div>
@@ -42,15 +42,15 @@ export default function Testimonials() {
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="w-5 h-5 fill-red-500 text-red-500" />
                 ))}
               </div>
-              <p className="text-slate-700 mb-6 leading-relaxed italic">
+              <p className="text-neutral-700 mb-6 leading-relaxed italic">
                 "{testimonial.content}"
               </p>
-              <div className="border-t border-slate-200 pt-4">
-                <div className="font-bold text-slate-900">{testimonial.name}</div>
-                <div className="text-sm text-slate-600">{testimonial.role}</div>
+              <div className="border-t border-neutral-200 pt-4">
+                <div className="font-bold text-neutral-900">{testimonial.name}</div>
+                <div className="text-sm text-neutral-600">{testimonial.role}</div>
               </div>
             </div>
           ))}

@@ -32,10 +32,10 @@ export default function Services() {
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
             Our Services
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
             Comprehensive roofing solutions tailored to your needs
           </p>
         </div>
@@ -46,21 +46,21 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className="bg-slate-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-200"
+                className="bg-neutral-50 rounded-xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-neutral-200"
               >
-                <div className="bg-amber-500 w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-md">
+                <div className="bg-red-600 w-16 h-16 rounded-lg flex items-center justify-center mb-6 shadow-md">
                   <Icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-slate-600 mb-6 leading-relaxed">
+                <p className="text-neutral-600 mb-6 leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-2">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-slate-700">
-                      <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3"></span>
+                    <li key={i} className="flex items-center text-neutral-700">
+                      <span className="w-1.5 h-1.5 bg-red-600 rounded-full mr-3"></span>
                       {feature}
                     </li>
                   ))}
@@ -71,7 +71,7 @@ export default function Services() {
         </div>
 
         <div className="mt-12 rounded-2xl border border-red-500/40 bg-red-900/10 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-slate-700 text-sm sm:text-base">
+          <p className="text-neutral-700 text-sm sm:text-base">
             Ready to get started with professional roofing services? Schedule your free assessment.
           </p>
           <a
