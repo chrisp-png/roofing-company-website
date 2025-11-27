@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <div className="mb-4 text-sm text-neutral-300">
-              Send us a message and we'll respond promptly at <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a>
+              Send us a message and a team member from All Phase Construction USA will follow up with you promptly. You can also reach us directly at <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a>
             </div>
             <form action="mailto:leads@allphaseusa.com" method="POST" encType="text/plain" className="space-y-6">
               <div>
@@ -88,7 +88,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full px-8 py-4 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
-                Send Message
+                Request Consultation with All Phase
               </button>
             </form>
           </div>
@@ -166,9 +166,9 @@ export default function Contact() {
               </p>
               <a
                 href="tel:754-227-5605"
-                className="inline-block px-6 py-3 bg-white text-red-600 rounded-lg font-semibold hover:bg-slate-100 transition-all duration-300"
+                className="inline-block px-6 py-3 bg-white text-red-600 rounded-lg font-semibold hover:bg-neutral-100 transition-all duration-300"
               >
-                Call 754-227-5605
+                Call All Phase: 754-227-5605
               </a>
             </div>
           </div>
