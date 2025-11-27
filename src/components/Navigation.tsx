@@ -39,7 +39,7 @@ export default function Navigation() {
   const navLinks = [
     { name: 'Residential', href: '#residential' },
     { name: 'Commercial', href: '#commercial' },
-    { name: 'HVHZ / Code', href: '#hvhz' },
+    { name: 'Wind Mitigation', href: '#wind-mitigation' },
     { name: 'Financing', href: '#financing' },
     { name: 'Projects', href: '#projects' },
     { name: 'Blog', href: '#blog' },
@@ -50,7 +50,7 @@ export default function Navigation() {
   return (
     <nav className="w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
             <a href="#" className="flex flex-col">
               <span className="text-xl font-bold text-white">All Phase Construction USA</span>
