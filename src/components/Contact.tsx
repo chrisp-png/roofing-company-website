@@ -123,7 +123,18 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900 mb-1">Address</div>
-                    <div className="text-slate-600">123 Main Street<br />Anytown, ST 12345</div>
+                    <div className="text-slate-600">
+                      590 Goolsby Blvd<br />
+                      Deerfield Beach, FL
+                    </div>
+                    <a
+                      href="https://maps.apple.com/?q=590+Goolsby+Blvd+Deerfield+Beach+FL"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 underline hover:text-blue-700 transition-colors duration-200 text-sm mt-1 inline-block"
+                    >
+                      Open in Apple Maps
+                    </a>
                   </div>
                 </div>
 

@@ -9,9 +9,21 @@ export default function Footer() {
             <h3 className="text-2xl font-bold mb-4 text-amber-500">
               RoofingPro
             </h3>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-slate-400 leading-relaxed mb-4">
               Professional roofing solutions for over 25 years. Quality workmanship and reliable service.
             </p>
+            <div className="text-slate-400 text-sm">
+              590 Goolsby Blvd<br />
+              Deerfield Beach, FL
+            </div>
+            <a
+              href="https://maps.apple.com/?q=590+Goolsby+Blvd+Deerfield+Beach+FL"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline hover:text-blue-700 transition-colors duration-200 text-sm inline-block mt-2"
+            >
+              Open in Apple Maps
+            </a>
           </div>
 
           <div>
