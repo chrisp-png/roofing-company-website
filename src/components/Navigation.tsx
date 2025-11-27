@@ -27,12 +27,12 @@ export default function Navigation() {
           </div>
 
           <div className="hidden lg:block">
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-slate-300 hover:text-white transition-colors duration-200"
+                  className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-slate-800 transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -64,7 +64,7 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-2 text-base text-slate-300 hover:text-white hover:bg-slate-800 rounded-md transition-colors duration-200"
+                className="block px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800 rounded-full transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
