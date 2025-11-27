@@ -69,6 +69,18 @@ export default function Services() {
             )
           })}
         </div>
+
+        <div className="mt-12 rounded-2xl border border-red-500/40 bg-red-900/10 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p className="text-slate-700 text-sm sm:text-base">
+            Ready to get started with professional roofing services? Schedule your free assessment.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-red-500 transition-colors duration-200 whitespace-nowrap"
+          >
+            Book On-Site Appointment
+          </a>
+        </div>
       </div>
     </section>
   )
