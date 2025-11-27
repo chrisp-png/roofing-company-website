@@ -96,16 +96,18 @@ const App: React.FC = () => {
       {/* NAVBAR */}
       <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-red-600 text-xl font-black leading-none">
-              A
-            </div>
+          <div className="flex items-center gap-3">
+            <img
+              src="/allphase-logo.png"
+              alt="All Phase Construction USA Logo"
+              className="h-10 w-auto"
+            />
             <div>
-              <div className="text-sm font-semibold tracking-wide uppercase">
+              <div className="text-base font-bold tracking-tight text-white">
                 All Phase Construction USA
               </div>
-              <div className="text-xs text-slate-400">
-                Roofing &amp; General Contractor – FL
+              <div className="text-[11px] uppercase tracking-wide text-red-400">
+                Roofing • General Contracting • HVHZ
               </div>
             </div>
           </div>
