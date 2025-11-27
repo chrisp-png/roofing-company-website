@@ -353,28 +353,32 @@ const App: React.FC = () => {
         id="blog"
         className="border-b border-slate-800 bg-slate-950"
       >
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-slate-50 sm:text-3xl">
-              Roofing Resources & Insights
-            </h2>
-            <p className="mt-3 text-sm text-slate-300">
-              Expert guidance on HVHZ roofing, insurance, grants, and planning for homeowners, HOAs, and condo associations.
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16 lg:py-20">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-50 sm:text-3xl">
+                Roofing Education &amp; Insurance Insights
+              </h2>
+              <p className="mt-3 max-w-xl text-sm text-slate-300">
+                Articles written for South Florida homeowners, HOAs, and condo
+                boards on roofing systems, hurricane code, and insurance savings.
+              </p>
+            </div>
+            <p className="text-xs text-slate-400">
+              New posts are added as programs and Florida Building Code updates change.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="group flex flex-col rounded-3xl border border-slate-800 bg-slate-900/60 p-5 shadow-sm transition hover:-translate-y-1 hover:border-red-500/80 hover:shadow-red-900/20"
+                className="flex flex-col rounded-3xl border border-slate-800 bg-slate-900/70 p-5 hover:border-red-500/80 hover:shadow-lg hover:shadow-red-900/20"
               >
-                <div className="mb-3 flex items-center gap-2 text-[11px] text-slate-400">
-                  <span>{post.date}</span>
-                  <span>•</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <h3 className="text-base font-semibold text-slate-50 leading-snug">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                  {post.date} • {post.readTime}
+                </p>
+                <h3 className="mt-2 text-sm font-semibold leading-snug text-slate-50">
                   {post.title}
                 </h3>
                 <p className="mt-2 flex-1 text-xs leading-relaxed text-slate-300">
@@ -382,10 +386,9 @@ const App: React.FC = () => {
                 </p>
                 <a
                   href={post.url}
-                  className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-red-400/90 hover:text-red-400"
+                  className="mt-4 text-xs font-semibold uppercase tracking-wide text-red-400 hover:text-red-300"
                 >
-                  Read Article
-                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                  Read article →
                 </a>
               </article>
             ))}
