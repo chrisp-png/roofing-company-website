@@ -18,6 +18,8 @@ export default function RoofCostCalculator() {
   const nextStep = () => {
     if (state.step === 1 && isCommercial) {
       updateState({ step: 5 });
+    } else if (state.step === 2 && !isCommercial) {
+      updateState({ step: 4 });
     } else {
       updateState({ step: state.step + 1 });
     }
@@ -26,13 +28,20 @@ export default function RoofCostCalculator() {
   const prevStep = () => {
     if (state.step === 5 && isCommercial) {
       updateState({ step: 1 });
+    } else if (state.step === 4 && !isCommercial) {
+      updateState({ step: 2 });
     } else {
       updateState({ step: state.step - 1 });
     }
   };
 
-  const totalSteps = isCommercial ? 2 : 5;
-  const displayStep = isCommercial && state.step === 5 ? 2 : state.step;
+  const totalSteps = isCommercial ? 2 : 4;
+  const getDisplayStep = () => {
+    if (isCommercial && state.step === 5) return 2;
+    if (!isCommercial && state.step >= 4) return state.step - 1;
+    return state.step;
+  };
+  const displayStep = getDisplayStep();
   const progressPercentage = (displayStep / totalSteps) * 100;
 
   return (
@@ -73,15 +82,6 @@ export default function RoofCostCalculator() {
             <Step2RoofSize
               selectedSize={state.roofSize}
               onSelect={(size) => updateState({ roofSize: size })}
-              onNext={nextStep}
-              onBack={prevStep}
-            />
-          )}
-
-          {state.step === 3 && (
-            <Step3Material
-              selectedMaterial={state.material}
-              onSelect={(material) => updateState({ material })}
               onNext={nextStep}
               onBack={prevStep}
             />

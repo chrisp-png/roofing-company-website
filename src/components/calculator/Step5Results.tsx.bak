@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MATERIAL_CONFIG } from '../../config/materialConfig';
-import { Check, Building2 } from 'lucide-react';
+import { Check, Building2, TrendingDown, Zap } from 'lucide-react';
 import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
 
 interface Step5Props {
@@ -222,10 +222,6 @@ export default function Step5Results({
   const highEstimate = Math.round(tierConfig.priceMax * roofSize * complexity);
   const midEstimate = (lowEstimate + highEstimate) / 2;
 
-  const bestTierConfig = MATERIAL_CONFIG[material]?.tiers['best'];
-  const bestLowEstimate = Math.round((bestTierConfig?.priceMin || 0) * roofSize * complexity);
-  const bestHighEstimate = Math.round((bestTierConfig?.priceMax || 0) * roofSize * complexity);
-
   const insuranceAnnualSavings = 2500;
   const ventilationMonthlySavings = 50;
 
@@ -238,6 +234,9 @@ export default function Step5Results({
 
   const total10YearSavings = insurance10Year + ventilation10Year;
   const total20YearSavings = insurance20Year + ventilation20Year;
+
+  const net10Year = midEstimate - total10YearSavings;
+  const net20Year = midEstimate - total20YearSavings;
 
   if (submitted) {
     return (
@@ -254,135 +253,80 @@ export default function Step5Results({
 
         <DualLicensedAdvantageSection />
 
-        <div className="bg-gradient-to-br from-blue-900/20 to-blue-700/10 border-2 border-blue-500/30 rounded-2xl p-8 mb-8">
-          <h3 className="text-2xl font-bold text-white mb-4">
-            Why an On-Site Roof & Attic Inspection is Essential
+        <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8 mb-8">
+          <h3 className="text-2xl font-bold text-white mb-2">
+            Recommended System ({tierConfig.label})
           </h3>
-          <p className="text-neutral-300 leading-relaxed">
-            Homes in South Florida vary widely in roof structure, decking condition, attic ventilation, and roof-to-wall connections. A full on-site inspection of the roof and attic is essential for accurate final pricing and to ensure you receive all possible wind-mitigation insurance credits.
-          </p>
-        </div>
-
-        <div className="bg-gradient-to-br from-green-900/20 to-green-700/10 border-2 border-green-500/30 rounded-2xl p-8 mb-8">
-          <h3 className="text-2xl font-bold text-white mb-6">
-            Understanding Your Insurance Savings Potential
-          </h3>
-          <p className="text-neutral-300 mb-6 leading-relaxed">
-            Many homeowners don't realize how much a properly installed roof can reduce insurance premiums. These savings accumulate significantly over time and often offset a meaningful portion of the roof cost.
-          </p>
-
-          <div className="space-y-6">
-            <div className="bg-black/40 rounded-xl p-6">
-              <h4 className="text-lg font-semibold text-white mb-3">Example Insurance Savings:</h4>
-              <ul className="space-y-2 text-neutral-300">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>{formatCurrency(insuranceAnnualSavings)}/year typical insurance savings</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>{formatCurrency(insurance10Year)} over 10 years</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span>{formatCurrency(insurance20Year)} over 20 years</span>
-                </li>
-              </ul>
+          <h4 className="text-3xl font-bold text-red-500 mb-4">
+            Estimated Range: {formatCurrency(lowEstimate)} – {formatCurrency(highEstimate)}
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-300">
+            <div>
+              <span className="font-semibold">Roof Type:</span>
+              <br />
+              {materialConfig.label}
             </div>
-
-            <div className="bg-black/40 rounded-xl p-6">
-              <h4 className="text-lg font-semibold text-white mb-3">Ventilation & Energy Savings:</h4>
-              <p className="text-neutral-300 mb-3 text-sm">
-                Proper attic ventilation improves cooling efficiency and extends the life of your roof system. These annual energy savings further reduce your long-term cost of ownership.
-              </p>
-              <ul className="space-y-2 text-neutral-300">
-                <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">•</span>
-                  <span>{formatCurrency(ventilationMonthlySavings)}/month from improved attic ventilation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">•</span>
-                  <span>{formatCurrency(ventilationAnnual)}/year</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">•</span>
-                  <span>{formatCurrency(ventilation10Year)} over 10 years</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-yellow-500 mr-2">•</span>
-                  <span>{formatCurrency(ventilation20Year)} over 20 years</span>
-                </li>
-              </ul>
+            <div>
+              <span className="font-semibold">Roof Size:</span>
+              <br />
+              {roofSize.toLocaleString()} sq ft
             </div>
-
-            <div className="bg-black/40 rounded-xl p-6 border-2 border-green-500/30">
-              <h4 className="text-lg font-semibold text-white mb-3">
-                Combined 10 & 20-Year Savings:
-              </h4>
-              <ul className="space-y-2 text-neutral-300">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span><span className="font-semibold text-white">{formatCurrency(total10YearSavings)}</span> over 10 years (insurance + ventilation)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">•</span>
-                  <span><span className="font-semibold text-white">{formatCurrency(total20YearSavings)}</span> over 20 years (insurance + ventilation)</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-6 bg-neutral-900/50 rounded-xl p-4 border border-neutral-700">
-            <p className="text-xs text-neutral-400 italic leading-relaxed">
-              <span className="font-semibold text-neutral-300">Important:</span> These savings examples are for illustration only. Actual insurance and energy savings vary by carrier, attic conditions, and home usage. We'll help you review your specific situation during your on-site inspection.
-            </p>
           </div>
         </div>
 
-        <div className="space-y-6 mb-8">
-          <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Recommended System ({tierConfig.label})
-            </h3>
-            <h4 className="text-3xl font-bold text-red-500 mb-4">
-              {formatCurrency(lowEstimate)} – {formatCurrency(highEstimate)}
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-300">
-              <div>
-                <span className="font-semibold">Roof Type:</span>
-                <br />
-                {materialConfig.label}
-              </div>
-              <div>
-                <span className="font-semibold">Roof Size:</span>
-                <br />
-                {roofSize.toLocaleString()} sq ft
-              </div>
-            </div>
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-white mb-4">{tierConfig.label}</h3>
+          <p className="text-neutral-300 mb-4">{tierConfig.description}</p>
+
+          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-6">
+            <h4 className="text-lg font-semibold text-white mb-3">What's Included:</h4>
+            <ul className="space-y-2">
+              {tierConfig.talkingPoints.map((point, idx) => (
+                <li key={idx} className="text-neutral-300 flex items-start">
+                  <span className="text-red-500 mr-2">•</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {bestTierConfig && (
-            <div className="bg-gradient-to-br from-orange-900/20 to-orange-700/10 border-2 border-orange-500/30 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Upgraded System ({bestTierConfig.label.split(' - ')[0]})
-              </h3>
-              <h4 className="text-3xl font-bold text-orange-500 mb-4">
-                {formatCurrency(bestLowEstimate)} – {formatCurrency(bestHighEstimate)}
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-300">
-                <div>
-                  <span className="font-semibold">Roof Type:</span>
-                  <br />
-                  {materialConfig.label}
-                </div>
-                <div>
-                  <span className="font-semibold">Roof Size:</span>
-                  <br />
-                  {roofSize.toLocaleString()} sq ft
-                </div>
-              </div>
-            </div>
-          )}
+          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-6">
+            <h4 className="text-lg font-semibold text-white mb-3">Project Breakdown:</h4>
+            <ul className="space-y-2 text-neutral-300">
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Materials: {materialConfig.label} roofing system</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Underlayment: High-performance protection layer</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Attachment: Appropriate method for material and wind zone</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Labor: Professional installation by licensed contractors</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-2">•</span>
+                <span>Permits & Inspections: All required code compliance</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-8">
+            <h4 className="text-lg font-semibold text-white mb-3">What This Means for You:</h4>
+            <ul className="space-y-2">
+              {materialConfig.generalBenefits.map((benefit, idx) => (
+                <li key={idx} className="text-neutral-300 flex items-start">
+                  <span className="text-red-500 mr-2">•</span>
+                  <span>{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mb-8 bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
@@ -408,30 +352,20 @@ export default function Step5Results({
                   const tierLow = Math.round(tierData.priceMin * roofSize * complexity);
                   const tierHigh = Math.round(tierData.priceMax * roofSize * complexity);
                   const isRecommended = tierKey === tier;
-                  const isUpgradeOption = tierKey === 'best';
 
                   return (
                     <tr
                       key={tierKey}
-                      className={`border-b border-neutral-800 ${
-                        isRecommended ? 'bg-red-900/10' : isUpgradeOption ? 'bg-orange-900/10' : ''
-                      }`}
+                      className={`border-b border-neutral-800 ${isRecommended ? 'bg-red-900/10' : ''}`}
                     >
                       <td className="py-4 px-4">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className={`font-semibold ${
-                            isRecommended ? 'text-red-500' : isUpgradeOption ? 'text-orange-500' : 'text-white'
-                          }`}>
+                        <div className="flex items-center gap-2">
+                          <span className={`font-semibold ${isRecommended ? 'text-red-500' : 'text-white'}`}>
                             {tierData.label.split(' - ')[0]}
                           </span>
                           {isRecommended && (
                             <span className="px-2 py-1 bg-red-600 text-white text-xs font-bold rounded">
                               RECOMMENDED
-                            </span>
-                          )}
-                          {isUpgradeOption && (
-                            <span className="px-2 py-1 bg-orange-600 text-white text-xs font-bold rounded">
-                              UPGRADE OPTION
                             </span>
                           )}
                         </div>
@@ -440,9 +374,7 @@ export default function Step5Results({
                         {tierData.description}
                       </td>
                       <td className="py-4 px-4 text-right">
-                        <span className={`font-semibold ${
-                          isRecommended ? 'text-red-500' : isUpgradeOption ? 'text-orange-500' : 'text-white'
-                        }`}>
+                        <span className={`font-semibold ${isRecommended ? 'text-red-500' : 'text-white'}`}>
                           {formatCurrency(tierLow)} – {formatCurrency(tierHigh)}
                         </span>
                       </td>
@@ -466,21 +398,109 @@ export default function Step5Results({
           </h3>
           <div className="space-y-4 text-neutral-300 leading-relaxed">
             <p>
-              Upgrading from a basic system to a higher-performance roof often adds surprisingly little to monthly financing payments.
+              With our financing options, the difference between a basic system and a higher-tier roof can often be spread out over affordable monthly payments.
             </p>
             <p>
-              When we visit your home, we'll help you compare options so you can choose the perfect system for your long-term budget.
+              When we visit your home, we'll walk you through the pros, cons, and payment options for each tier so you can choose what feels right for your budget and your long-term plans.
             </p>
             <p className="text-white font-semibold">
-              Many homeowners find that combining financing with insurance savings makes premium roof systems surprisingly affordable.
+              Many homeowners find that upgrading to a Best or Premium system is surprisingly affordable when financed, especially when combined with insurance savings.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-green-900/20 to-green-700/10 border-2 border-green-500/30 rounded-2xl p-8 mb-8">
+          <h3 className="text-2xl font-bold text-white mb-6">
+            How Insurance & Ventilation Savings Can Offset Your Roof Cost
+          </h3>
+
+          <div className="space-y-6 mb-6">
+            <div className="bg-black/40 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-white mb-3">Example Insurance Savings:</h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>{formatCurrency(insuranceAnnualSavings)}/year typical insurance savings</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>{formatCurrency(insurance10Year)} over 10 years</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>{formatCurrency(insurance20Year)} over 20 years</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-black/40 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-white mb-3">Example Ventilation Savings:</h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilationMonthlySavings)}/month from improved attic ventilation</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilationAnnual)}/year</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilation10Year)} over 10 years</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilation20Year)} over 20 years</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-black/40 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-white mb-3">Combined Savings:</h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span><span className="font-semibold text-white">{formatCurrency(total10YearSavings)}</span> over 10 years (insurance + ventilation)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span><span className="font-semibold text-white">{formatCurrency(total20YearSavings)}</span> over 20 years (insurance + ventilation)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-black/40 rounded-xl p-6 border-2 border-green-500/30">
+              <h4 className="text-lg font-semibold text-white mb-3">
+                Net Roof Cost (rough example using the midpoint of your estimate):
+              </h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>
+                    Approximate net cost over 10 years: <span className="font-semibold text-white">{net10Year > 0 ? formatCurrency(net10Year) : formatCurrency(0)}</span>
+                    {net10Year <= 0 && <span className="text-green-400 ml-2">(Your roof pays for itself!)</span>}
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>
+                    Approximate net cost over 20 years: <span className="font-semibold text-white">{net20Year > 0 ? formatCurrency(net20Year) : formatCurrency(0)}</span>
+                    {net20Year <= 0 && <span className="text-green-400 ml-2">(Your roof more than pays for itself!)</span>}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-neutral-900/50 rounded-xl p-4 border border-neutral-700">
+            <p className="text-xs text-neutral-400 italic leading-relaxed">
+              <span className="font-semibold text-neutral-300">Important:</span> These savings examples are for illustration only. Actual insurance and energy savings vary by carrier, attic conditions, and home usage. We'll help you review your specific situation during your on-site inspection.
             </p>
           </div>
         </div>
 
         <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 mb-8">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">
-            Schedule Your Roof & Attic Inspection
-          </h3>
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Ready to Get Started?</h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <a
               href="tel:7542275605"
@@ -492,7 +512,7 @@ export default function Step5Results({
               href="/contact"
               className="px-8 py-4 border-2 border-red-600 text-red-500 text-lg font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-colors text-center"
             >
-              Request Your Inspection
+              Schedule My On-Site Inspection
             </a>
           </div>
           <p className="text-center text-sm text-neutral-400">
