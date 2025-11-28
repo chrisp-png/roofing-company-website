@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MATERIAL_CONFIG } from '../../config/materialConfig';
 import { Check, Building2, TrendingDown, Zap } from 'lucide-react';
+import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
 
 interface Step5Props {
   isCommercial: boolean;
@@ -249,6 +250,8 @@ export default function Step5Results({
             Your estimate has been saved and our team will follow up shortly.
           </p>
         </div>
+
+        <DualLicensedAdvantageSection />
 
         <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8 mb-8">
           <h3 className="text-2xl font-bold text-red-500 mb-4">
