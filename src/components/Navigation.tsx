@@ -44,7 +44,7 @@ export default function Navigation() {
     { name: 'Projects', href: '#projects' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Roof Cost Calculator', href: '#calculator' },
+    { name: 'Roof Cost Calculator', href: '/roof-cost-calculator.html' },
   ];
 
   return (
