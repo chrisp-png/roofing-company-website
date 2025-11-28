@@ -286,7 +286,7 @@ export default function FinancingCalculatorPage() {
 
             <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
               <p className="text-blue-300 text-sm text-center">
-                <strong>Good news:</strong> You may qualify for longer terms (up to 20 years) which can significantly lower your monthly payment. Discuss term options with our financing coordinator during your inspection.
+                <strong>Good news:</strong> You may qualify for longer terms (up to 20 years), which can significantly lower your monthly payment. Your rep will be able to discuss this with you when he comes for your complimentary inspection.
               </p>
             </div>
           </div>
