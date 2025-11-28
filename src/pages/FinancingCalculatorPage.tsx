@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { Download } from 'lucide-react';
-import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { generateEstimatePDF } from '../utils/pdfGenerator';
 
@@ -14,8 +13,6 @@ const creditTiers = [
 
 export default function FinancingCalculatorPage() {
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const betterLowParam = searchParams.get('betterLow');
   const betterHighParam = searchParams.get('betterHigh');
@@ -27,8 +24,6 @@ export default function FinancingCalculatorPage() {
   const materialParam = searchParams.get('material');
   const tierParam = searchParams.get('tier');
   const complexityParam = searchParams.get('complexity');
-
-  const passedState = location.state as any;
 
   const hasRequiredData = betterLowParam && betterHighParam;
 
@@ -104,7 +99,7 @@ export default function FinancingCalculatorPage() {
   };
 
   return (
-    <Layout>
+    <>
       <SEO
         title="Roof Financing Calculator - Explore Monthly Payment Options | All Phase Construction USA"
         description="Estimate your monthly roof financing payments with our calculator. See affordable payment options for your new roof in South Florida."
@@ -368,6 +363,6 @@ export default function FinancingCalculatorPage() {
           )}
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

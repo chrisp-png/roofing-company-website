@@ -1,6 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import Layout from '../components/Layout';
 import Schema from '../components/Schema';
 import { cityData } from '../data/cityContent';
 import { Phone, MapPin, Calculator, FileText, Building2, Home, Mail } from 'lucide-react';
@@ -47,7 +46,7 @@ export default function ServiceAreaDetailPage() {
   };
 
   return (
-    <Layout>
+    <>
       <SEO
         title={`${cityInfo.name} Roofing Contractor | All Phase Construction USA`}
         description={`Expert roofing contractor serving ${cityInfo.name}, FL. Tile, metal, shingle & flat roofing. HVHZ compliant. Wind mitigation specialists. Licensed & insured.`}
@@ -332,6 +331,6 @@ export default function ServiceAreaDetailPage() {
           )}
         </div>
       </div>
-    </Layout>
+    </>
   );
 }
