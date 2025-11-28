@@ -329,103 +329,115 @@ export default function Step5Results({
         </div>
 
         <div className="bg-gradient-to-br from-green-900/20 to-green-700/10 border-2 border-green-500/30 rounded-2xl p-8 mb-8">
-          <div className="flex items-start gap-4 mb-6">
-            <TrendingDown className="w-10 h-10 text-green-500 flex-shrink-0" />
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Your Roof Investment Pays for Itself
-              </h3>
-              <p className="text-neutral-300">
-                Here's how insurance and ventilation savings offset your roof cost over time:
-              </p>
-            </div>
-          </div>
+          <h3 className="text-2xl font-bold text-white mb-6">
+            How Insurance & Ventilation Savings Can Offset Your Roof Cost
+          </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="space-y-6 mb-6">
             <div className="bg-black/40 rounded-xl p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <TrendingDown className="w-5 h-5 text-green-500" />
-                <h4 className="text-lg font-semibold text-white">Insurance Savings</h4>
-              </div>
-              <div className="space-y-2 text-neutral-300">
-                <p className="text-sm">
-                  Estimated annual savings: <span className="font-semibold text-white">{formatCurrency(insuranceAnnualSavings)}/year</span>
-                </p>
-                <p className="text-sm">
-                  10-year savings: <span className="font-semibold text-green-400">{formatCurrency(insurance10Year)}</span>
-                </p>
-                <p className="text-sm">
-                  20-year savings: <span className="font-semibold text-green-400">{formatCurrency(insurance20Year)}</span>
-                </p>
-              </div>
+              <h4 className="text-lg font-semibold text-white mb-3">Example Insurance Savings:</h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>{formatCurrency(insuranceAnnualSavings)}/year typical insurance savings</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>{formatCurrency(insurance10Year)} over 10 years</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>{formatCurrency(insurance20Year)} over 20 years</span>
+                </li>
+              </ul>
             </div>
 
             <div className="bg-black/40 rounded-xl p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-5 h-5 text-yellow-500" />
-                <h4 className="text-lg font-semibold text-white">Ventilation & Energy Savings</h4>
-              </div>
-              <div className="space-y-2 text-neutral-300">
-                <p className="text-sm">
-                  Estimated monthly savings: <span className="font-semibold text-white">{formatCurrency(ventilationMonthlySavings)}/month</span>
-                </p>
-                <p className="text-sm">
-                  10-year savings: <span className="font-semibold text-yellow-400">{formatCurrency(ventilation10Year)}</span>
-                </p>
-                <p className="text-sm">
-                  20-year savings: <span className="font-semibold text-yellow-400">{formatCurrency(ventilation20Year)}</span>
-                </p>
-              </div>
+              <h4 className="text-lg font-semibold text-white mb-3">Example Ventilation Savings:</h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilationMonthlySavings)}/month from improved attic ventilation</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilationAnnual)}/year</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilation10Year)} over 10 years</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-500 mr-2">•</span>
+                  <span>{formatCurrency(ventilation20Year)} over 20 years</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-black/40 rounded-xl p-6">
+              <h4 className="text-lg font-semibold text-white mb-3">Combined Savings:</h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span><span className="font-semibold text-white">{formatCurrency(total10YearSavings)}</span> over 10 years (insurance + ventilation)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span><span className="font-semibold text-white">{formatCurrency(total20YearSavings)}</span> over 20 years (insurance + ventilation)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-black/40 rounded-xl p-6 border-2 border-green-500/30">
+              <h4 className="text-lg font-semibold text-white mb-3">
+                Net Roof Cost (rough example using the midpoint of your estimate):
+              </h4>
+              <ul className="space-y-2 text-neutral-300">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>
+                    Approximate net cost over 10 years: <span className="font-semibold text-white">{net10Year > 0 ? formatCurrency(net10Year) : formatCurrency(0)}</span>
+                    {net10Year <= 0 && <span className="text-green-400 ml-2">(Your roof pays for itself!)</span>}
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">•</span>
+                  <span>
+                    Approximate net cost over 20 years: <span className="font-semibold text-white">{net20Year > 0 ? formatCurrency(net20Year) : formatCurrency(0)}</span>
+                    {net20Year <= 0 && <span className="text-green-400 ml-2">(Your roof more than pays for itself!)</span>}
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div className="border-t border-green-500/30 pt-6">
-            <h4 className="text-xl font-bold text-white mb-4">Total Savings vs. Roof Cost:</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-black/40 rounded-xl p-5">
-                <p className="text-sm text-neutral-400 mb-1">10-Year Net Cost</p>
-                <p className="text-2xl font-bold text-white mb-2">
-                  {net10Year > 0 ? formatCurrency(net10Year) : formatCurrency(0)}
-                </p>
-                <p className="text-xs text-green-400">
-                  Total savings: {formatCurrency(total10YearSavings)}
-                </p>
-                {net10Year <= 0 && (
-                  <p className="text-xs text-green-500 mt-1 font-semibold">
-                    Your roof pays for itself!
-                  </p>
-                )}
-              </div>
-
-              <div className="bg-black/40 rounded-xl p-5">
-                <p className="text-sm text-neutral-400 mb-1">20-Year Net Cost</p>
-                <p className="text-2xl font-bold text-white mb-2">
-                  {net20Year > 0 ? formatCurrency(net20Year) : formatCurrency(0)}
-                </p>
-                <p className="text-xs text-green-400">
-                  Total savings: {formatCurrency(total20YearSavings)}
-                </p>
-                {net20Year <= 0 && (
-                  <p className="text-xs text-green-500 mt-1 font-semibold">
-                    Your roof more than pays for itself!
-                  </p>
-                )}
-              </div>
-            </div>
+          <div className="bg-neutral-900/50 rounded-xl p-4 border border-neutral-700">
+            <p className="text-xs text-neutral-400 italic leading-relaxed">
+              <span className="font-semibold text-neutral-300">Important:</span> These savings examples are for illustration only. Actual insurance and energy savings vary by carrier, attic conditions, and home usage. We'll help you review your specific situation during your on-site inspection.
+            </p>
           </div>
-
-          <p className="text-xs text-neutral-400 mt-6 italic">
-            * Savings estimates based on typical South Florida homeowner insurance premiums and energy costs.
-            Actual savings may vary based on your specific insurance carrier, coverage, and energy usage patterns.
-          </p>
         </div>
 
-        <p className="text-center text-sm text-neutral-400">
-          Questions? Call us at{' '}
-          <a href="tel:7542275605" className="text-red-500 hover:underline">
-            754-227-5605
-          </a>
-        </p>
+        <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 mb-8">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Ready to Get Started?</h3>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <a
+              href="tel:7542275605"
+              className="px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-colors text-center"
+            >
+              Call Now: 754-227-5605
+            </a>
+            <a
+              href="/contact"
+              className="px-8 py-4 border-2 border-red-600 text-red-500 text-lg font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-colors text-center"
+            >
+              Schedule My On-Site Inspection
+            </a>
+          </div>
+          <p className="text-center text-sm text-neutral-400">
+            Our team will confirm your estimate and schedule a free on-site assessment
+          </p>
+        </div>
       </div>
     );
   }
