@@ -10,10 +10,11 @@ import Contact from "./components/Contact";
 import ServiceAreas from "./components/ServiceAreas";
 import Footer from "./components/Footer";
 import Financing from "./components/Financing";
+import MobileBottomBar from "./components/MobileBottomBar";
 
 function App() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black pb-20 md:pb-0">
       <header className="sticky top-0 z-50 border-b border-neutral-800 bg-black/80 backdrop-blur">
         <Navigation />
       </header>
@@ -359,6 +360,8 @@ function App() {
       <ServiceAreas />
 
       <Footer />
+
+      <MobileBottomBar />
     </div>
   );
 }
