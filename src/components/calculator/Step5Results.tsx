@@ -560,7 +560,7 @@ export default function Step5Results({
               </button>
 
               <a
-                href={`/financing-calculator?estimate=${Math.round((lowEstimate + highEstimate) / 2)}`}
+                href={`/financing-calculator?betterLow=${lowEstimate}&betterHigh=${highEstimate}&bestLow=${bestLowEstimate}&bestHigh=${bestHighEstimate}&roofType=${material}&roofSize=${roofSize}&name=${encodeURIComponent(name)}&material=${material}&tier=${tier}&complexity=${complexity}`}
                 className="flex items-center justify-center gap-3 px-8 py-4 border-2 border-red-600 text-red-500 text-lg font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-colors text-center"
               >
                 <Calculator className="w-5 h-5" />

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Download } from 'lucide-react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
+import { generateEstimatePDF } from '../utils/pdfGenerator';
 
 const creditTiers = [
   { label: 'Excellent (750+)', rate: 95, value: 'excellent' },
@@ -12,21 +14,62 @@ const creditTiers = [
 
 export default function FinancingCalculatorPage() {
   const [searchParams] = useSearchParams();
-  const estimateParam = searchParams.get('estimate');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const [roofCost, setRoofCost] = useState(estimateParam ? parseInt(estimateParam) : 35000);
+  const betterLowParam = searchParams.get('betterLow');
+  const betterHighParam = searchParams.get('betterHigh');
+  const bestLowParam = searchParams.get('bestLow');
+  const bestHighParam = searchParams.get('bestHigh');
+  const roofTypeParam = searchParams.get('roofType');
+  const roofSizeParam = searchParams.get('roofSize');
+  const nameParam = searchParams.get('name');
+  const materialParam = searchParams.get('material');
+  const tierParam = searchParams.get('tier');
+  const complexityParam = searchParams.get('complexity');
+
+  const passedState = location.state as any;
+
+  useEffect(() => {
+    if (!betterLowParam || !betterHighParam) {
+      navigate('/roof-cost-calculator', {
+        state: { message: 'Please complete the roof estimate steps first.' }
+      });
+    }
+  }, [betterLowParam, betterHighParam, navigate]);
+
+  const betterLow = parseInt(betterLowParam || '0');
+  const betterHigh = parseInt(betterHighParam || '0');
+  const bestLow = parseInt(bestLowParam || '0');
+  const bestHigh = parseInt(bestHighParam || '0');
+  const roofSize = parseInt(roofSizeParam || '0');
+
+  const [selectedTier, setSelectedTier] = useState<'better' | 'best'>('better');
+  const [roofCost, setRoofCost] = useState(betterLow);
   const [downPayment, setDownPayment] = useState(0);
   const [selectedCredit, setSelectedCredit] = useState('good');
 
   useEffect(() => {
-    if (estimateParam) {
-      setRoofCost(parseInt(estimateParam));
+    if (selectedTier === 'better') {
+      setRoofCost(betterLow);
+    } else {
+      setRoofCost(bestLow);
     }
-  }, [estimateParam]);
+  }, [selectedTier, betterLow, bestLow]);
 
   const creditTier = creditTiers.find(t => t.value === selectedCredit) || creditTiers[1];
   const amountToFinance = Math.max(0, roofCost - downPayment);
   const estimatedMonthly = Math.round((amountToFinance / 10000) * creditTier.rate);
+
+  const betterAmountToFinance = Math.max(0, betterLow - downPayment);
+  const betterMonthlyLow = Math.round((betterAmountToFinance / 10000) * creditTier.rate);
+  const betterAmountToFinanceHigh = Math.max(0, betterHigh - downPayment);
+  const betterMonthlyHigh = Math.round((betterAmountToFinanceHigh / 10000) * creditTier.rate);
+
+  const bestAmountToFinance = Math.max(0, bestLow - downPayment);
+  const bestMonthlyLow = Math.round((bestAmountToFinance / 10000) * creditTier.rate);
+  const bestAmountToFinanceHigh = Math.max(0, bestHigh - downPayment);
+  const bestMonthlyHigh = Math.round((bestAmountToFinanceHigh / 10000) * creditTier.rate);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -36,6 +79,31 @@ export default function FinancingCalculatorPage() {
       maximumFractionDigits: 0,
     }).format(amount);
   };
+
+  const handleDownloadPDF = () => {
+    if (passedState && nameParam && materialParam && tierParam) {
+      generateEstimatePDF({
+        name: nameParam,
+        material: materialParam,
+        tier: tierParam,
+        roofSize: roofSize,
+        complexity: parseFloat(complexityParam || '1'),
+        lowEstimate: betterLow,
+        highEstimate: betterHigh,
+        bestLowEstimate: bestLow,
+        bestHighEstimate: bestHigh,
+        insurance10Year: 25000,
+        insurance20Year: 50000,
+        ventilation10Year: 6000,
+        ventilation20Year: 12000,
+        total20YearSavings: 62000,
+      });
+    }
+  };
+
+  if (!betterLowParam || !betterHighParam) {
+    return null;
+  }
 
   return (
     <Layout>
@@ -50,16 +118,56 @@ export default function FinancingCalculatorPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Explore Your Monthly Payment Options
             </h1>
-            <p className="text-xl text-neutral-300">
-              See how affordable your new roof can be with flexible financing
+            <p className="text-xl text-neutral-300 mb-2">
+              These payment estimates are based on your roof size, system type, and chosen upgrade level.
+            </p>
+            <p className="text-lg text-neutral-400">
+              Final terms depend on credit approval and lender programs.
             </p>
           </div>
 
           <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-8 mb-8">
+            <div className="mb-8">
+              <label className="block text-sm font-semibold text-neutral-400 mb-3">
+                Choose Your System Tier
+              </label>
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  onClick={() => setSelectedTier('better')}
+                  className={`p-4 rounded-xl border-2 text-center transition-all duration-200 ${
+                    selectedTier === 'better'
+                      ? 'border-red-500 bg-red-500/10'
+                      : 'border-neutral-700 bg-neutral-900 hover:border-neutral-600'
+                  }`}
+                >
+                  <h4 className="text-lg font-semibold text-white mb-1">Better Tier</h4>
+                  <p className="text-sm text-neutral-400">Recommended</p>
+                  <p className="text-red-500 font-bold mt-2">
+                    {formatCurrency(betterLow)} - {formatCurrency(betterHigh)}
+                  </p>
+                </button>
+
+                <button
+                  onClick={() => setSelectedTier('best')}
+                  className={`p-4 rounded-xl border-2 text-center transition-all duration-200 ${
+                    selectedTier === 'best'
+                      ? 'border-red-500 bg-red-500/10'
+                      : 'border-neutral-700 bg-neutral-900 hover:border-neutral-600'
+                  }`}
+                >
+                  <h4 className="text-lg font-semibold text-white mb-1">Best Tier</h4>
+                  <p className="text-sm text-neutral-400">Upgraded System</p>
+                  <p className="text-orange-500 font-bold mt-2">
+                    {formatCurrency(bestLow)} - {formatCurrency(bestHigh)}
+                  </p>
+                </button>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
                 <label className="block text-sm font-semibold text-neutral-400 mb-3">
-                  Total Roof Cost
+                  Estimated Project Cost (Adjust if Desired)
                 </label>
                 <input
                   type="number"
@@ -70,7 +178,7 @@ export default function FinancingCalculatorPage() {
                   min="0"
                 />
                 <p className="text-xs text-neutral-500 mt-2">
-                  Enter the estimated cost from your roof quote
+                  Pre-filled with lower end of selected tier
                 </p>
               </div>
 
@@ -96,61 +204,77 @@ export default function FinancingCalculatorPage() {
               <label className="block text-sm font-semibold text-neutral-400 mb-3">
                 Your Credit Tier
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <select
+                value={selectedCredit}
+                onChange={(e) => setSelectedCredit(e.target.value)}
+                className="w-full px-4 py-3 bg-black border border-neutral-700 rounded-lg text-white text-lg focus:outline-none focus:border-red-500"
+              >
                 {creditTiers.map((tier) => (
-                  <button
-                    key={tier.value}
-                    onClick={() => setSelectedCredit(tier.value)}
-                    className={`p-4 rounded-xl border-2 text-left transition-all duration-200 ${
-                      selectedCredit === tier.value
-                        ? 'border-red-500 bg-red-500/10'
-                        : 'border-neutral-700 bg-neutral-900 hover:border-neutral-600'
-                    }`}
-                  >
-                    <h4 className="text-base font-semibold text-white mb-1">{tier.label}</h4>
-                    <p className="text-sm text-neutral-400">~${tier.rate} per $10,000 financed</p>
-                  </button>
+                  <option key={tier.value} value={tier.value}>
+                    {tier.label} (≈ ${tier.rate} per $10,000)
+                  </option>
                 ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="space-y-6 mb-8">
+            <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Better Tier (Recommended)
+              </h3>
+              <p className="text-neutral-400 mb-6">Estimated Monthly Payment:</p>
+              <div className="text-center mb-4">
+                <div className="text-5xl font-bold text-red-500 mb-2">
+                  {formatCurrency(betterMonthlyLow)} - {formatCurrency(betterMonthlyHigh)}
+                </div>
+                <p className="text-neutral-400">per month</p>
+                <p className="text-sm text-neutral-500 mt-2">Based on 60-month term</p>
+              </div>
+              <div className="bg-black/40 rounded-xl p-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="text-neutral-400">Project Range:</p>
+                    <p className="text-white font-semibold">{formatCurrency(betterLow)} - {formatCurrency(betterHigh)}</p>
+                  </div>
+                  <div>
+                    <p className="text-neutral-400">Down Payment:</p>
+                    <p className="text-white font-semibold">{formatCurrency(downPayment)}</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">
-                Your Estimated Monthly Payment
+            <div className="bg-gradient-to-br from-orange-900/20 to-orange-700/10 border-2 border-orange-500/30 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-2">
+                Best Tier (Upgraded System)
               </h3>
-
-              <div className="text-center mb-6">
-                <div className="text-6xl font-bold text-red-500 mb-2">
-                  {formatCurrency(estimatedMonthly)}
+              <p className="text-neutral-400 mb-6">Estimated Monthly Payment:</p>
+              <div className="text-center mb-4">
+                <div className="text-5xl font-bold text-orange-500 mb-2">
+                  {formatCurrency(bestMonthlyLow)} - {formatCurrency(bestMonthlyHigh)}
                 </div>
-                <p className="text-neutral-400">per month (estimated)</p>
+                <p className="text-neutral-400">per month</p>
                 <p className="text-sm text-neutral-500 mt-2">Based on 60-month term</p>
               </div>
-
-              <div className="bg-black/40 rounded-xl p-6 space-y-3">
-                <div className="flex justify-between text-neutral-300">
-                  <span>Total Roof Cost:</span>
-                  <span className="font-semibold text-white">{formatCurrency(roofCost)}</span>
-                </div>
-                <div className="flex justify-between text-neutral-300">
-                  <span>Down Payment:</span>
-                  <span className="font-semibold text-white">-{formatCurrency(downPayment)}</span>
-                </div>
-                <div className="border-t border-neutral-700 pt-3 flex justify-between">
-                  <span className="font-semibold text-white">Amount to Finance:</span>
-                  <span className="font-bold text-red-500 text-lg">{formatCurrency(amountToFinance)}</span>
-                </div>
-                <div className="flex justify-between text-neutral-300 text-sm">
-                  <span>Credit Tier Rate:</span>
-                  <span>{creditTier.label} (~${creditTier.rate} per $10K)</span>
+              <div className="bg-black/40 rounded-xl p-4">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="text-neutral-400">Project Range:</p>
+                    <p className="text-white font-semibold">{formatCurrency(bestLow)} - {formatCurrency(bestHigh)}</p>
+                  </div>
+                  <div>
+                    <p className="text-neutral-400">Down Payment:</p>
+                    <p className="text-white font-semibold">{formatCurrency(downPayment)}</p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div className="mt-6 bg-blue-900/20 border border-blue-500/30 rounded-xl p-4">
-                <p className="text-blue-300 text-sm text-center">
-                  <strong>Good news:</strong> You may qualify for longer terms (up to 20 years) which can significantly lower your monthly payment. Discuss term options with our financing coordinator during your inspection.
-                </p>
-              </div>
+            <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
+              <p className="text-blue-300 text-sm text-center">
+                <strong>Good news:</strong> You may qualify for longer terms (up to 20 years) which can significantly lower your monthly payment. Discuss term options with our financing coordinator during your inspection.
+              </p>
             </div>
           </div>
 
@@ -160,46 +284,63 @@ export default function FinancingCalculatorPage() {
             </h3>
             <div className="space-y-3 text-neutral-300 text-sm leading-relaxed">
               <p>
-                <strong className="text-white">These figures are ESTIMATES ONLY</strong> and are provided for informational purposes. This calculator uses simplified approximations and does not represent an actual loan offer.
+                <strong className="text-white">These figures are estimates only and not loan offers.</strong>
               </p>
               <p>
-                <strong className="text-white">Not a Loan Offer:</strong> All Phase Construction USA is not a lender. Actual financing terms, rates, monthly payments, and approval are determined by third-party lenders and depend on multiple factors including but not limited to: credit score, income verification, debt-to-income ratio, loan term, program type, and lender policies.
+                <strong className="text-white">Monthly payment amounts vary by lender, loan term, credit profile, and program.</strong>
               </p>
               <p>
-                <strong className="text-white">Rates Vary Significantly:</strong> Actual APRs and monthly payments may be significantly higher or lower than estimates shown here. Final terms will be provided by the lender upon credit approval.
+                <strong className="text-white">All Phase Construction USA is not a lender.</strong> Actual financing terms, rates, monthly payments, and approval are determined by third-party lenders.
               </p>
               <p>
-                <strong className="text-white">Professional Guidance Required:</strong> We strongly recommend speaking with our financing coordinator during your on-site inspection to discuss specific programs, current rates, and options tailored to your financial situation.
+                <strong className="text-white">Final terms require lender approval.</strong> Your actual payment may be significantly higher or lower based on credit verification, income, and debt-to-income ratio.
+              </p>
+              <p>
+                <strong className="text-white">All pricing is preliminary and subject to on-site inspection.</strong>
               </p>
             </div>
           </div>
 
-          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 mb-8">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Ready to Move Forward?
-            </h3>
-            <p className="text-neutral-300 text-center mb-6">
-              Schedule your official roof & attic inspection to get accurate pricing and discuss real financing options with our team.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:7542275605"
-                className="px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-colors text-center"
-              >
-                Call Now: 754-227-5605
-              </a>
-              <Link
-                to="/contact"
-                className="px-8 py-4 border-2 border-red-600 text-red-500 text-lg font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-colors text-center"
-              >
-                Schedule Your Inspection
-              </Link>
+          <div className="space-y-4 mb-8">
+            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                Ready to Move Forward?
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                <a
+                  href="tel:7542275605"
+                  className="px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-colors text-center"
+                >
+                  Call Now: 754-227-5605
+                </a>
+                <Link
+                  to="/contact"
+                  className="px-8 py-4 border-2 border-red-600 text-red-500 text-lg font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-colors text-center"
+                >
+                  Schedule Your Inspection
+                </Link>
+              </div>
+              <p className="text-center text-sm text-neutral-400">
+                Our team will confirm your estimate and discuss real financing options
+              </p>
             </div>
+
+            {nameParam && materialParam && (
+              <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
+                <button
+                  onClick={handleDownloadPDF}
+                  className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-neutral-800 text-white text-lg font-semibold rounded-lg hover:bg-neutral-700 transition-colors"
+                >
+                  <Download className="w-5 h-5" />
+                  Download My Detailed Roof Estimate (PDF)
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="text-center">
             <Link
-              to="/roof-calculator"
+              to="/roof-cost-calculator"
               className="text-red-500 hover:text-red-400 underline"
             >
               ← Back to Roof Cost Calculator
