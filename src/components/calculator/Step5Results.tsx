@@ -536,22 +536,26 @@ export default function Step5Results({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <button
                 onClick={() => {
-                  generateEstimatePDF({
-                    name,
-                    material,
-                    tier,
-                    roofSize,
-                    complexity,
-                    lowEstimate,
-                    highEstimate,
-                    bestLowEstimate,
-                    bestHighEstimate,
-                    insurance10Year,
-                    insurance20Year,
-                    ventilation10Year,
-                    ventilation20Year,
-                    total20YearSavings,
-                  });
+                  try {
+                    generateEstimatePDF({
+                      name,
+                      material,
+                      tier,
+                      roofSize,
+                      complexity,
+                      lowEstimate,
+                      highEstimate,
+                      bestLowEstimate,
+                      bestHighEstimate,
+                      insurance10Year,
+                      insurance20Year,
+                      ventilation10Year,
+                      ventilation20Year,
+                      total20YearSavings,
+                    });
+                  } catch (error) {
+                    console.error('Failed to generate estimate:', error);
+                  }
                 }}
                 className="flex items-center justify-center gap-3 px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-colors"
               >

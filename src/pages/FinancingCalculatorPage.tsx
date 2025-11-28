@@ -81,7 +81,13 @@ export default function FinancingCalculatorPage() {
   };
 
   const handleDownloadPDF = () => {
-    if (passedState && nameParam && materialParam && tierParam) {
+    try {
+      if (!nameParam || !materialParam || !tierParam) {
+        console.error('Missing required data for PDF generation');
+        alert('Unable to generate estimate. Please complete the calculator first.');
+        return;
+      }
+
       generateEstimatePDF({
         name: nameParam,
         material: materialParam,
@@ -98,6 +104,8 @@ export default function FinancingCalculatorPage() {
         ventilation20Year: 12000,
         total20YearSavings: 62000,
       });
+    } catch (error) {
+      console.error('Failed to generate PDF:', error);
     }
   };
 
