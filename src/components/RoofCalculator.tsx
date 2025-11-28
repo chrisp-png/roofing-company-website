@@ -109,7 +109,7 @@ const RoofCalculator: React.FC = () => {
     <div className="rounded-3xl border border-neutral-800 bg-neutral-950/70 p-6 sm:p-8 shadow-xl shadow-black/30">
       <h2 className="text-2xl font-bold text-white sm:text-3xl">Roof Cost Estimator – How Much Does a Roof Cost in Broward & Palm Beach?</h2>
       <p className="mt-3 text-sm text-neutral-300">
-        Wondering how much does a roof cost in South Florida? Get Good / Better / Best / Premium investment ranges for roof replacement cost in Broward and Palm Beach Counties. We use HVHZ-adjusted pricing as a realistic starting point. Final proposals are provided after an on-site roof assessment.
+        Wondering how much does a roof cost in South Florida? Many of the roofs we price with this tool are in Boca Raton and the surrounding coastal communities, where roof sizes tend to be larger and materials like tile and metal are more common. Get Good / Better / Best / Premium investment ranges for roof replacement cost in Broward and Palm Beach Counties. We use HVHZ-adjusted pricing as a realistic starting point. Final proposals are provided after an on-site roof assessment.
       </p>
 
       {/* STEP 1: Roof details */}
