@@ -35,12 +35,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-lg">Company</h4>
-            <ul className="space-y-2 text-neutral-400">
-              <li><a href="#about" className="hover:text-red-500 transition-colors duration-200">About Us</a></li>
-              <li><a href="#gallery" className="hover:text-red-500 transition-colors duration-200">Our Work</a></li>
-              <li><a href="#testimonials" className="hover:text-red-500 transition-colors duration-200">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-red-500 transition-colors duration-200">Contact</a></li>
+            <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
+            <ul className="space-y-2 text-neutral-400 text-sm">
+              <li><a href="/locations/boca-raton-roofing.html" className="hover:text-red-500 transition-colors duration-200">Boca Raton</a></li>
+              <li><a href="/locations/delray-beach-roofing.html" className="hover:text-red-500 transition-colors duration-200">Delray Beach</a></li>
+              <li><a href="/locations/fort-lauderdale-roofing.html" className="hover:text-red-500 transition-colors duration-200">Fort Lauderdale</a></li>
+              <li><a href="/locations/west-palm-beach-roofing.html" className="hover:text-red-500 transition-colors duration-200">West Palm Beach</a></li>
+              <li><a href="/locations/pompano-beach-roofing.html" className="hover:text-red-500 transition-colors duration-200">Pompano Beach</a></li>
+              <li><a href="#service-areas" className="hover:text-red-500 transition-colors duration-200">View All Cities</a></li>
             </ul>
           </div>
 

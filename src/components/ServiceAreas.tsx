@@ -36,6 +36,29 @@ const ServiceAreas: React.FC = () => {
           </p>
         </div>
 
+        {/* Featured City: Boca Raton */}
+        <div className="mb-10">
+          <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border-2 border-red-500 rounded-2xl p-8 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span className="inline-block px-3 py-1 bg-red-600 text-white text-xs font-bold uppercase tracking-wide rounded-full">Featured City</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
+              Boca Raton Roofing Contractor
+            </h3>
+            <p className="text-neutral-300 text-center leading-relaxed mb-6">
+              Specialized roofing services for Boca Raton's luxury homes, gated communities, HOA associations, and waterfront properties. We understand the unique requirements of coastal estates, architectural review committees, and high-end construction standards that define Boca Raton's premier neighborhoods.
+            </p>
+            <div className="text-center">
+              <a
+                href="/locations/boca-raton-roofing.html"
+                className="inline-flex items-center justify-center rounded-full bg-red-600 px-8 py-3 text-sm font-semibold text-white hover:bg-red-500 transition-colors duration-200"
+              >
+                Learn More About Boca Raton Services
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {areas.map((area) => (
             <a

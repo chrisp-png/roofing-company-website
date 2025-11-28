@@ -172,6 +172,12 @@ function App() {
               Schedule an On-Site Roof Assessment
             </a>
           </div>
+
+          <div className="mt-10 bg-neutral-900/50 rounded-xl border border-neutral-800 p-6">
+            <p className="text-lg text-neutral-300 leading-relaxed text-center">
+              We install metal, tile, shingle, and flat roofing systems across South Florida, with many of our projects located in Boca Raton's larger custom homes, gated communities, and waterfront properties.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -34,7 +34,7 @@ export default function Hero() {
 
         {/* SUBHEADLINE */}
         <p className="text-lg md:text-2xl mb-10 text-neutral-200 max-w-3xl mx-auto leading-relaxed">
-          HVHZ-certified roof installations serving all of Broward & Palm Beach Counties — from our headquarters in Deerfield Beach, FL.
+          All Phase Construction USA installs code-compliant roofing systems for Broward and Palm Beach Counties, with a strong focus on Boca Raton and the surrounding coastal communities.
         </p>
 
         {/* CTA BUTTONS */}
