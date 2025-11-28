@@ -246,6 +246,375 @@ export default function BlogContent({ slug }: BlogContentProps) {
     );
   }
 
+  if (slug === 'concrete-tile-roofing-good-better-best') {
+    return (
+      <div className="space-y-6">
+        <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-8">
+          <p className="text-xl text-neutral-300 leading-relaxed mb-6">
+            Concrete tile is one of the most popular roofing choices in Broward and Palm Beach Counties. Homeowners are often told barrel tile is "better" than flat tile, or that certain profiles justify higher prices.
+          </p>
+          <p className="text-xl text-neutral-300 leading-relaxed mb-4">
+            Here's the truth:
+          </p>
+          <p className="text-xl text-neutral-300 leading-relaxed mb-4">
+            <strong className="text-white">Concrete is concrete.</strong>
+          </p>
+          <p className="text-xl text-neutral-300 leading-relaxed">
+            The real difference in price and performance comes from the <strong className="text-white">system</strong>:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mt-4">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Attachment method</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Underlayment type</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Foam quality and coverage</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Installation details</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="prose prose-invert prose-lg max-w-none">
+          <p className="text-neutral-300 leading-relaxed">
+            So instead of selling only by "pretty tile," we recommend a <strong className="text-white">Good / Better / Best / Premium</strong> structure that explains exactly what you're paying for.
+          </p>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">GOOD – Concrete Tile with Mechanical Attachment</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            <strong className="text-white">Best for:</strong> strict budgets and inland homes.
+          </p>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            Typical features:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Any concrete tile profile (flat, barrel, or S-tile)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Mechanical attachment with screws or ring-shank nails</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Standard synthetic underlayment</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Meets Florida Building Code minimums</span>
+            </li>
+          </ul>
+          <div className="bg-black border border-green-500/30 rounded-xl p-6 my-6">
+            <h3 className="text-xl font-bold text-white mb-4">Pros:</h3>
+            <ul className="space-y-2 text-neutral-300">
+              <li className="flex items-start">
+                <span className="text-green-500 mr-3 mt-1">•</span>
+                <span>Lowest upfront cost</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-green-500 mr-3 mt-1">•</span>
+                <span>Still code-compliant</span>
+              </li>
+            </ul>
+          </div>
+          <div className="bg-black border border-yellow-500/30 rounded-xl p-6 my-6">
+            <h3 className="text-xl font-bold text-white mb-4">Limitations:</h3>
+            <ul className="space-y-2 text-neutral-300">
+              <li className="flex items-start">
+                <span className="text-yellow-500 mr-3 mt-1">•</span>
+                <span>Lower uplift resistance</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-500 mr-3 mt-1">•</span>
+                <span>Underlayment usually does <strong className="text-white">not</strong> provide SWR</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-500 mr-3 mt-1">•</span>
+                <span>Limited insurance credits compared to higher tiers</span>
+              </li>
+            </ul>
+          </div>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">BETTER – Concrete Tile with Foam Adhesive</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            <strong className="text-white">Best for:</strong> most South Florida single-family homes.
+          </p>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            Features:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Any concrete tile profile</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Two-part foam adhesive attachment</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Enhanced synthetic underlayment</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Quality foam manufacturer</span>
+            </li>
+          </ul>
+          <div className="bg-black border border-blue-500/30 rounded-xl p-6 my-6">
+            <h3 className="text-xl font-bold text-white mb-4">Benefits:</h3>
+            <ul className="space-y-2 text-neutral-300">
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-3 mt-1">•</span>
+                <span>Much stronger wind uplift performance than mechanical attachment</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-3 mt-1">•</span>
+                <span>Smoother look (fewer exposed fasteners)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-3 mt-1">•</span>
+                <span>Generally better eligibility for insurance discounts</span>
+              </li>
+            </ul>
+          </div>
+          <p className="text-neutral-300 leading-relaxed">
+            This is the "sweet spot" for many homeowners—strong performance without premium pricing.
+          </p>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">BEST – Foam Adhesive + Self-Adhered (SWR) Underlayment</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            <strong className="text-white">Best for:</strong> coastal areas, HVHZ zones, and clients who want maximum protection and savings.
+          </p>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            System details:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Any concrete tile profile</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Premium two-part foam adhesive (Polyfoam, ICP, etc.)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Self-adhered modified bitumen underlayment (SWR)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Generous foam coverage on each tile</span>
+            </li>
+          </ul>
+          <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-6 my-6">
+            <h3 className="text-xl font-bold text-white mb-4">Why it's our favorite:</h3>
+            <ul className="space-y-2 text-neutral-300">
+              <li className="flex items-start">
+                <span className="text-red-500 mr-3 mt-1">•</span>
+                <span>Maximum wind uplift resistance</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-3 mt-1">•</span>
+                <span>SWR keeps the home dry even if tiles blow off</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-3 mt-1">•</span>
+                <span>Qualifies for <strong className="text-white">maximum wind-mitigation insurance credits</strong></span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-red-500 mr-3 mt-1">•</span>
+                <span>Often performs better than "fancier" tiles installed with cheaper methods</span>
+              </li>
+            </ul>
+          </div>
+          <p className="text-neutral-300 leading-relaxed">
+            This is where the roof truly becomes a <strong className="text-white">hurricane system</strong>, not just a cosmetic upgrade.
+          </p>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">PREMIUM – Clay or Composite Tile Systems</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            <strong className="text-white">Best for:</strong> luxury homes and long-term owners.
+          </p>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            Highlights:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Clay or advanced composite tiles</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Premium underlayment + flashings</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Attachment methods tailored to the material</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>50–100 year lifespan in many cases</span>
+            </li>
+          </ul>
+          <p className="text-neutral-300 leading-relaxed">
+            The upfront cost is higher, but the roof can dramatically increase curb appeal and property value and may be the <strong className="text-white">last roof you ever buy</strong>.
+          </p>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">How Pricing Usually Breaks Down</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            While every project needs a site-specific quote, typical installed ranges in South Florida look like:
+          </p>
+          <div className="bg-black border border-neutral-700 rounded-xl p-6 my-6">
+            <ul className="space-y-3 text-neutral-300">
+              <li className="flex items-start">
+                <span className="text-red-500 mr-3 mt-1 font-bold">•</span>
+                <span><strong className="text-white">GOOD:</strong> roughly $12–$16 per sq ft</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-500 mr-3 mt-1 font-bold">•</span>
+                <span><strong className="text-white">BETTER:</strong> roughly $14–$18 per sq ft</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-green-500 mr-3 mt-1 font-bold">•</span>
+                <span><strong className="text-white">BEST:</strong> roughly $16–$20 per sq ft</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-500 mr-3 mt-1 font-bold">•</span>
+                <span><strong className="text-white">PREMIUM (clay/composite):</strong> roughly $18–$24 per sq ft</span>
+              </li>
+            </ul>
+          </div>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            These ranges are heavily influenced by:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Roof size and complexity</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Access and staging requirements</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Code upgrades (straps, deck nailing, ventilation)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Municipality and permitting</span>
+            </li>
+          </ul>
+          <p className="text-neutral-300 leading-relaxed">
+            Use the <strong className="text-white">Roof Cost Calculator</strong> as your starting point, then we refine everything after a site visit.
+          </p>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">How Insurance & Ventilation Offset the Cost</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            A BEST-tier tile system with SWR and proper documentation can unlock:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-green-500 mr-3 mt-1">•</span>
+              <span>Around <strong className="text-white">$2,500/year</strong> in insurance savings</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">$25,000 over 10 years</strong></span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">$50,000 over 20 years</strong></span>
+            </li>
+          </ul>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            Add upgraded ventilation and attic airflow:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-yellow-500 mr-3 mt-1">•</span>
+              <span>~$50/month off cooling</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-yellow-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">$600/year</strong></span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-yellow-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">$6,000 over 10 years</strong></span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-yellow-500 mr-3 mt-1">•</span>
+              <span><strong className="text-white">$12,000 over 20 years</strong></span>
+            </li>
+          </ul>
+          <p className="text-neutral-300 leading-relaxed">
+            When you combine these numbers, the <strong className="text-white">net cost of your roof over 10–20 years is far lower</strong> than the sticker shock most homeowners feel up front.
+          </p>
+
+          <h2 className="text-3xl font-bold text-white mt-12 mb-6">Why Homeowners Choose All Phase for Tile Roofs</h2>
+          <p className="text-neutral-300 leading-relaxed mb-4">
+            When we design a tile system, we focus on:
+          </p>
+          <ul className="space-y-2 text-neutral-300 mb-6">
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Explaining Good / Better / Best options in plain English</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Matching the system to your <strong className="text-white">neighborhood, insurance situation, and time horizon</strong></span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Using premium foam manufacturers, not generic alternatives</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Installing SWR whenever possible to maximize insurance credits</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-red-500 mr-3 mt-1">•</span>
+              <span>Photographing underlayment, foam, and installation details for your records</span>
+            </li>
+          </ul>
+          <p className="text-neutral-300 leading-relaxed">
+            You're not just getting tiles—you're getting a <strong className="text-white">documented, insurable system</strong> that protects your family and your investment.
+          </p>
+
+          <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8 mt-12">
+            <h3 className="text-2xl font-bold text-white mb-6">Helpful Links</h3>
+            <div className="space-y-3">
+              <p className="text-neutral-300">
+                <Link to="/roof-cost-calculator" className="text-red-500 hover:text-red-400 font-semibold">
+                  See how different tile systems price out with our Roof Cost Calculator →
+                </Link>
+              </p>
+              <p className="text-neutral-300">
+                <Link to="/wind-mitigation" className="text-red-500 hover:text-red-400 font-semibold">
+                  Learn about wind mitigation and insurance savings →
+                </Link>
+              </p>
+              <p className="text-neutral-300">
+                <Link to="/contact" className="text-red-500 hover:text-red-400 font-semibold">
+                  Ready for a site-specific quote? →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-8 mb-8">
       <p className="text-neutral-300 leading-relaxed mb-4">
