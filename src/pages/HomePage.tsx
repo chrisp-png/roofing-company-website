@@ -1,8 +1,21 @@
+import HeroSection from '../components/home/HeroSection';
+import TrustBar from '../components/home/TrustBar';
+import UrgencyBanner from '../components/home/UrgencyBanner';
+import ServicesGrid from '../components/home/ServicesGrid';
+import ProjectsGallery from '../components/home/ProjectsGallery';
+import TestimonialsSection from '../components/home/TestimonialsSection';
+import BottomCTA from '../components/home/BottomCTA';
+
 export default function HomePage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-20">
-      <h1 className="text-4xl font-bold mb-6">Home Page</h1>
-      <p className="text-neutral-400">This is a placeholder for the Home page.</p>
-    </div>
+    <>
+      <HeroSection />
+      <TrustBar />
+      <UrgencyBanner />
+      <ServicesGrid />
+      <ProjectsGallery />
+      <TestimonialsSection />
+      <BottomCTA />
+    </>
   );
 }
