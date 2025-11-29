@@ -48,9 +48,15 @@ export default function SEO({
       updateOrCreateMeta('og:url', url, true);
     }
 
-    if (ogImageUrl || ogImage) {
-      updateOrCreateMeta('og:image', ogImageUrl || ogImage || '', true);
-    }
+    const imageUrl = ogImageUrl || ogImage || 'https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg';
+    updateOrCreateMeta('og:image', imageUrl, true);
+    updateOrCreateMeta('og:image:width', '1200', true);
+    updateOrCreateMeta('og:image:height', '630', true);
+
+    updateOrCreateMeta('twitter:card', 'summary_large_image');
+    updateOrCreateMeta('twitter:title', ogTitle || title);
+    updateOrCreateMeta('twitter:description', ogDescription || description);
+    updateOrCreateMeta('twitter:image', imageUrl);
 
     if (canonical || url) {
       let linkCanonical = document.querySelector('link[rel="canonical"]');

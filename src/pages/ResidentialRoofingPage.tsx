@@ -43,7 +43,9 @@ export default function ResidentialRoofingPage() {
       <SEO
         title="Residential Roofing in Broward & Palm Beach Counties | All Phase Construction USA"
         description="All Phase Construction USA installs shingle, tile, metal, and flat residential roofs in Broward and Palm Beach counties. Dual licensed GC and roofer. Free roof assessments and financing options."
-        canonical="/residential-roofing"
+        url="https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing"
+        canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing"
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
       />
 
       <div className="bg-black text-white min-h-screen">

@@ -81,9 +81,11 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="All Phase Construction USA | Roofing Contractor in Deerfield Beach, FL"
-        description="Licensed roofing and general contractor in Deerfield Beach, FL. We install tile, metal, shingle, and flat roofs across Broward and Palm Beach counties. Free estimates & financing."
-        url="https://allphaseusa.com"
+        title="All Phase Construction USA | Roofing Contractor in South Florida"
+        description="Licensed roofing and general contractor serving Broward and Palm Beach counties. Expert tile, metal, shingle, and flat roof installation. Free estimates & financing available."
+        url="https://chrisp-png-roofing-c-gxj0.bolt.host/"
+        canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/"
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
         schemaJson={localBusinessSchema}
       />
       <HeroSection />

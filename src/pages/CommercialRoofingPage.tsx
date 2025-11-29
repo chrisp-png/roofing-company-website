@@ -43,7 +43,9 @@ export default function CommercialRoofingPage() {
       <SEO
         title="Commercial Roofing Contractor in Broward & Palm Beach | All Phase Construction USA"
         description="All Phase Construction USA provides commercial and multi-family roofing in Broward and Palm Beach counties, including IB PVC, TPO, metal, and modified bitumen systems. Ideal for HOAs, condos, and commercial buildings."
-        canonical="/commercial-roofing"
+        url="https://chrisp-png-roofing-c-gxj0.bolt.host/commercial-roofing"
+        canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/commercial-roofing"
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
       />
 
       <div className="bg-black text-white min-h-screen">
