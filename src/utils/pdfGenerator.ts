@@ -1,4 +1,4 @@
-// TODO: Re-enable PDF generation once jsPDF module resolution is fixed
+import jsPDF from 'jspdf';
 
 interface EstimateData {
   name?: string;
@@ -19,9 +19,12 @@ interface EstimateData {
 
 export function generateEstimatePDF(data: EstimateData) {
   try {
-    console.log('PDF generation temporarily disabled. Estimate data:', data);
+    const doc = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 15;
+    const contentWidth = pageWidth - 2 * margin;
+    let yPos = 20;
 
-    // Create a simple text-based summary for now
     const formatCurrency = (amount: number) => {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -31,49 +34,116 @@ export function generateEstimatePDF(data: EstimateData) {
       }).format(amount);
     };
 
-    const summaryText = `
-ALL PHASE CONSTRUCTION USA
-Roof Estimate Summary
-FL Licenses: CGC1526236 • CCC1331464
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(220, 38, 38);
+    doc.text('ALL PHASE CONSTRUCTION USA', pageWidth / 2, yPos, { align: 'center' });
 
-Prepared for: ${data.name || 'Customer'}
-Date: ${new Date().toLocaleDateString()}
+    yPos += 8;
+    doc.setFontSize(16);
+    doc.setTextColor(0, 0, 0);
+    doc.text('Roof Estimate Summary', pageWidth / 2, yPos, { align: 'center' });
 
-RECOMMENDED SYSTEM (BETTER TIER)
-Estimate Range: ${formatCurrency(data.lowEstimate || 0)} - ${formatCurrency(data.highEstimate || 0)}
+    yPos += 8;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('FL Licenses: CGC1526236 • CCC1331464', pageWidth / 2, yPos, { align: 'center' });
 
-UPGRADED SYSTEM (BEST TIER)
-Estimate Range: ${formatCurrency(data.bestLowEstimate || 0)} - ${formatCurrency(data.bestHighEstimate || 0)}
+    yPos += 12;
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Prepared for: ${data.name || 'Customer'}`, margin, yPos);
+    yPos += 6;
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, margin, yPos);
 
-LONG-TERM SAVINGS
-Insurance Savings (20 years): ${formatCurrency(data.insurance20Year || 0)}
-Ventilation Savings (20 years): ${formatCurrency(data.ventilation20Year || 0)}
-Total 20-Year Savings: ${formatCurrency(data.total20YearSavings || 0)}
+    yPos += 12;
+    doc.setFillColor(220, 38, 38);
+    doc.rect(margin, yPos, contentWidth, 8, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text('RECOMMENDED SYSTEM (BETTER TIER)', margin + 2, yPos + 5.5);
 
-DISCLAIMERS:
-- All pricing is preliminary and subject to on-site inspection
-- This is for informational purposes only and is not a binding proposal
-- All Phase Construction USA is not a lender
+    yPos += 10;
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.text(`Estimate Range: ${formatCurrency(data.lowEstimate || 0)} - ${formatCurrency(data.highEstimate || 0)}`, margin + 2, yPos);
 
-Contact: 754-227-5605 | leads@allphaseusa.com
-590 Goolsby Blvd, Deerfield Beach, FL 33442
-    `.trim();
+    yPos += 12;
+    doc.setFillColor(251, 146, 60);
+    doc.rect(margin, yPos, contentWidth, 8, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text('UPGRADED SYSTEM (BEST TIER)', margin + 2, yPos + 5.5);
 
-    // Create a blob and download as text file for now
-    const blob = new Blob([summaryText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `Roof-Estimate-${data.name?.replace(/\s+/g, '-') || 'Customer'}-${Date.now()}.txt`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    yPos += 10;
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.text(`Estimate Range: ${formatCurrency(data.bestLowEstimate || 0)} - ${formatCurrency(data.bestHighEstimate || 0)}`, margin + 2, yPos);
 
-    alert('Your estimate has been downloaded as a text file. We are working on PDF generation. For a professional PDF quote, please call us at 754-227-5605.');
+    yPos += 15;
+    doc.setFillColor(34, 197, 94);
+    doc.rect(margin, yPos, contentWidth, 8, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text('LONG-TERM SAVINGS POTENTIAL', margin + 2, yPos + 5.5);
+
+    yPos += 10;
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.text(`Insurance Savings (20 years): ${formatCurrency(data.insurance20Year || 0)}`, margin + 2, yPos);
+    yPos += 6;
+    doc.text(`Ventilation Savings (20 years): ${formatCurrency(data.ventilation20Year || 0)}`, margin + 2, yPos);
+    yPos += 6;
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Total 20-Year Savings: ${formatCurrency(data.total20YearSavings || 0)}`, margin + 2, yPos);
+
+    yPos += 15;
+    doc.setFillColor(250, 204, 21);
+    doc.rect(margin, yPos, contentWidth, 40, 'F');
+    doc.setTextColor(0, 0, 0);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('IMPORTANT DISCLAIMERS', margin + 2, yPos + 5);
+
+    yPos += 10;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    const disclaimers = [
+      '• All pricing is preliminary and subject to on-site inspection',
+      '• This is for informational purposes only and is not a binding proposal',
+      '• Final project cost may vary based on inspection findings',
+      '• All Phase Construction USA is not a lender',
+      '• Financing subject to credit approval through third-party lenders'
+    ];
+
+    disclaimers.forEach((line) => {
+      doc.text(line, margin + 4, yPos);
+      yPos += 5;
+    });
+
+    yPos += 10;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Contact Us:', margin, yPos);
+    yPos += 6;
+    doc.setFont('helvetica', 'normal');
+    doc.text('Phone: 754-227-5605', margin, yPos);
+    yPos += 5;
+    doc.text('Email: leads@allphaseusa.com', margin, yPos);
+    yPos += 5;
+    doc.text('Address: 590 Goolsby Blvd, Deerfield Beach, FL 33442', margin, yPos);
+
+    doc.save(`Roof-Estimate-${data.name?.replace(/\s+/g, '-') || 'Customer'}.pdf`);
 
   } catch (error) {
-    console.error('Error generating estimate file:', error);
-    alert('Sorry, there was a problem generating your estimate file. Please contact us at 754-227-5605 and we\'ll email you a detailed quote.');
+    console.error('Error generating PDF:', error);
+    alert('Sorry, there was a problem generating your PDF. Please contact us at 754-227-5605 and we\'ll email you a detailed quote.');
   }
 }
