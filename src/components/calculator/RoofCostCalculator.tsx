@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { X } from 'lucide-react';
 import { CalculatorState, initialCalculatorState } from './CalculatorTypes';
 import Step1PropertyType from './Step1PropertyType';
 import Step2RoofSize from './Step2RoofSize';
@@ -9,8 +10,10 @@ import Step5Results from './Step5Results';
 
 export default function RoofCostCalculator() {
   const [state, setState] = useState<CalculatorState>(initialCalculatorState);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const [cityName, setCityName] = useState<string>('');
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -35,9 +38,27 @@ export default function RoofCostCalculator() {
       updateState({ step: 5 });
     } else if (state.step === 2 && !isCommercial) {
       updateState({ step: 4 });
+    } else if (state.step === 4 && !isCommercial) {
+      setShowModal(true);
     } else {
       updateState({ step: state.step + 1 });
     }
+  };
+
+  const handleShowEstimate = () => {
+    setShowModal(false);
+    updateState({ step: 5 });
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  };
+
+  const handleBookAppointment = () => {
+    setShowModal(false);
+    updateState({ step: 5 });
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   const prevStep = () => {
@@ -82,7 +103,7 @@ export default function RoofCostCalculator() {
         </div>
       </div>
 
-      <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 md:p-10 shadow-2xl">
+      <div ref={resultsRef} className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 md:p-10 shadow-2xl">
         {state.step === 1 && (
           <Step1PropertyType
             selectedType={state.propertyType}
@@ -144,6 +165,39 @@ export default function RoofCostCalculator() {
           All Phase Construction USA • CGC1526236 • CCC1331464
         </p>
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-neutral-950 border-2 border-neutral-800 rounded-2xl p-8 max-w-lg w-full shadow-2xl relative">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <h2 className="text-3xl font-bold text-white mb-3">You're almost done!</h2>
+            <p className="text-lg text-neutral-300 mb-8">
+              Before scheduling, would you like to see your estimated roof price range?
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={handleShowEstimate}
+                className="flex-1 px-6 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+              >
+                Show me my estimate →
+              </button>
+              <button
+                onClick={handleBookAppointment}
+                className="flex-1 px-6 py-4 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors shadow-lg"
+              >
+                Yes — help me book an appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
