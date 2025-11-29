@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Download } from 'lucide-react';
 import SEO from '../components/SEO';
 import { generateEstimatePDF } from '../utils/pdfGenerator';
+import { generateComparisonChecklistPDF } from '../utils/comparisonChecklistPdf';
 
 const creditTiers = [
   { label: 'Excellent (750+)', rate: 95, value: 'excellent' },
@@ -95,6 +96,15 @@ export default function FinancingCalculatorPage() {
       });
     } catch (error) {
       console.error('Failed to generate PDF:', error);
+    }
+  };
+
+  const handleDownloadChecklist = () => {
+    try {
+      generateComparisonChecklistPDF();
+    } catch (error) {
+      console.error('Failed to generate comparison checklist:', error);
+      alert('Unable to generate the checklist. Please try again.');
     }
   };
 
@@ -349,6 +359,22 @@ export default function FinancingCalculatorPage() {
             <p className="text-neutral-300 leading-relaxed">
               Insurance rates, deductibles, and building-code requirements in South Florida continue to tighten. Delaying a needed roof replacement can mean missing out on potential discounts, facing higher premiums, or rushing into a project right before storm season. Taking action now lets you plan your roof, your financing, and your insurance credits on your terms.
             </p>
+          </div>
+
+          <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border-2 border-purple-500/40 rounded-2xl p-8 mb-8">
+            <h3 className="text-2xl font-bold text-purple-300 mb-4">
+              🎉 Bonus Unlocked: Contractor Comparison Checklist
+            </h3>
+            <p className="text-neutral-300 mb-6 leading-relaxed">
+              Since you've taken the time to research your roof, we want to help you go deeper — and you've unlocked a bonus! Download the free Contractor Comparison Checklist.
+            </p>
+            <button
+              onClick={handleDownloadChecklist}
+              className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-purple-600 text-white text-lg font-semibold rounded-lg hover:bg-purple-500 transition-colors"
+            >
+              <Download className="w-5 h-5" />
+              Download Contractor Comparison Checklist (PDF)
+            </button>
           </div>
 
           <div className="bg-yellow-900/20 border-2 border-yellow-600/50 rounded-2xl p-8 mb-8">
