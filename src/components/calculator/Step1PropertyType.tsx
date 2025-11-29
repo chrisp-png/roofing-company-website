@@ -9,8 +9,9 @@ interface Step1Props {
 export default function Step1PropertyType({ selectedType, onSelect, onNext }: Step1Props) {
   return (
     <div>
-      <h2 className="text-3xl font-bold text-white mb-4">What type of property is this?</h2>
-      <p className="text-neutral-400 mb-8">Select the property type for your roofing project</p>
+      <h2 className="text-3xl font-bold text-white mb-2">Step 1: Tell Us About Your Roof (Start Here)</h2>
+      <p className="text-lg text-neutral-300 mb-2">This will help us calculate your estimated price range.</p>
+      <div className="h-1 w-20 bg-red-600 rounded-full mt-2 mb-8"></div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {PROPERTY_TYPES.map((type) => (
