@@ -1,5 +1,12 @@
-import CityRoofCostPage from './CityRoofCostPage';
+import CityRoofCostTemplate from '../components/city/CityRoofCostTemplate';
 
 export default function RoofCostDelrayBeachPage() {
-  return <CityRoofCostPage cityName="Delray Beach" citySlug="delray-beach" isCoastal={true} />;
+  return (
+    <CityRoofCostTemplate
+      cityName="Delray Beach"
+      citySlug="delray-beach"
+      isCoastal={true}
+      hoaCommon={true}
+    />
+  );
 }
