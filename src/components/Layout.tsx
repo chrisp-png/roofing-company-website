@@ -3,6 +3,7 @@ import Header from './Header';
 import FooterNew from './FooterNew';
 import MobileBottomBarNew from './MobileBottomBarNew';
 import GlobalSchema from './GlobalSchema';
+import FloatingMobileCTA from './FloatingMobileCTA';
 
 export default function Layout() {
   return (
@@ -16,6 +17,7 @@ export default function Layout() {
 
       <FooterNew />
       <MobileBottomBarNew />
+      <FloatingMobileCTA />
     </div>
   );
 }

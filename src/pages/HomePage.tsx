@@ -1,5 +1,7 @@
 import SEO from '../components/SEO';
 import HeroSection from '../components/home/HeroSection';
+import TrustBadges from '../components/home/TrustBadges';
+import WhyChooseBar from '../components/home/WhyChooseBar';
 import TrustBar from '../components/home/TrustBar';
 import UrgencyBanner from '../components/home/UrgencyBanner';
 import ServicesGrid from '../components/home/ServicesGrid';
@@ -89,6 +91,8 @@ export default function HomePage() {
         schemaJson={localBusinessSchema}
       />
       <HeroSection />
+      <TrustBadges />
+      <WhyChooseBar />
       <TrustBar />
       <UrgencyBanner />
       <ServicesGrid />

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ export default function Header() {
   ];
 
   return (
-    <nav className="w-full bg-black border-b border-neutral-800">
+    <nav className="sticky top-0 z-50 w-full bg-black/95 backdrop-blur-sm border-b border-neutral-800 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
@@ -105,9 +105,24 @@ export default function Header() {
             >
               Request Roof Assessment
             </Link>
+
+            <a
+              href="tel:754-227-5605"
+              className="ml-4 flex items-center gap-2 px-5 py-2 bg-red-600 text-white text-sm font-bold rounded-lg hover:bg-red-500 transition-colors duration-200 shadow-lg"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now: (754) 227-5605
+            </a>
           </div>
 
-          <div className="lg:hidden">
+          <div className="lg:hidden flex items-center gap-3">
+            <a
+              href="tel:754-227-5605"
+              className="flex items-center gap-1 text-red-500 font-semibold text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Call Now
+            </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-neutral-300 hover:text-white"

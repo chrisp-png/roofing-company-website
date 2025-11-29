@@ -59,6 +59,31 @@ export default function RoofCalculatorContent() {
 
   return (
     <div className="min-h-screen bg-black">
+      {/* Sticky CTA Banner */}
+      <div className="sticky top-20 z-30 bg-red-600 border-b-2 border-red-700 py-3 shadow-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-white font-semibold text-center sm:text-left">
+              Need an exact price? Schedule a free roof estimate.
+            </p>
+            <div className="flex gap-3">
+              <Link
+                to="/contact"
+                className="px-6 py-2 bg-white text-red-600 font-bold rounded-lg hover:bg-neutral-100 transition-colors"
+              >
+                Get Free Estimate
+              </Link>
+              <a
+                href="tel:754-227-5605"
+                className="px-6 py-2 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-red-600 transition-colors"
+              >
+                (754) 227-5605
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section with H1 */}
       <section className="bg-gradient-to-br from-neutral-950 to-black border-b border-neutral-800 py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,6 +94,26 @@ export default function RoofCalculatorContent() {
             <p className="text-xl text-neutral-300 leading-relaxed max-w-4xl mx-auto">
               Understanding roof replacement costs is crucial for South Florida homeowners. Factors like material choice, roof size, building code requirements, and hurricane protection features all impact your final price. Use our calculator below to get an instant estimate tailored to Broward and Palm Beach County homes.
             </p>
+          </div>
+
+          {/* Trust Badge Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-4xl mx-auto">
+            <div className="flex flex-col items-center gap-2 p-4 bg-black border border-neutral-800 rounded-lg">
+              <Shield className="w-6 h-6 text-red-500" />
+              <p className="text-white font-semibold text-xs text-center">Licensed & Insured</p>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 bg-black border border-neutral-800 rounded-lg">
+              <CheckCircle className="w-6 h-6 text-red-500" />
+              <p className="text-white font-semibold text-xs text-center">GC + Roofer</p>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 bg-black border border-neutral-800 rounded-lg">
+              <Shield className="w-6 h-6 text-red-500" />
+              <p className="text-white font-semibold text-xs text-center">HVHZ Florida Code</p>
+            </div>
+            <div className="flex flex-col items-center gap-2 p-4 bg-black border border-neutral-800 rounded-lg">
+              <CheckCircle className="w-6 h-6 text-red-500" />
+              <p className="text-white font-semibold text-xs text-center">Insurance Specialists</p>
+            </div>
           </div>
         </div>
       </section>
