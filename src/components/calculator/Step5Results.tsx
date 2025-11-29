@@ -5,6 +5,7 @@ import { Check, Building2, Download, Calculator, DollarSign, Phone, CreditCard }
 import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
 import TrustElements from './TrustElements';
 import RoofBuyersChecklist from './RoofBuyersChecklist';
+import UltimateRoofBuyersGuide from './UltimateRoofBuyersGuide';
 import { generateEstimatePDF } from '../../utils/pdfGenerator';
 
 interface Step5Props {
@@ -637,6 +638,8 @@ export default function Step5Results({
           </div>
 
           <RoofBuyersChecklist />
+
+          <UltimateRoofBuyersGuide />
         </div>
       </div>
     );
