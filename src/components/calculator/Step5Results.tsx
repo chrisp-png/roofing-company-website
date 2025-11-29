@@ -4,6 +4,7 @@ import { MATERIAL_CONFIG } from '../../config/materialConfig';
 import { Check, Building2, Download, Calculator, DollarSign, Phone, CreditCard } from 'lucide-react';
 import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
 import TrustElements from './TrustElements';
+import RoofBuyersChecklist from './RoofBuyersChecklist';
 import { generateEstimatePDF } from '../../utils/pdfGenerator';
 
 interface Step5Props {
@@ -634,6 +635,8 @@ export default function Step5Results({
               Our team will confirm your estimate and schedule a free on-site assessment
             </p>
           </div>
+
+          <RoofBuyersChecklist />
         </div>
       </div>
     );
