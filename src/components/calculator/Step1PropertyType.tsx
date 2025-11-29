@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { Home } from 'lucide-react';
 import { PROPERTY_TYPES } from '../../config/materialConfig';
 
 interface Step1Props {
@@ -8,8 +10,15 @@ interface Step1Props {
 
 export default function Step1PropertyType({ selectedType, onSelect, onNext }: Step1Props) {
   return (
-    <div>
-      <h2 className="text-3xl font-bold text-white mb-2">Step 1: Tell Us About Your Roof (Start Here)</h2>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex items-center gap-3 mb-2">
+        <Home className="w-7 h-7 text-red-500" />
+        <h2 className="text-3xl font-bold text-white">Step 1: Tell Us About Your Roof (Start Here)</h2>
+      </div>
       <p className="text-lg text-neutral-300 mb-2">This will help us calculate your estimated price range.</p>
       <div className="h-1 w-20 bg-red-600 rounded-full mt-2 mb-8"></div>
 
@@ -36,6 +45,6 @@ export default function Step1PropertyType({ selectedType, onSelect, onNext }: St
       >
         Continue
       </button>
-    </div>
+    </motion.div>
   );
 }

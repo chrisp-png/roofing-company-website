@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { Layers, MapPin } from 'lucide-react';
 import { MATERIAL_CONFIG, COMPLEXITY_LEVELS } from '../../config/materialConfig';
 
 interface Step4Props {
@@ -35,11 +37,19 @@ export default function Step4TierComplexity({
   const tierOrder = ['good', 'better', 'best', 'premium'];
 
   return (
-    <div>
-      <h2 className="text-3xl font-bold text-white mb-4">Review Your Roof System Options</h2>
-      <p className="text-neutral-400 mb-8">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex items-center gap-3 mb-2">
+        <Layers className="w-7 h-7 text-red-500" />
+        <h2 className="text-3xl font-bold text-white">Step 3: Review Your Roof System Options</h2>
+      </div>
+      <p className="text-lg text-neutral-300 mb-2">
         Choose your roof type and review the quality levels available. After you provide your contact info, we'll show you pricing for all tiers.
       </p>
+      <div className="h-1 w-20 bg-red-600 rounded-full mt-2 mb-8"></div>
 
       <div className="mb-8">
         <h3 className="text-xl font-semibold text-white mb-4">Select Your Roof Type</h3>
@@ -148,6 +158,6 @@ export default function Step4TierComplexity({
           Continue to Get Estimate
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

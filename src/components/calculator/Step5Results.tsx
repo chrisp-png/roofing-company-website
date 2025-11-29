@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { MATERIAL_CONFIG } from '../../config/materialConfig';
-import { Check, Building2, Download, Calculator } from 'lucide-react';
+import { Check, Building2, Download, Calculator, DollarSign, Phone, CreditCard } from 'lucide-react';
 import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
+import TrustElements from './TrustElements';
 import { generateEstimatePDF } from '../../utils/pdfGenerator';
 
 interface Step5Props {
@@ -390,26 +392,60 @@ export default function Step5Results({
           </div>
         </div>
 
-        <div className="space-y-6 mb-8">
-          <div className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-2 border-red-500/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Recommended System ({tierConfig.label})
-            </h3>
-            <h4 className="text-3xl font-bold text-red-500 mb-4">
-              {formatCurrency(lowEstimate)} – {formatCurrency(highEstimate)}
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-neutral-300">
-              <div>
-                <span className="font-semibold">Roof Type:</span>
-                <br />
-                {materialConfig.label}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-6 mb-8"
+        >
+          <div className="bg-gradient-to-br from-green-900/20 to-green-700/10 border-2 border-green-500/30 rounded-2xl p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <DollarSign className="w-8 h-8 text-green-500" />
+              <h3 className="text-3xl font-bold text-white">
+                Your Estimated Roof Price Range
+              </h3>
+            </div>
+            <div className="mb-4">
+              <p className="text-4xl font-extrabold text-green-400">
+                {formatCurrency(lowEstimate)} – {formatCurrency(highEstimate)}
+              </p>
+              <p className="text-lg text-neutral-300 mt-2">
+                Recommended System: {tierConfig.label}
+              </p>
+            </div>
+            <p className="text-neutral-400">
+              Based on homes similar to yours in South Florida. Final pricing depends on roof complexity, decking condition, and code requirements.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 text-neutral-300">
+              <div className="bg-neutral-900/50 p-4 rounded-lg">
+                <span className="font-semibold text-white">Roof Type:</span>
+                <p className="mt-1">{materialConfig.label}</p>
               </div>
-              <div>
-                <span className="font-semibold">Roof Size:</span>
-                <br />
-                {roofSize.toLocaleString()} sq ft
+              <div className="bg-neutral-900/50 p-4 rounded-lg">
+                <span className="font-semibold text-white">Roof Size:</span>
+                <p className="mt-1">{roofSize.toLocaleString()} sq ft</p>
               </div>
             </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <a
+                href="tel:754-227-5605"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg"
+              >
+                <Phone className="w-5 h-5" />
+                Schedule Your Roof Estimate
+              </a>
+              <a
+                href="/financing"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 border-2 border-blue-500 text-blue-400 text-lg font-semibold rounded-lg hover:bg-blue-500/10 transition-all duration-200"
+              >
+                <CreditCard className="w-5 h-5" />
+                See Financing Options
+              </a>
+            </div>
+
+            <TrustElements />
           </div>
 
           {bestTierConfig && (
@@ -434,7 +470,7 @@ export default function Step5Results({
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
 
         <div className="mb-8 bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-white mb-4">

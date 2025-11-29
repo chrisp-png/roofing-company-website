@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { CalculatorState, initialCalculatorState } from './CalculatorTypes';
+import ProgressBar from './ProgressBar';
+import SummarySidebar from './SummarySidebar';
 import Step1PropertyType from './Step1PropertyType';
 import Step2RoofSize from './Step2RoofSize';
 import Step3Material from './Step3Material';
@@ -81,7 +83,7 @@ export default function RoofCostCalculator() {
   const progressPercentage = (displayStep / totalSteps) * 100;
 
   return (
-    <div className="max-w-4xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto px-4">
       <div className="text-center mb-8">
         {cityName && (
           <p className="text-base text-neutral-400">
@@ -90,20 +92,11 @@ export default function RoofCostCalculator() {
         )}
       </div>
 
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-neutral-400">Step {displayStep} of {totalSteps}</span>
-          <span className="text-sm text-neutral-400">{Math.round(progressPercentage)}% Complete</span>
-        </div>
-        <div className="w-full h-2 bg-neutral-900 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-red-600 transition-all duration-300 ease-out"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
+          <ProgressBar currentStep={displayStep} totalSteps={totalSteps} />
 
-      <div ref={resultsRef} className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 md:p-10 shadow-2xl">
+          <div ref={resultsRef} className="bg-neutral-900/60 border border-neutral-700 rounded-2xl p-6 md:p-10 shadow-lg backdrop-blur">
         {state.step === 1 && (
           <Step1PropertyType
             selectedType={state.propertyType}
@@ -152,18 +145,22 @@ export default function RoofCostCalculator() {
             onBack={prevStep}
           />
         )}
-      </div>
+          </div>
 
-      <div className="mt-8 text-center">
-        <p className="text-sm text-neutral-500 mb-2">
-          Questions? Call us at{' '}
-          <a href="tel:7542275605" className="text-red-500 hover:text-red-400">
-            754-227-5605
-          </a>
-        </p>
-        <p className="text-xs text-neutral-600">
-          All Phase Construction USA • CGC1526236 • CCC1331464
-        </p>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-neutral-500 mb-2">
+              Questions? Call us at{' '}
+              <a href="tel:7542275605" className="text-red-500 hover:text-red-400">
+                754-227-5605
+              </a>
+            </p>
+            <p className="text-xs text-neutral-600">
+              All Phase Construction USA • CGC1526236 • CCC1331464
+            </p>
+          </div>
+        </div>
+
+        <SummarySidebar state={state} />
       </div>
 
       {showModal && (
