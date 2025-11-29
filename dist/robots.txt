@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://chrisp-png-roofing-c-gxj0.bolt.host/sitemap.xml
