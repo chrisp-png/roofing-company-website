@@ -9,6 +9,7 @@ import AuthorityGroup from '../components/authority/AuthorityGroup';
 import ProjectsGallery from '../components/home/ProjectsGallery';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import BottomCTA from '../components/home/BottomCTA';
+import RoofGuideFaqSchema from '../components/RoofGuideFaqSchema';
 
 export default function HomePage() {
   const localBusinessSchema = {
@@ -90,6 +91,7 @@ export default function HomePage() {
         ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
         schemaJson={localBusinessSchema}
       />
+      <RoofGuideFaqSchema />
       <HeroSection />
       <TrustBadges />
       <WhyChooseBar />
