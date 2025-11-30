@@ -1,270 +1,334 @@
-import { useState } from 'react';
-import { ChevronDown, ChevronUp, Download } from 'lucide-react';
+import { useState } from "react";
 
-interface GuideItem {
-  number: number;
-  question: string;
-  explanation: string;
-}
+type RoofStandard = {
+  id: number;
+  title: string;
+  shortDescription: string;
+  longDescription: string;
+};
 
-const guideItems: GuideItem[] = [
+const STANDARDS: RoofStandard[] = [
   {
-    number: 1,
-    question: "Are you a Certified Roofing Contractor AND a Certified General Contractor?",
-    explanation: "Roofing contractors who aren't also General Contractors often avoid structural work like stucco cutouts, wall flashings, decks, fascia replacement, or exterior waterproofing. Hiring a dual-licensed contractor ensures your roof system is tied properly into the building envelope—something single-license roofers often aren't qualified to do."
+    id: 1,
+    title: "Dual-Licensed Roofing Contractor + General Contractor",
+    shortDescription:
+      "Ensures your contractor understands both the structure and the roof system.",
+    longDescription:
+      "In South Florida, the roof is part of the structural system, not just a layer of shingles or tile. A contractor who holds both a Roofing and General Contractor license is trained and tested on structural loads, wall connections, trusses, and hurricane codes. That means better decisions when replacing decking, upgrading straps, or addressing hidden framing issues discovered during tear-off. It reduces finger-pointing between trades and helps protect you if an inspector questions structural details."
   },
   {
-    number: 2,
-    question: "Will you pull permits and handle all inspections with the city?",
-    explanation: "A legitimate roofing project MUST be permitted. Contractors who ask you to pull the permit yourself—or try to avoid them altogether—are waving a major red flag. Proper permits protect your resale value, insurance compliance, and your home."
+    id: 2,
+    title: "Pulls Permits & Handles Inspections",
+    shortDescription: "No permit is a red flag — and can cause insurance and resale headaches.",
+    longDescription:
+      "If a roofer wants to skip the permit, they're asking you to take all the risk. Unpermitted work can void insurance claims, trigger fines, and delay a future sale when a buyer's inspector pulls public records. A reputable contractor will submit plans, pull the permit in their name, schedule inspections, and give you copies for your records and future insurance needs."
   },
   {
-    number: 3,
-    question: "What exact underlayment system will you be using? Is it written into my contract?",
-    explanation: "Underlayment is the true waterproofing. There is a huge difference between cheap 30-lb felt and high-performance systems designed for HVHZ. If the underlayment is vague in your contract, it's one of the biggest places a contractor can cut corners."
+    id: 3,
+    title: "Exact Underlayment System Written into the Contract",
+    shortDescription:
+      "Prevents contractors from swapping in cheaper, weaker underlayment after you sign.",
+    longDescription:
+      "Underlayment is your last line of defense when shingles or tiles blow off in a storm. If the contract just says 'synthetic underlayment,' it leaves room for substitutions that may not meet HVHZ requirements or manufacturer specs. Your contract should name the product, thickness, and number of plies. That way what's installed must match what was promised, what was permitted, and what your insurer expects."
   },
   {
-    number: 4,
-    question: "Shingle Roofs Only: What manufacturer will you be using and what is your certification level with them?",
-    explanation: "Higher certifications (Preferred, Master, Select) often come with better warranties and higher standards of installation."
+    id: 4,
+    title: "Shingle Manufacturer + Certification Level Listed",
+    shortDescription:
+      "Certified installers can offer better warranties and are audited for quality.",
+    longDescription:
+      "Major manufacturers train and certify contractors on proper installation, ventilation, and fastener patterns. If your roofer isn't listed with the brand they're installing, you may lose out on upgraded warranties and enforcement if there's a defect. Having the manufacturer and certification level in writing proves the crew is approved and allows you to leverage extended material and system warranties."
   },
   {
-    number: 5,
-    question: "Metal Roofs Only: Is this a mechanically seamed metal system?",
-    explanation: "Exposed fastener metal roofs are cheaper…but they are NOT designed for the High Velocity Hurricane Zone. Mechanically seamed systems provide superior wind resistance and longevity."
+    id: 5,
+    title: "Mechanically Seamed Metal System (Not Exposed Fasteners)",
+    shortDescription:
+      "Standing seam systems are the standard for HVHZ durability and long-term watertightness.",
+    longDescription:
+      "Exposed-fastener metal roofs rely on hundreds or thousands of screws with washers that dry out over time. In high winds, those panels can loosen and leak. A mechanically seamed metal roof locks the panels together with concealed clips and continuous seams. Fewer penetrations, tighter wind uplift ratings, and a cleaner look — especially important when you plan to add solar later."
   },
   {
-    number: 6,
-    question: "What specialized equipment do you use to protect my property?",
-    explanation: "The best contractors use equipment like Catch-All systems, driveway protection, magnetic sweepers, tarps, nets, and wall protection to prevent damage to landscaping, driveways, and outdoor areas."
+    id: 6,
+    title: "Professional Property-Protection Equipment",
+    shortDescription:
+      "Catch-All systems, driveway guards, and pool protection keep your home safe during demo.",
+    longDescription:
+      "Tear-off is messy. Without nets, chutes, and ground protection, nails and debris end up in your grass, your pool, and your tires. Professional contractors invest in Catch-All style systems, plywood or mat protection for pavers and driveways, and magnetic sweeps. That protects your property today and your relationship with the contractor tomorrow."
   },
   {
-    number: 7,
-    question: "How will you protect my landscaping, driveway, pool area, and outdoor living spaces?",
-    explanation: "A contractor who doesn't have a written plan for property protection likely won't actually do it."
+    id: 7,
+    title: "Written Plan to Protect Landscaping, Driveways & Pool Areas",
+    shortDescription:
+      "No written plan usually means no real plan.",
+    longDescription:
+      "Beautiful landscaping, decorative concrete, and pools are big investments. Your contract or pre-construction paperwork should spell out how plants will be covered, where dump trailers or material loads will sit, and how access will work. This avoids arguments later about cracked pavers, broken sprinklers, or damaged screens because everyone agreed to the plan up front."
   },
   {
-    number: 8,
-    question: "Will I get photos or documentation of the work DURING installation?",
-    explanation: "Roofing work is out of sight. The only way to ensure your roof is installed correctly is through real-time documentation."
+    id: 8,
+    title: "Live Photo Documentation During Installation",
+    shortDescription:
+      "Transparency lets you see exactly what's under your new roof system.",
+    longDescription:
+      "Most homeowners never climb on the roof — which makes roofing an easy place for corners to be cut. When your contractor sends photos or uses an app to share real-time images, you can see rotten wood replacement, underlayment, flashing details, and final cleanup. Those photos are also valuable if you ever have to file a storm claim later."
   },
   {
-    number: 9,
-    question: "Who will be my dedicated point of contact throughout the project?",
-    explanation: "Communication can make or break the customer experience. You should not be chasing random phone numbers or searching for answers."
+    id: 9,
+    title: "Dedicated Project Manager Contact",
+    shortDescription:
+      "You shouldn't have to chase updates or call five different people for answers.",
+    longDescription:
+      "Roofing affects your schedule, parking, pets, and sometimes your ability to stay in the home. A dedicated project manager gives you one point of contact for start dates, inspections, weather delays, change orders, and punch-list items. It's the difference between feeling in control and feeling left in the dark."
   },
   {
-    number: 10,
-    question: "Do you provide the wind-mitigation inspection upon completion of the job?",
-    explanation: "This report is often required to get insurance discounts. If the roofer doesn't provide this, you may pay extra — or worse, miss out on discounts."
+    id: 10,
+    title: "Wind Mitigation Report Upon Completion",
+    shortDescription:
+      "Required to unlock many of your insurance discounts in Florida.",
+    longDescription:
+      "After a roof replacement, your insurance company often requires an updated wind mitigation inspection to apply credits for new coverings, fasteners, deck attachments, and secondary water barriers. A contractor who helps coordinate or even includes this report is thinking past installation and into your long-term cost of ownership."
   },
   {
-    number: 11,
-    question: "Can I speak to recent clients or see local projects?",
-    explanation: "References and local project portfolios demonstrate a contractor's track record and accountability in your community. A contractor who hesitates to provide references may be hiding poor workmanship or unhappy customers."
+    id: 11,
+    title: "Local References or Recent Jobs in Your City",
+    shortDescription:
+      "Verifiable roofs nearby prove they do quality work in your neighborhood.",
+    longDescription:
+      "Out-of-town storm chasers can disappear as quickly as they arrived. Local references let you drive by real projects, talk to real customers, and confirm the contractor services your area long-term. In high-wind zones, you want someone who will still be here after the next storm rolls through."
   },
   {
-    number: 12,
-    question: "Do your crews specialize in the roof type being installed?",
-    explanation: "Installing tile, metal, and shingles all require different skill sets and specialized training. Crews who specialize in your specific roof type are less likely to make costly installation errors."
+    id: 12,
+    title: "Crew Specializes in the Exact Roof Type You're Buying",
+    shortDescription:
+      "Specialists produce better roofs, faster, with fewer mistakes.",
+    longDescription:
+      "Tile, shingle, metal, and flat roofs all install differently. A crew that spends 90% of its time on your specific system will be more efficient and more consistent. Ask whether they use dedicated tile crews, metal crews, and flat crews — or the same small team for everything."
   },
   {
-    number: 13,
-    question: "Do you offer financing through vetted lenders?",
-    explanation: "Reputable contractors work with established financing partners who offer transparent terms. Be wary of contractors who only accept cash or push high-pressure financing schemes."
+    id: 13,
+    title: "Offers Financing Through Vetted Lenders",
+    shortDescription:
+      "Finance partners usually vet the contractor before approving them.",
+    longDescription:
+      "Legitimate financing partners review licenses, insurance, financial stability, and complaint history before allowing contractors to offer their programs. If your roofer has solid financing options, it's a sign that another party has already done some due diligence — and it gives you more flexibility on how you pay."
   },
   {
-    number: 14,
-    question: "How do you handle change orders for rotten or damaged wood?",
-    explanation: "Wood rot is often discovered during tear-off. A professional contractor will document the damage with photos, provide written estimates for repairs, and get your approval before proceeding—not surprise you with inflated bills later."
+    id: 14,
+    title: "Transparent Change-Order Process for Rotten or Termite-Damaged Wood",
+    shortDescription:
+      "Set pricing and photo documentation prevent surprise invoices.",
+    longDescription:
+      "Wood replacement is common in South Florida, but it shouldn't be a blank check. A clear change-order policy lists per-sheet or per-foot prices, shows before/after photos, and requires your approval before extra work is performed. This protects you from inflated bills and protects the contractor from disputes."
   },
   {
-    number: 15,
-    question: "Do you clean up daily (not just at the end)?",
-    explanation: "Daily cleanup protects your property from debris, nails, and damage. It also shows the contractor respects your home and takes pride in their work process."
+    id: 15,
+    title: "Daily Cleanup (Not Just End-of-Job Cleanup)",
+    shortDescription:
+      "Keeps cars, pets, and bare feet safe every day of the project.",
+    longDescription:
+      "Roofing debris doesn't wait until the final day to cause problems. A good crew performs a full ground sweep at the end of each workday, not just when they're done. That means magnets, bagging trash, securing loose material, and leaving your property in safe, usable condition overnight."
   },
   {
-    number: 16,
-    question: "Will you tarp the roof immediately if weather changes?",
-    explanation: "Florida weather is unpredictable. A prepared contractor has tarps on-site and a weather monitoring plan to protect your home if unexpected rain arrives."
+    id: 16,
+    title: "Immediate Weather Protection / Tarping If Storms Approach",
+    shortDescription:
+      "In South Florida, pop-up storms can appear in minutes — your roof must be protected.",
+    longDescription:
+      "Once the old roof is torn off, your decking is exposed. Your contractor should monitor radar, have tarps or peel-and-stick membranes on hand, and a plan for securing the roof quickly if weather moves in. Water intrusion at this stage can damage drywall, flooring, and contents, so proactive weather protection is non-negotiable."
   },
   {
-    number: 17,
-    question: "Do you assist with insurance documentation for future claims?",
-    explanation: "Proper documentation of your roof installation—including photos, permits, and material certifications—can be invaluable when filing insurance claims or proving compliance after a storm."
+    id: 17,
+    title: "Helps With Documentation for Future Insurance Claims",
+    shortDescription:
+      "Good documentation protects your investment for the life of the roof.",
+    longDescription:
+      "Permits, photos, invoices, and material specs form a strong paper trail. If you ever have a storm claim, that documentation can prove proper installation and help your adjuster understand what was there before the damage. Contractors who organize and share this info are thinking like partners, not just installers."
   },
   {
-    number: 18,
-    question: "What EXACTLY does your workmanship warranty cover?",
-    explanation: "Many contractors offer 'lifetime warranties' that exclude labor, leak repairs, or most real problems. Get the warranty terms in writing and understand what's actually covered."
+    id: 18,
+    title: "Clear Workmanship Warranty Explanation",
+    shortDescription:
+      "Should cover improper installation — and clearly state what it does NOT cover.",
+    longDescription:
+      "A workmanship warranty isn't a blanket guarantee against all problems for any reason. It should cover leaks or failures caused by installation errors, within a defined time frame, and spell out how to file a claim. Exclusions (like acts of God or third-party damage) should be listed plainly so there are no surprises later."
   },
   {
-    number: 19,
-    question: "Tile Roofs Only: Which foam manufacturer + paddy size will be used (and does it match what's on the contract, permit, and photos)?",
-    explanation: "Foam adhesive quality and coverage (paddy size) directly impact wind resistance. Cheap foam or undersized paddies are common shortcuts that can lead to catastrophic tile blow-offs during hurricanes."
+    id: 19,
+    title:
+      "TILE: Foam Manufacturer + Foam Paddy Size Specified (Contract → Permit → Photos)",
+    shortDescription:
+      "This is the #1 corner-cutting spot in tile roofing — and a major storm-performance issue.",
+    longDescription:
+      "Tile uplift resistance depends heavily on the foam or adhesive, the size of the paddies, and spacing. If the contract doesn't name the product and pattern, it's easy to use less foam than required. Make sure what's written in the contract matches what's on the permit and in the installation photos so you know every tile is properly anchored."
   },
   {
-    number: 20,
-    question: "Do you offer upgraded protection in vulnerable areas (eaves, valleys, rakes)?",
-    explanation: "These areas are most prone to leaks and wind damage. Upgraded underlayment, ice-and-water shield, and enhanced flashing in these zones can prevent 90% of common roof failures."
+    id: 20,
+    title:
+      "Reinforcement Options for Vulnerable Areas (Eaves, Valleys, Rakes)",
+    shortDescription:
+      "These areas usually fail first in high winds and heavy rain.",
+    longDescription:
+      "Extra fasteners, additional membranes, metal edge reinforcements, and upgraded sealants in valleys and edges greatly improve performance. A contractor who proactively recommends reinforcing these zones is planning for Category-style storms, not just sunny-day performance."
   },
   {
-    number: 21,
-    question: "Flashings: Will you inspect and replace old flashings including stucco cutouts?",
-    explanation: "Flashings around chimneys, walls, and penetrations are where most leaks originate. Replacing the roof but keeping old, deteriorated flashings is like putting a new roof on a leaky bucket."
+    id: 21,
+    title: "Proper Flashing Replacement (Including Stucco Cutting & Re-Stuccoing)",
+    shortDescription:
+      "Most roofers avoid this — but it's critical for long-term waterproofing.",
+    longDescription:
+      "Wall, chimney, and stucco terminations often hide old or improperly installed flashing. To fix it correctly, stucco sometimes needs to be cut, new flashing installed, and then the wall re-stuccoed and painted. Skipping this step may save time now but can cause leaks years later when you're outside the basic warranty period."
   },
   {
-    number: 22,
-    question: "If fascia is replaced, do you paint it to match so the roof looks finished?",
-    explanation: "Many contractors replace rotted fascia but leave it unpainted or mismatched. A professional contractor includes painting or finishing so your roof looks complete and cohesive."
+    id: 22,
+    title: "Paints Replaced Fascia & Trim to Match the Home",
+    shortDescription:
+      "A finished roof should look as good as it performs.",
+    longDescription:
+      "Replacing rotten fascia, soffit, or trim is common during a roof project. If those boards are left unpainted or mismatched, the home never looks fully finished. Including paint in the scope ensures new wood is sealed and blended so your curb appeal goes up along with your protection."
   },
   {
-    number: 23,
-    question: "Do you provide a detailed written scope of work before I sign?",
-    explanation: "Vague contracts lead to disputes. A detailed scope of work should list every material, brand, installation method, and exclusion so both parties know exactly what's included."
+    id: 23,
+    title: "Written Lifetime Workmanship Warranty (Where Offered)",
+    shortDescription:
+      "Most roofers only warrant their work for 1–5 years.",
+    longDescription:
+      "A true lifetime workmanship warranty shows the contractor is confident in their crews, systems, and controls. The key is to read the fine print: understand what 'lifetime' means, what maintenance is required, and how claims are handled. Long warranties backed by clear processes are a strong sign of a stable company."
   },
   {
-    number: 24,
-    question: "Are your workers W-2 employees or subcontractors?",
-    explanation: "Contractors who use W-2 employees have more control over quality, training, and accountability. Subcontractors may not be properly insured or trained, leaving you exposed to liability and poor workmanship."
+    id: 24,
+    title: "Ventilation Upgrades Available",
+    shortDescription:
+      "A properly vented roof system lasts longer and keeps the home more comfortable.",
+    longDescription:
+      "Hot, trapped attic air bakes shingles and stresses underlayment. Balanced intake and exhaust — via soffit vents, ridge vents, or mechanical ventilation where appropriate — can extend roof life and improve energy efficiency. A contractor who evaluates ventilation and offers upgrades is looking at the whole system, not just the surface."
   },
   {
-    number: 25,
-    question: "Do you carry Workers' Compensation and General Liability insurance?",
-    explanation: "If a worker is injured on your property and the contractor lacks proper insurance, you could be held liable. Always verify current certificates of insurance before work begins."
+    id: 25,
+    title: "Manufacturer's Installation Certification in Writing",
+    shortDescription:
+      "Proves the installer is trained and approved by the shingle or tile manufacturer.",
+    longDescription:
+      "Many enhanced warranties require installation by a certified contractor and registration of the job with the manufacturer. Getting proof of certification in writing — and copies of your warranty registration — protects you if there's ever a dispute about whether the roof was installed to spec."
   },
   {
-    number: 26,
-    question: "Will you provide a material delivery schedule?",
-    explanation: "Knowing when materials will arrive helps you plan and ensures the contractor isn't delaying your project or using inferior last-minute substitutions."
+    id: 26,
+    title: "Factory-Trained Installation Crews (Not Day Labor)",
+    shortDescription:
+      "Consistent, accountable crews deliver consistent, accountable roofs.",
+    longDescription:
+      "Random day labor means inconsistent skills and no long-term accountability. Factory-trained crews have been instructed directly on fastening patterns, flashing details, and safety. They understand why each step matters and are more likely to build a roof that matches the warranty you're paying for."
   },
   {
-    number: 27,
-    question: "How do you handle roof penetrations (vents, skylights, solar panels)?",
-    explanation: "Improper flashing around penetrations is a leading cause of leaks. Ask how they'll seal and protect these areas—and whether it's included in the base price."
+    id: 27,
+    title: "Itemized Material List With Brand Names Before Starting",
+    shortDescription:
+      "Prevents bait-and-switch material substitutions after the contract is signed.",
+    longDescription:
+      "Seeing an itemized list — underlayment, fasteners, vents, membranes, metal, sealants — with actual brand names allows you to compare apples to apples between bids. It also locks in what will be used so you can spot any attempted downgrades when materials show up on site."
   },
   {
-    number: 28,
-    question: "Will you inspect and replace rotted decking as part of the tear-off?",
-    explanation: "A new roof on rotted decking won't last. Professional contractors inspect the deck during tear-off and replace damaged sections—with transparent pricing and documentation."
+    id: 28,
+    title:
+      "Makes the Customer an Additional Insured on Their Insurance Policy",
+    shortDescription:
+      "Confirms their policy is active and gives you direct protection.",
+    longDescription:
+      "Being named as an additional insured means you're covered under the contractor's policy for work performed at your property. It's stronger protection than just having a generic certificate of insurance and gives you more direct recourse if something goes wrong."
   },
   {
-    number: 29,
-    question: "Do you provide a project timeline with start and completion dates?",
-    explanation: "A written timeline holds the contractor accountable and helps you plan around the disruption. Contractors who refuse to commit to dates may be juggling too many jobs."
+    id: 29,
+    title: "Guaranteed Response Time for Warranty Claims (48 Hours Max)",
+    shortDescription:
+      "Prevents you from being ghosted when you actually need help.",
+    longDescription:
+      "A written response-time guarantee sets expectations. It doesn't mean every repair happens instantly, but it does mean someone will contact you, triage the issue, and schedule a visit quickly. When a leak appears during rainy season, speed matters."
   },
   {
-    number: 30,
-    question: "What is your process for final inspection and customer walkthrough?",
-    explanation: "A professional contractor will walk you through the completed project, explain what was done, answer questions, and ensure you're 100% satisfied before collecting final payment."
+    id: 30,
+    title: "Post-Storm Inspection Service for the Life of the Roof",
+    shortDescription:
+      "Helps you catch damage early and document it properly for insurance.",
+    longDescription:
+      "After big storms, it can be hard to tell from the ground if your roof was damaged. Contractors who offer ongoing post-storm inspections will check for lifted shingles, cracked tiles, or membrane damage and provide photos and notes. That helps you decide whether to file a claim and gives your adjuster better information."
   }
 ];
 
 export default function UltimateRoofBuyersGuide() {
-  const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
-
-  const toggleItem = (number: number) => {
-    setExpandedItems(prev => ({
-      ...prev,
-      [number]: !prev[number]
-    }));
-  };
-
-  const expandAll = () => {
-    const allExpanded: Record<number, boolean> = {};
-    guideItems.forEach(item => {
-      allExpanded[item.number] = true;
-    });
-    setExpandedItems(allExpanded);
-  };
-
-  const collapseAll = () => {
-    setExpandedItems({});
-  };
+  const [openId, setOpenId] = useState<number | null>(null);
 
   return (
-    <section className="bg-black border border-neutral-800 rounded-2xl p-8 mt-12">
+    <section
+      id="ultimate-roof-buyers-guide"
+      className="bg-black border border-neutral-800 rounded-2xl p-8 mt-12"
+    >
       <div className="mb-8">
         <h2 className="text-4xl font-bold text-white mb-4">
-          Ultimate Roof Buyer's Guide – 30 Standards Every Florida Homeowner Should Demand
+          Ultimate Roof Buyer&apos;s Guide – 30 Standards Every Florida Homeowner Should Demand
         </h2>
         <p className="text-neutral-300 mb-6 max-w-3xl leading-relaxed">
           This comprehensive guide breaks down the 30 most critical questions you should ask before signing any roofing contract.
-          Click each item to learn why it matters and how it protects your investment.
+          Click &quot;Learn more&quot; on any item to see why it matters and how it protects your investment.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
           <a
             href="/ultimate-roof-buyers-guide.pdf"
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 transition-colors shadow-lg"
           >
-            <Download className="w-5 h-5" />
-            Download the Ultimate Roof Buyer's Guide (PDF)
+            Download the Ultimate Roof Buyer&apos;s Guide (PDF)
           </a>
-
-          <div className="flex gap-2">
-            <button
-              onClick={expandAll}
-              className="px-4 py-2 text-sm border border-neutral-700 text-neutral-300 rounded-lg hover:bg-neutral-900 transition-colors"
-            >
-              Expand All
-            </button>
-            <button
-              onClick={collapseAll}
-              className="px-4 py-2 text-sm border border-neutral-700 text-neutral-300 rounded-lg hover:bg-neutral-900 transition-colors"
-            >
-              Collapse All
-            </button>
-          </div>
         </div>
       </div>
 
       <div className="space-y-3">
-        {guideItems.map((item) => {
-          const isExpanded = expandedItems[item.number];
-
+        {STANDARDS.map((item) => {
+          const isOpen = openId === item.id;
           return (
-            <div
-              key={item.number}
-              className="bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden transition-all hover:border-neutral-700"
+            <article
+              key={item.id}
+              className="bg-neutral-900 border border-neutral-800 rounded-lg p-4 md:p-5 transition-all hover:border-neutral-700"
             >
-              <button
-                onClick={() => toggleItem(item.number)}
-                className="w-full flex items-start gap-4 p-5 text-left transition-colors"
-              >
-                <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white font-bold rounded-full flex items-center justify-center text-sm mt-0.5">
-                  {item.number}
+              <header className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-8 h-8 bg-red-600 text-white font-bold rounded-full flex items-center justify-center text-sm">
+                  {item.id}
                 </div>
-
                 <div className="flex-1">
-                  <h3 className="text-white font-semibold text-lg leading-snug pr-8">
-                    {item.question}
+                  <h3 className="text-base md:text-lg font-semibold text-white mb-1">
+                    {item.title}
                   </h3>
+                  <p className="text-sm text-neutral-300">
+                    {item.shortDescription}
+                  </p>
                 </div>
+              </header>
 
-                <div className="flex-shrink-0">
-                  {isExpanded ? (
-                    <ChevronUp className="w-6 h-6 text-red-500" />
-                  ) : (
-                    <ChevronDown className="w-6 h-6 text-neutral-500" />
-                  )}
-                </div>
-              </button>
-
-              {isExpanded && (
-                <div className="px-5 pb-5 pl-[68px]">
-                  <div className="bg-black border-l-4 border-red-600 rounded p-4">
-                    <p className="text-sm font-semibold text-red-500 mb-2">
-                      Why it matters:
-                    </p>
-                    <p className="text-neutral-300 leading-relaxed">
-                      {item.explanation}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
+              <div className="mt-3 ml-11">
+                {!isOpen ? (
+                  <button
+                    type="button"
+                    onClick={() => setOpenId(item.id)}
+                    className="text-xs font-semibold uppercase tracking-wide text-red-400 hover:text-red-300 transition-colors"
+                  >
+                    Learn more
+                  </button>
+                ) : (
+                  <>
+                    <div className="bg-black border-l-4 border-red-600 rounded p-4 mb-3">
+                      <p className="text-sm text-neutral-200 leading-relaxed">
+                        {item.longDescription}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setOpenId(null)}
+                      className="text-xs font-semibold uppercase tracking-wide text-neutral-400 hover:text-neutral-300 transition-colors"
+                    >
+                      Hide details
+                    </button>
+                  </>
+                )}
+              </div>
+            </article>
           );
         })}
       </div>
