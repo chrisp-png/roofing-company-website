@@ -1,0 +1,1 @@
+import{j as o}from"./index-64O45EEc.js";import{C as t}from"./CityRoofCostTemplate-PGQ7MWx8.js";import"./react-vendor-Ba3W477B.js";import"./pdf-vendor-A8WhpmII.js";function a(){return o.jsx(t,{cityName:"Sunrise",citySlug:"sunrise",isCoastal:!1,hoaCommon:!0})}export{a as default};
