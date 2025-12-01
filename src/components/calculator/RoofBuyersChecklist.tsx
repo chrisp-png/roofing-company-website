@@ -2,28 +2,36 @@ import { useState } from 'react';
 import { Download, CheckCircle, Circle } from 'lucide-react';
 
 const checklistItems = [
-  "Are you both a Certified Roofing Contractor and a Certified General Contractor?",
+  "Are you a Certified Roofing Contractor AND a Certified General Contractor?",
   "Will you pull permits and handle all official inspections?",
-  "What EXACT underlayment system will be used, and is it stated in the contract?",
-  "Shingle Roofs: Which manufacturer do you use and what is your certification level?",
-  "Metal Roofs: Is this a mechanically seamed, high-wind–rated system?",
+  "What exact underlayment system will be used, and is it stated in the contract?",
+  "Shingle roofs: Which manufacturer do you use and what is your certification level?",
+  "Metal roofs: Is this a mechanically seamed, high-wind-rated system?",
+  "Do your crews specialize in the roofing system you're installing?",
   "What specialized equipment do you use to protect my property?",
-  "How will you protect landscaping, driveway, patio, and pool areas?",
-  "Will I get live photo documentation during installation?",
-  "Who is my dedicated point of contact during the project?",
-  "Do you provide the wind-mitigation inspection at completion?",
-  "Can I speak to recent clients or see local projects?",
-  "Do your crews specialize in the roof type being installed?",
-  "Do you offer financing through vetted lenders?",
-  "How do you handle change orders for rotten or damaged wood?",
-  "Do you clean up daily (not just at the end)?",
-  "Will you tarp the roof immediately if weather changes?",
-  "Do you assist with insurance documentation for future claims?",
-  "What EXACTLY does your workmanship warranty cover?",
-  "Tile Roofs: Which foam manufacturer + paddy size will be used (contract, permit & photos match)?",
+  "How will you protect landscaping, driveways, pools, and outdoor spaces?",
+  "Will I get live photo documentation during the installation?",
+  "Who will be my dedicated point of contact?",
+  "Will you provide the wind-mitigation inspection at completion?",
+  "Can I speak with recent customers or see recent jobs in my city?",
+  "Do you offer financing, and through which lenders?",
+  "How do you handle change orders for rotten or termite-damaged wood?",
+  "Will you clean up daily, not just at the end of the job?",
+  "If weather changes suddenly, what is your plan to tarp or protect the roof?",
+  "Will you help organize documentation for insurance renewals or claims?",
+  "What exactly does your workmanship warranty cover, and for how long?",
+  "Tile roofs: Which foam manufacturer and foam patty size will be used?",
+  "Will the permit, contract, and installation photos all match the specified foam system?",
   "Do you offer upgraded protection in vulnerable areas (eaves, valleys, rakes)?",
-  "Flashings: Will you inspect & replace old flashings including stucco cutouts?",
-  "If fascia is replaced, do you paint it to match so the roof looks finished?"
+  "Will you inspect and replace flashings—including cutting/re-stuccoing if needed?",
+  "If you replace fascia or trim, will you paint it to match?",
+  "Do you evaluate attic ventilation and offer options to improve airflow?",
+  "Do you explain insurance and energy-savings benefits in writing?",
+  "Will you provide a clear written scope of work for the entire project?",
+  "Are your crews covered by workers' compensation and is your company fully insured?",
+  "How long have you operated under this exact business name and license?",
+  "Do you offer good/better/best options so I can compare?",
+  "Do you offer enhanced roof system upgrades—not just the minimum code requirement?"
 ];
 
 export default function RoofBuyersChecklist() {
@@ -46,19 +54,20 @@ export default function RoofBuyersChecklist() {
         </h2>
         <p className="text-neutral-300 mb-6 max-w-3xl leading-relaxed">
           A South Florida homeowner's guide to hiring a trustworthy roofing
-          contractor. Only hire roofers who meet at least <strong className="text-white">20 out of 22</strong>
+          contractor. Only hire roofers who meet at least <strong className="text-white">20 out of 30</strong>
           {' '}of these standards. This is an educational resource created by All Phase
           Construction USA to protect homeowners.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
           <a
-            href="/roof-buyers-checklist.pdf"
-            download
-            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 transition-colors shadow-lg"
+            href="/ultimate-roof-buyers-guide.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors shadow-lg"
           >
             <Download className="w-5 h-5" />
-            Download Your Roof Buyer's Checklist (PDF)
+            Download the Ultimate Roof Buyer's Guide (PDF)
           </a>
 
           {checkedCount > 0 && (
@@ -96,14 +105,14 @@ export default function RoofBuyersChecklist() {
         </h3>
         <p className="text-neutral-300 leading-relaxed">
           A qualified South Florida roofing contractor should confidently meet
-          <strong className="text-white"> at least 20 out of 22 items.</strong>
+          <strong className="text-white"> at least 20 out of 30 items.</strong>
           {' '}If they meet fewer than 20, they are not fully equipped for HVHZ roofing.
           {' '}If they meet fewer than <strong className="text-white">15</strong>, walk away immediately.
         </p>
       </div>
 
       <p className="text-neutral-400 mt-8 italic text-center">
-        At All Phase Construction USA, we meet all 22 standards on every project.
+        At All Phase Construction USA, we meet all 30 standards on every project.
       </p>
     </section>
   );
