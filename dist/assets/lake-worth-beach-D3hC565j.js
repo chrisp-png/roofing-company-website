@@ -1,1 +1,0 @@
-import{j as o}from"./index-64O45EEc.js";import{C as t}from"./CityRoofCostTemplate-PGQ7MWx8.js";import"./react-vendor-Ba3W477B.js";import"./pdf-vendor-A8WhpmII.js";function s(){return o.jsx(t,{cityName:"Lake Worth Beach",citySlug:"lake-worth-beach",isCoastal:!0,hoaCommon:!1})}export{s as default};
