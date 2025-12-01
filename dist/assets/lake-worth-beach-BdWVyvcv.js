@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-BlFHl-YS.js";import{C as t}from"./CityRoofCostTemplate-Dm7IMxdI.js";import"./SEO-yfRjJ4GC.js";function s(){return o.jsx(t,{cityName:"Lake Worth Beach",citySlug:"lake-worth-beach",isCoastal:!0,hoaCommon:!1})}export{s as default};
