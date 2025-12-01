@@ -7,14 +7,15 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-red-950/30 z-10"></div>
         <img
-          src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1920&fm=webp"
-          srcSet="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=640&fm=webp 640w,
-                  https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1280&fm=webp 1280w,
-                  https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1920&fm=webp 1920w"
+          src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1280&fm=webp&q=75"
+          srcSet="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=640&fm=webp&q=75 640w,
+                  https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1280&fm=webp&q=75 1280w,
+                  https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1920&fm=webp&q=75 1920w"
           sizes="100vw"
           alt="Professional roofing"
           className="w-full h-full object-cover opacity-40"
-          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
 

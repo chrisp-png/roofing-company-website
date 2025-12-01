@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Download } from 'lucide-react';
 import SEO from '../components/SEO';
-import { generateEstimatePDF } from '../utils/pdfGenerator';
-import { generateComparisonChecklistPDF } from '../utils/comparisonChecklistPdf';
 
 const creditTiers = [
   { label: 'Excellent (750+)', rate: 95, value: 'excellent' },
@@ -99,8 +97,9 @@ export default function FinancingCalculatorPage() {
     }
   };
 
-  const handleDownloadChecklist = () => {
+  const handleDownloadChecklist = async () => {
     try {
+      const { generateComparisonChecklistPDF } = await import('../utils/comparisonChecklistPdf');
       generateComparisonChecklistPDF();
     } catch (error) {
       console.error('Failed to generate comparison checklist:', error);

@@ -5,32 +5,32 @@ export default function ProjectsGallery() {
   const projects = [
     {
       city: 'Boca Raton',
-      image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+      image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
       description: 'Complete tile roof replacement with hurricane upgrade package',
     },
     {
       city: 'Delray Beach',
-      image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+      image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
       description: 'Luxury estate metal roofing system installation',
     },
     {
       city: 'Fort Lauderdale',
-      image: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+      image: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
       description: 'Commercial flat roof replacement and coating',
     },
     {
       city: 'West Palm Beach',
-      image: 'https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+      image: 'https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
       description: 'Architectural shingle roof with wind mitigation upgrades',
     },
     {
       city: 'Coral Springs',
-      image: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+      image: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
       description: 'HOA multi-building roof replacement project',
     },
     {
       city: 'Pompano Beach',
-      image: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+      image: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
       description: 'Residential concrete tile roof installation',
     },
   ];

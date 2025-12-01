@@ -6,7 +6,6 @@ import TrustElements from './TrustElements';
 import RoofBuyersChecklist from './RoofBuyersChecklist';
 import UltimateRoofBuyersGuide from './UltimateRoofBuyersGuide';
 import FinancingEstimator from './FinancingEstimator';
-import { generateEstimatePDF } from '../../utils/pdfGenerator';
 
 interface Step5Props {
   isCommercial: boolean;
@@ -585,8 +584,9 @@ export default function Step5Results({
             </h3>
             <div className="flex justify-center mb-6">
               <button
-                onClick={() => {
+                onClick={async () => {
                   try {
+                    const { generateEstimatePDF } = await import('../../utils/pdfGenerator');
                     generateEstimatePDF({
                       name,
                       material,

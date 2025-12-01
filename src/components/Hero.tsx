@@ -8,7 +8,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1920&fm=webp)',
+          backgroundImage: 'url(https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1280&fm=webp&q=75)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

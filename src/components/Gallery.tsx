@@ -1,31 +1,31 @@
 const projects = [
   {
-    image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+    image: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
     title: 'Modern Residential',
     category: 'Residential'
   },
   {
-    image: 'https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+    image: 'https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
     title: 'Commercial Complex',
     category: 'Commercial'
   },
   {
-    image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+    image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
     title: 'Luxury Estate',
     category: 'Residential'
   },
   {
-    image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+    image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
     title: 'Historic Restoration',
     category: 'Restoration'
   },
   {
-    image: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+    image: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
     title: 'Business Center',
     category: 'Commercial'
   },
   {
-    image: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp',
+    image: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=500&fm=webp&q=75',
     title: 'Suburban Home',
     category: 'Residential'
   }
