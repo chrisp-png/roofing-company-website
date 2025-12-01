@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Layers, MapPin } from 'lucide-react';
 import { MATERIAL_CONFIG, COMPLEXITY_LEVELS } from '../../config/materialConfig';
 
@@ -37,11 +36,7 @@ export default function Step4TierComplexity({
   const tierOrder = ['good', 'better', 'best', 'premium'];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="animate-fadeIn">
       <div className="flex items-center gap-3 mb-2">
         <Layers className="w-7 h-7 text-red-500" />
         <h2 className="text-3xl font-bold text-white">Step 3: Review Your Roof System Options</h2>
@@ -158,6 +153,6 @@ export default function Step4TierComplexity({
           Continue to Get Estimate
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }

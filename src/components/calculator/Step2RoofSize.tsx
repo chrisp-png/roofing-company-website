@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Ruler } from 'lucide-react';
 import { ROOF_SIZES } from '../../config/materialConfig';
 
@@ -11,11 +10,7 @@ interface Step2Props {
 
 export default function Step2RoofSize({ selectedSize, onSelect, onNext, onBack }: Step2Props) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="animate-fadeIn">
       <div className="flex items-center gap-3 mb-2">
         <Ruler className="w-7 h-7 text-red-500" />
         <h2 className="text-3xl font-bold text-white">Step 2: What is your approximate roof size?</h2>
@@ -57,6 +52,6 @@ export default function Step2RoofSize({ selectedSize, onSelect, onNext, onBack }
           Continue
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { MATERIAL_CONFIG } from '../../config/materialConfig';
 import { Check, Building2, Download, DollarSign, Phone } from 'lucide-react';
 import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
@@ -396,12 +395,7 @@ export default function Step5Results({
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6 mb-8"
-        >
+        <div className="space-y-6 mb-8 animate-fadeIn">
           <div className="bg-gradient-to-br from-green-900/20 to-green-700/10 border-2 border-green-500/30 rounded-2xl p-8">
             <div className="flex items-center gap-3 mb-4">
               <DollarSign className="w-8 h-8 text-green-500" />
@@ -467,7 +461,7 @@ export default function Step5Results({
               </div>
             </div>
           )}
-        </motion.div>
+        </div>
 
         {!showFinancingAndChecklist && (
           <div className="mb-8 flex justify-center">
