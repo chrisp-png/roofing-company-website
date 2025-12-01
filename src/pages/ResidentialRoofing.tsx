@@ -14,7 +14,7 @@ export default function ResidentialRoofing() {
       <section className="relative pt-32 pb-20 bg-black text-white">
         <div className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+            backgroundImage: 'url(https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920&fm=webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
