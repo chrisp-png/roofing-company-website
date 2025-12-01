@@ -7,8 +7,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-red-950/30 z-10"></div>
         <img
-          src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=640&fm=webp&q=50"
-          srcSet="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=640&fm=webp&q=50 640w,
+          src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress,format&cs=tinysrgb&w=640&fm=webp&q=35"
+          srcSet="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress,format&cs=tinysrgb&w=640&fm=webp&q=35 640w,
                   https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1280&fm=webp&q=60 1280w,
                   https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1920&fm=webp&q=60 1920w"
           sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, 1920px"
