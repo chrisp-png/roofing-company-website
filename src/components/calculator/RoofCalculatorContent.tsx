@@ -58,7 +58,13 @@ export default function RoofCalculatorContent() {
       const element = document.getElementById('calculator-start');
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - 80;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }, 100);
       }
     }

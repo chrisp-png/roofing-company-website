@@ -51,7 +51,14 @@ export default function RoofCostCalculator() {
     setShowModal(false);
     updateState({ step: 5 });
     setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (resultsRef.current) {
+        const elementPosition = resultsRef.current.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - 80;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }, 100);
   };
 
@@ -59,7 +66,14 @@ export default function RoofCostCalculator() {
     setShowModal(false);
     updateState({ step: 5 });
     setTimeout(() => {
-      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (resultsRef.current) {
+        const elementPosition = resultsRef.current.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - 80;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }, 100);
   };
 
