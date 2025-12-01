@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
               </p>
               <div className="border-t border-neutral-800 pt-4">
                 <p className="text-white font-semibold">{testimonial.name}</p>
-                <p className="text-neutral-500 text-sm">{testimonial.city}</p>
+                <p className="text-neutral-400 text-sm">{testimonial.city}</p>
               </div>
             </div>
           ))}

@@ -54,6 +54,8 @@ export default function Gallery() {
               alt={project.title}
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               loading="lazy"
+              width="500"
+              height="375"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-neutral-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">

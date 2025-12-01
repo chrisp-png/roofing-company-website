@@ -79,6 +79,8 @@ export default function Navigation() {
                   onMouseEnter={() => setRoofTypesOpen(true)}
                   onMouseLeave={() => setRoofTypesOpen(false)}
                   className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-neutral-800 transition-all duration-200 flex items-center gap-1"
+                  aria-label="Roof types menu"
+                  aria-expanded={roofTypesOpen}
                 >
                   Roof Types
                   <ChevronDown className="w-3.5 h-3.5" />
@@ -108,6 +110,8 @@ export default function Navigation() {
                   onMouseEnter={() => setServiceAreasOpen(true)}
                   onMouseLeave={() => setServiceAreasOpen(false)}
                   className="px-3 py-1.5 text-sm font-medium text-white rounded-full hover:bg-neutral-800 transition-all duration-200 flex items-center gap-1"
+                  aria-label="Service areas menu"
+                  aria-expanded={serviceAreasOpen}
                 >
                   Service Areas
                   <ChevronDown className="w-3.5 h-3.5" />
@@ -156,6 +160,8 @@ export default function Navigation() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-neutral-300 hover:text-white"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -181,6 +187,8 @@ export default function Navigation() {
               <button
                 onClick={() => setRoofTypesOpen(!roofTypesOpen)}
                 className="w-full flex items-center justify-between px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800 rounded-full transition-all duration-200"
+                aria-label="Toggle roof types menu"
+                aria-expanded={roofTypesOpen}
               >
                 Roof Types
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${roofTypesOpen ? 'rotate-180' : ''}`} />
@@ -208,6 +216,8 @@ export default function Navigation() {
               <button
                 onClick={() => setServiceAreasOpen(!serviceAreasOpen)}
                 className="w-full flex items-center justify-between px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800 rounded-full transition-all duration-200"
+                aria-label="Toggle service areas menu"
+                aria-expanded={serviceAreasOpen}
               >
                 Service Areas
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${serviceAreasOpen ? 'rotate-180' : ''}`} />
