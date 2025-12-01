@@ -6,6 +6,7 @@ import DualLicensedAdvantageSection from './DualLicensedAdvantageSection';
 import TrustElements from './TrustElements';
 import RoofBuyersChecklist from './RoofBuyersChecklist';
 import UltimateRoofBuyersGuide from './UltimateRoofBuyersGuide';
+import FinancingEstimator from './FinancingEstimator';
 import { generateEstimatePDF } from '../../utils/pdfGenerator';
 
 interface Step5Props {
@@ -473,6 +474,12 @@ export default function Step5Results({
             </div>
           )}
         </motion.div>
+
+        <FinancingEstimator
+          totalProjectCost={midEstimate}
+          insuranceAnnualSavings={insuranceAnnualSavings}
+          ventilationAnnualSavings={ventilationAnnual}
+        />
 
         <div className="mb-8 bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-white mb-4">
