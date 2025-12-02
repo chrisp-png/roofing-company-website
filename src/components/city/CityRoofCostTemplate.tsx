@@ -5,6 +5,7 @@ import { Phone, Calculator, ChevronDown, ChevronUp, CheckCircle, DollarSign, Hom
 import { nearbyCitiesMap } from '../../config/nearbyCitiesMap';
 import BreadcrumbSchema from '../schema/BreadcrumbSchema';
 import EntitySummary from '../EntitySummary';
+import LocalBusinessSchema from '../schema/LocalBusinessSchema';
 
 interface CityRoofCostTemplateProps {
   cityName: string;
@@ -109,6 +110,7 @@ export default function CityRoofCostTemplate({
           { name: `${cityName} Roof Cost`, url: `https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/${citySlug}` }
         ]}
       />
+      <LocalBusinessSchema cityName={cityName} citySlug={citySlug} />
 
       <div className="bg-black text-white min-h-screen">
         <section className="relative bg-gradient-to-br from-neutral-950 to-black border-b border-neutral-800 py-20">
