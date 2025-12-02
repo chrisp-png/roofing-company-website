@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AuthorityGroup from '../components/authority/AuthorityGroup';
 import { Shield, Calculator, Phone } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
 
 export default function MetalRoofingPage() {
   return (
@@ -10,6 +12,13 @@ export default function MetalRoofingPage() {
         title="Metal Roofing in South Florida | Standing Seam Metal Roofs | All Phase Construction"
         description="Standing seam and mechanically seamed metal roofing in Broward & Palm Beach. Excellent wind resistance, solar-ready, low maintenance. 50+ year warranty."
         canonicalUrl="/roof-types/metal"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Residential Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing" },
+          { name: "Metal Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/metal" }
+        ]}
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -22,10 +31,26 @@ export default function MetalRoofingPage() {
               <p className="text-xl text-neutral-300 leading-relaxed mb-8">
                 Standing seam and mechanically seamed metal systems. Excellent for HVHZ zones, solar-ready platforms, and long-term performance with minimal maintenance.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title="Metal Roofing Overview"
+                  items={[
+                    "Standing seam and mechanically seamed metal roof systems",
+                    "50+ year lifespan with minimal maintenance requirements",
+                    "Superior wind resistance rated for HVHZ conditions",
+                    "Solar panel-ready platforms with structural support",
+                    "Energy-efficient reflective coatings reduce cooling costs",
+                    "Typical cost: $35,000–$80,000 depending on home size and complexity"
+                  ]}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/roof-cost-calculator"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-900/50"
+                  aria-label="Calculate metal roof replacement cost for South Florida homes"
                 >
                   <Calculator className="w-5 h-5" />
                   Get Metal Roof Estimate
@@ -33,6 +58,7 @@ export default function MetalRoofingPage() {
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-200"
+                  aria-label="Schedule free metal roof assessment in Broward or Palm Beach County"
                 >
                   <Phone className="w-5 h-5" />
                   Schedule Assessment

@@ -11,8 +11,31 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import BottomCTA from '../components/home/BottomCTA';
 import HomeLocalBusinessSchema from '../components/HomeLocalBusinessSchema';
 import RoofGuideFaqSchema from '../components/RoofGuideFaqSchema';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import ReviewSchema from '../components/schema/ReviewSchema';
 
 export default function HomePage() {
+  const testimonialReviews = [
+    {
+      author: "Michael Rodriguez",
+      rating: 5,
+      reviewBody: "All Phase replaced our tile roof in Boca Raton. Professional crew, clean job site, and they coordinated everything with our HOA. Insurance went down significantly after the wind mitigation inspection.",
+      datePublished: "2024-11-15"
+    },
+    {
+      author: "Jennifer Wilson",
+      rating: 5,
+      reviewBody: "Excellent experience from start to finish. They explained every step of the process, handled all permits, and the new metal roof looks amazing. Highly recommend for anyone in South Florida.",
+      datePublished: "2024-10-28"
+    },
+    {
+      author: "David Chen",
+      rating: 5,
+      reviewBody: "Fast, professional, and fairly priced. Our flat roof replacement in Fort Lauderdale was completed on schedule. The team was respectful of our property and cleaned up perfectly each day.",
+      datePublished: "2024-09-12"
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -24,6 +47,12 @@ export default function HomePage() {
       />
       <HomeLocalBusinessSchema />
       <RoofGuideFaqSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" }
+        ]}
+      />
+      <ReviewSchema reviews={testimonialReviews} />
       <HeroSection />
       <TrustBadges />
       <WhyChooseBar />

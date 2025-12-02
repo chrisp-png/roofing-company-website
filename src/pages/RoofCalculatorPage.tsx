@@ -1,6 +1,7 @@
 import SEO from '../components/SEO';
 import RoofCostCalculator from '../components/calculator/RoofCostCalculator';
 import RoofCalculatorContent from '../components/calculator/RoofCalculatorContent';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
 
 export default function RoofCalculatorPage() {
   const faqSchema = {
@@ -48,6 +49,12 @@ export default function RoofCalculatorPage() {
         title="How Much Does a Roof Cost in South Florida? | Roof Cost Calculator"
         description="Use our free South Florida roof cost calculator to estimate shingle, tile, metal, and flat roof prices. Built for Broward and Palm Beach County homeowners."
         schemaJson={faqSchema}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Roof Cost Calculator", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost-calculator" }
+        ]}
       />
       <RoofCalculatorContent />
     </>

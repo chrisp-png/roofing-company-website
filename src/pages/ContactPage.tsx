@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import SEO from '../components/SEO';
 import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
 
 interface FormData {
   fullName: string;
@@ -140,6 +141,12 @@ export default function ContactPage() {
         title="Contact All Phase Construction USA | Request Roof Assessment"
         description="Contact All Phase Construction USA for a free roof assessment in Broward and Palm Beach Counties. Residential, commercial, and HOA roofing services. Call 754-227-5605."
         canonical="/contact"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Contact", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/contact" }
+        ]}
       />
 
       <div className="bg-black text-white min-h-screen">

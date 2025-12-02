@@ -3,6 +3,8 @@ import SEO from '../components/SEO';
 import BlogContent from '../components/blog/BlogContent';
 import { blogPosts } from '../data/blogPosts';
 import { Calendar, Clock, Tag, Phone, Mail, MapPin, ArrowLeft } from 'lucide-react';
+import ArticleSchema from '../components/schema/ArticleSchema';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -17,11 +19,30 @@ export default function BlogDetailPage() {
     return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   };
 
+  const postUrl = `https://chrisp-png-roofing-c-gxj0.bolt.host/blog/${post.slug}`;
+
   return (
     <>
       <SEO
         title={`${post.title} | All Phase Construction USA`}
         description={post.excerpt}
+      />
+      <ArticleSchema
+        headline={post.title}
+        description={post.excerpt}
+        datePublished={post.publishedAt}
+        dateModified={post.publishedAt}
+        authorName="All Phase Construction USA"
+        authorJobTitle="Licensed Roofing Contractor"
+        url={postUrl}
+        keywords={post.keywords}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Blog", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/blog" },
+          { name: post.title, url: postUrl }
+        ]}
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -54,7 +75,7 @@ export default function BlogDetailPage() {
             <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-400 mb-8 pb-6 border-b border-neutral-800">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>{formatDate(post.publishedAt)}</span>
+                <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
@@ -131,12 +152,14 @@ export default function BlogDetailPage() {
                 <Link
                   to="/roof-cost-calculator"
                   className="px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-900/50 text-center"
+                  aria-label="Calculate your roof replacement cost in South Florida"
                 >
                   Roof Cost Calculator
                 </Link>
                 <Link
                   to="/contact"
                   className="px-8 py-4 border-2 border-red-600 text-red-500 text-lg font-semibold rounded-lg hover:bg-red-600 hover:text-white transition-all duration-200 text-center"
+                  aria-label="Schedule free roof inspection in Broward or Palm Beach County"
                 >
                   Schedule an Inspection
                 </Link>
@@ -173,6 +196,7 @@ export default function BlogDetailPage() {
                     key={relatedPost.slug}
                     to={`/blog/${relatedPost.slug}`}
                     className="bg-black border border-neutral-800 rounded-xl p-5 hover:border-red-500 transition-all duration-300"
+                    aria-label={`Read article: ${relatedPost.title}`}
                   >
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-red-600/10 border border-red-500/30 rounded-full mb-3">
                       <span className="text-xs font-semibold text-red-500">{relatedPost.category}</span>

@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { Home, Shield, Calculator, Phone, ChevronRight, CheckCircle, ChevronDown, ChevronUp, DollarSign, Award, Clock, Users } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
+import HowToSchema from '../components/schema/HowToSchema';
 
 interface FAQItem {
   question: string;
@@ -38,6 +41,33 @@ export default function ResidentialRoofingPage() {
     },
   ];
 
+  const howToSteps = [
+    {
+      name: "Schedule Free Assessment",
+      text: "Contact All Phase Construction USA to schedule a free on-site roof inspection and quote. We'll evaluate your current roof condition, measure dimensions, and discuss material options."
+    },
+    {
+      name: "Choose Your Roofing Material",
+      text: "Select from shingle, tile, metal, or flat roofing systems. We'll explain the pros and cons of each material for South Florida's climate and help you understand wind mitigation benefits."
+    },
+    {
+      name: "Obtain HOA Approval (if applicable)",
+      text: "We assist with HOA architectural submissions including material specifications, color samples, and contractor licensing documentation required by your community."
+    },
+    {
+      name: "Sign Contract & Secure Permits",
+      text: "Review and sign your roofing contract. All Phase handles all building permits, ensuring full compliance with Florida Building Code and local requirements."
+    },
+    {
+      name: "Schedule Installation",
+      text: "We coordinate the installation timeline around your schedule. Most residential roof replacements take 3-7 days depending on size and complexity."
+    },
+    {
+      name: "Complete Installation & Final Inspection",
+      text: "Our licensed crews install your new roof system. After completion, we conduct a final walkthrough and schedule the required building inspection for permit sign-off."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -46,6 +76,18 @@ export default function ResidentialRoofingPage() {
         url="https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing"
         canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing"
         ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Residential Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing" }
+        ]}
+      />
+      <HowToSchema
+        name="How to Replace Your Residential Roof in South Florida"
+        description="Complete step-by-step process for residential roof replacement in Broward and Palm Beach counties, from assessment to final inspection."
+        steps={howToSteps}
+        totalTime="P7D"
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -63,6 +105,21 @@ export default function ResidentialRoofingPage() {
               <p className="text-xl text-neutral-300 leading-relaxed mb-8">
                 All Phase Construction USA protects South Florida homes with code-compliant, hurricane-rated roofing systems. We serve homeowners throughout Boca Raton, Deerfield Beach, Coral Springs, Coconut Creek, Delray Beach, Pompano Beach, Fort Lauderdale, Parkland, and surrounding communities. Our dual-licensed team specializes in tile, metal, shingle, and flat roof installations designed to maximize wind mitigation credits and insurance savings.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title="Residential Roofing Services Overview"
+                  items={[
+                    "Complete roof replacement for single-family homes in Broward and Palm Beach counties",
+                    "Shingle, tile, metal, and flat roofing systems with hurricane-rated wind resistance",
+                    "Dual-licensed general contractor and roofing contractor for structural repairs",
+                    "HOA coordination and architectural approval assistance",
+                    "Wind mitigation installations for insurance premium reductions up to $3,000+ annually",
+                    "Free on-site assessments with detailed quotes and material recommendations"
+                  ]}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"

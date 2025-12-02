@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../SEO';
 import { Phone, Calculator, ChevronDown, ChevronUp, CheckCircle, DollarSign, Home, Shield, MapPin } from 'lucide-react';
 import { nearbyCitiesMap } from '../../config/nearbyCitiesMap';
+import BreadcrumbSchema from '../schema/BreadcrumbSchema';
+import EntitySummary from '../EntitySummary';
 
 interface CityRoofCostTemplateProps {
   cityName: string;
@@ -92,6 +94,13 @@ export default function CityRoofCostTemplate({
         ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
         schemaJson={faqSchema}
       />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Roof Cost Calculator", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost-calculator" },
+          { name: `${cityName} Roof Cost`, url: `https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/${citySlug}` }
+        ]}
+      />
 
       <div className="bg-black text-white min-h-screen">
         <section className="relative bg-gradient-to-br from-neutral-950 to-black border-b border-neutral-800 py-20">
@@ -121,13 +130,28 @@ export default function CityRoofCostTemplate({
               <p className="text-xl text-neutral-300 leading-relaxed mb-6">
                 Roof replacement costs in {cityName} depend on home size, material selection, {hoaCommon && 'HOA requirements, '}
                 and Florida Building Code compliance. With {coastalDescription}, proper roof installation is critical.
-                Use our <Link to="/roof-cost-calculator#calculator-start" className="text-red-500 hover:text-red-400 font-semibold">Roof Cost Calculator</Link> for
+                Use our <Link to="/roof-cost-calculator#calculator-start" className="text-red-500 hover:text-red-400 font-semibold" aria-label={`Calculate roof cost for ${cityName} homes`}>Roof Cost Calculator</Link> for
                 instant estimates, or schedule a free assessment for exact pricing.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title={`${cityName} Roof Replacement Quick Facts`}
+                  items={[
+                    `Shingle roofs: $12,000–$26,000 for typical ${cityName} homes`,
+                    `Tile roofs: $32,000–$75,000 depending on material and complexity`,
+                    `Metal roofs: $38,000–$85,000 with superior wind resistance`,
+                    `Flat roofs: $10,000–$32,000 for low-slope systems`,
+                    `All prices include Florida Building Code compliance and permits`,
+                    `Wind mitigation upgrades can reduce insurance by $500–$6,500 annually`
+                  ]}
+                />
+              </div>
 
               <a
                 href="tel:754-227-5605"
                 className="inline-flex items-center gap-2 text-white hover:text-red-500 font-semibold text-lg mb-8 transition-colors"
+                aria-label={`Call All Phase Construction for ${cityName} roof quote`}
               >
                 <Phone className="w-5 h-5" />
                 (754) 227-5605
