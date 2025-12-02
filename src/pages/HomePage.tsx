@@ -1,6 +1,7 @@
 import SEO from '../components/SEO';
 import HeroSection from '../components/home/HeroSection';
 import TrustBadges from '../components/home/TrustBadges';
+import GeoEntityIntro from '../components/GeoEntityIntro';
 import WhyChooseBar from '../components/home/WhyChooseBar';
 import TrustBar from '../components/home/TrustBar';
 import UrgencyBanner from '../components/home/UrgencyBanner';
@@ -55,6 +56,7 @@ export default function HomePage() {
       <ReviewSchema reviews={testimonialReviews} />
       <HeroSection />
       <TrustBadges />
+      <GeoEntityIntro />
       <WhyChooseBar />
       <TrustBar />
       <UrgencyBanner />
