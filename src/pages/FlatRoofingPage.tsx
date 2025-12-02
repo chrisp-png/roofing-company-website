@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AuthorityGroup from '../components/authority/AuthorityGroup';
 import { Shield, Calculator, Phone } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
 
 export default function FlatRoofingPage() {
   return (
@@ -10,6 +12,13 @@ export default function FlatRoofingPage() {
         title="Flat Roofing in South Florida | TPO, Modified, IB PVC | All Phase Construction"
         description="Expert flat roofing in Broward & Palm Beach. TPO, modified bitumen, and IB PVC systems for residential additions, porches, and commercial buildings."
         canonicalUrl="/roof-types/flat"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Residential Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing" },
+          { name: "Flat Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/flat" }
+        ]}
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -22,10 +31,26 @@ export default function FlatRoofingPage() {
               <p className="text-xl text-neutral-300 leading-relaxed mb-8">
                 TPO, modified bitumen, and IB PVC systems for residential additions, porches, and commercial buildings. Energy-efficient and durable flat roof solutions.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title="Flat Roofing Overview"
+                  items={[
+                    "TPO, modified bitumen, and IB PVC low-slope roofing systems",
+                    "15-25 year lifespan depending on material and maintenance",
+                    "Energy-efficient white reflective membranes reduce cooling costs",
+                    "Ideal for residential additions, porches, garages, and commercial buildings",
+                    "Proper drainage design critical for South Florida rainfall",
+                    "Typical cost: $10,000–$32,000 for residential flat roof applications"
+                  ]}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/roof-cost-calculator"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-900/50"
+                  aria-label="Calculate flat roof cost for South Florida properties"
                 >
                   <Calculator className="w-5 h-5" />
                   Get Flat Roof Estimate
@@ -33,6 +58,7 @@ export default function FlatRoofingPage() {
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-200"
+                  aria-label="Schedule free flat roof assessment in Broward or Palm Beach County"
                 >
                   <Phone className="w-5 h-5" />
                   Schedule Assessment

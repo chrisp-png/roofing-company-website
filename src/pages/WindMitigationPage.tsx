@@ -4,6 +4,9 @@ import SEO from '../components/SEO';
 import Schema from '../components/Schema';
 import AuthorityGroup from '../components/authority/AuthorityGroup';
 import { Shield, Home, Hammer, FileCheck, DollarSign, ChevronDown, ChevronUp } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
+import HowToSchema from '../components/schema/HowToSchema';
 
 export default function WindMitigationPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -99,6 +102,29 @@ export default function WindMitigationPage() {
     },
   ];
 
+  const howToSteps = [
+    {
+      name: "Schedule Wind Mitigation Assessment",
+      text: "Contact All Phase Construction USA for a free wind mitigation consultation. We'll inspect your current roof features, identify eligible upgrades, and estimate potential insurance savings based on your home's construction."
+    },
+    {
+      name: "Review Upgrade Recommendations",
+      text: "We provide a detailed proposal showing recommended wind mitigation features including SWR underlayment, enhanced roof-to-wall connections, improved deck attachment, and roof covering upgrades. Each recommendation includes expected insurance credit value."
+    },
+    {
+      name: "Complete Installation",
+      text: "Our licensed crews install wind mitigation upgrades according to Florida Building Code and HVHZ requirements. We document all work with photos for your Form 1802 inspection and maintain full permit compliance."
+    },
+    {
+      name: "Schedule Form 1802 Inspection",
+      text: "After completion, we coordinate with a licensed wind mitigation inspector to conduct your Form 1802 (Uniform Mitigation Verification Inspection). This official report documents all wind-resistant features of your home."
+    },
+    {
+      name: "Submit Report to Insurance",
+      text: "Provide the completed Form 1802 to your insurance agent. They will process your wind mitigation credits and apply premium reductions, typically resulting in $500-$6,500 annual savings depending on your coverage and upgrades."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -107,6 +133,18 @@ export default function WindMitigationPage() {
       />
 
       <Schema type="FAQPage" faqs={faqs} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Wind Mitigation", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/wind-mitigation" }
+        ]}
+      />
+      <HowToSchema
+        name="How to Get Wind Mitigation Credits and Reduce Insurance Costs in Florida"
+        description="Complete guide to wind mitigation inspections and insurance premium reductions for South Florida homeowners."
+        steps={howToSteps}
+        totalTime="P21D"
+      />
 
       <div className="bg-black text-white min-h-screen">
         <section className="relative bg-gradient-to-br from-neutral-950 to-black border-b border-neutral-800 py-20">
@@ -123,6 +161,20 @@ export default function WindMitigationPage() {
                 Serving Broward and Palm Beach Counties with expert roof improvements designed for
                 High-Velocity Hurricane Zone (HVHZ) compliance and maximum insurance credits.
               </p>
+
+              <div className="max-w-3xl mt-8">
+                <EntitySummary
+                  title="Wind Mitigation Quick Facts"
+                  items={[
+                    "Annual insurance savings: $500–$6,500 for qualified homeowners",
+                    "Key upgrades: SWR underlayment, roof-to-wall connections, enhanced deck attachment",
+                    "Form 1802 inspection required for insurance credit documentation",
+                    "3-7 days for roof installation, 30-60 days for full insurance processing",
+                    "HVHZ compliance and Florida Building Code adherence mandatory",
+                    "Available for single-family homes, townhomes, condos, and HOA properties"
+                  ]}
+                />
+              </div>
             </div>
           </div>
         </section>

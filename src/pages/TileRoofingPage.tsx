@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AuthorityGroup from '../components/authority/AuthorityGroup';
 import { Shield, Calculator, Phone } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
 
 export default function TileRoofingPage() {
   return (
@@ -10,6 +12,13 @@ export default function TileRoofingPage() {
         title="Tile Roofing in South Florida | Concrete & Clay Tile | All Phase Construction"
         description="Expert tile roofing installation in Broward & Palm Beach Counties. Concrete and clay tile with foam adhesive and SWR underlayment for maximum hurricane protection and insurance savings."
         canonicalUrl="/roof-types/tile"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Residential Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing" },
+          { name: "Tile Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/tile" }
+        ]}
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -22,10 +31,26 @@ export default function TileRoofingPage() {
               <p className="text-xl text-neutral-300 leading-relaxed mb-8">
                 Concrete and clay tile roofs with premium foam adhesive attachment and SWR underlayment. Built for South Florida hurricanes and designed to maximize insurance savings.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title="Tile Roofing Overview"
+                  items={[
+                    "Concrete and clay tile roof systems with 50-100 year lifespan",
+                    "Premium foam adhesive attachment for superior wind resistance",
+                    "SWR (Secondary Water Resistance) underlayment for hurricane protection",
+                    "Classic Mediterranean and Spanish-style aesthetics",
+                    "Insurance premium reductions of $2,500+ annually with proper documentation",
+                    "Typical cost: $30,000–$70,000 depending on tile type and home complexity"
+                  ]}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/roof-cost-calculator"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-900/50"
+                  aria-label="Calculate tile roof replacement cost for South Florida homes"
                 >
                   <Calculator className="w-5 h-5" />
                   Get Tile Roof Estimate
@@ -33,6 +58,7 @@ export default function TileRoofingPage() {
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-200"
+                  aria-label="Schedule free tile roof assessment in Broward or Palm Beach County"
                 >
                   <Phone className="w-5 h-5" />
                   Schedule Assessment

@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import AuthorityGroup from '../components/authority/AuthorityGroup';
 import { Shield, Calculator, Phone } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
 
 export default function ShingleRoofingPage() {
   return (
@@ -10,6 +12,13 @@ export default function ShingleRoofingPage() {
         title="Shingle Roofing in South Florida | Architectural Shingles | All Phase Construction"
         description="High-performance architectural shingle roofing in Broward & Palm Beach. Class 4 impact-rated, wind-rated to 130 mph. Budget-friendly with strong hurricane protection."
         canonicalUrl="/roof-types/shingle"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Residential Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing" },
+          { name: "Shingle Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/shingle" }
+        ]}
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -22,10 +31,26 @@ export default function ShingleRoofingPage() {
               <p className="text-xl text-neutral-300 leading-relaxed mb-8">
                 High-performance architectural shingles with proper underlayment and nailing patterns. Budget-friendly option with strong wind ratings for South Florida homes.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title="Shingle Roofing Overview"
+                  items={[
+                    "Architectural shingles rated for 130+ mph winds",
+                    "Class 4 impact-rated options for maximum hail protection",
+                    "15-30 year lifespan depending on product tier and maintenance",
+                    "Most budget-friendly roofing option for South Florida homes",
+                    "Proper underlayment and enhanced nailing patterns per Florida Building Code",
+                    "Typical cost: $12,000–$26,000 for residential installations"
+                  ]}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/roof-cost-calculator"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-900/50"
+                  aria-label="Calculate architectural shingle roof cost for South Florida homes"
                 >
                   <Calculator className="w-5 h-5" />
                   Get Shingle Roof Estimate
@@ -33,6 +58,7 @@ export default function ShingleRoofingPage() {
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-200"
+                  aria-label="Schedule free shingle roof assessment in Broward or Palm Beach County"
                 >
                   <Phone className="w-5 h-5" />
                   Schedule Assessment

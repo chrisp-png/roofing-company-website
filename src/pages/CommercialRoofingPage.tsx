@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { Building2, Shield, Phone, FileText, CheckCircle, ChevronDown, ChevronUp, Users, Clock, Award, Wrench, MapPin } from 'lucide-react';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import EntitySummary from '../components/EntitySummary';
+import HowToSchema from '../components/schema/HowToSchema';
 
 interface FAQItem {
   question: string;
@@ -38,6 +41,33 @@ export default function CommercialRoofingPage() {
     },
   ];
 
+  const howToSteps = [
+    {
+      name: "Initial Consultation & Building Assessment",
+      text: "Contact All Phase Construction USA for a comprehensive commercial roof inspection. We assess current conditions, measure the property, evaluate structural requirements, and discuss material options suitable for your building type and budget."
+    },
+    {
+      name: "Proposal Development & Board Presentation",
+      text: "We prepare a detailed proposal including scope of work, material specifications, project timeline, and budget breakdown. For HOA and condo properties, we can attend board meetings to present the proposal and answer questions."
+    },
+    {
+      name: "Contract Execution & Permits",
+      text: "Once approved, we execute the contract and handle all building permits, ensuring compliance with Florida Building Code and local requirements. We coordinate with property managers on scheduling and logistics."
+    },
+    {
+      name: "Project Phasing & Scheduling",
+      text: "We develop a phased construction schedule to minimize disruption to tenants and building operations. Phasing is especially important for occupied buildings, allowing sections to remain operational during installation."
+    },
+    {
+      name: "Installation & Daily Coordination",
+      text: "Our licensed crews install the new roofing system according to manufacturer specifications. A project manager maintains daily communication with property management, coordinates deliveries, and ensures quality control."
+    },
+    {
+      name: "Final Inspection & Warranty Documentation",
+      text: "After completion, we conduct a final walkthrough, ensure all permits are closed, and provide comprehensive warranty documentation including material warranties and our workmanship guarantee."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -46,6 +76,17 @@ export default function CommercialRoofingPage() {
         url="https://chrisp-png-roofing-c-gxj0.bolt.host/commercial-roofing"
         canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/commercial-roofing"
         ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" },
+          { name: "Commercial Roofing", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/commercial-roofing" }
+        ]}
+      />
+      <HowToSchema
+        name="How to Plan a Commercial Roof Replacement in South Florida"
+        description="Complete process for commercial and multi-family roof replacement projects in Broward and Palm Beach counties, from initial assessment to warranty documentation."
+        steps={howToSteps}
       />
 
       <div className="bg-black text-white min-h-screen">
@@ -63,10 +104,26 @@ export default function CommercialRoofingPage() {
               <p className="text-xl text-neutral-300 leading-relaxed mb-8">
                 All Phase Construction USA provides commercial roofing solutions for multi-family properties, condominiums, HOAs, office buildings, retail centers, warehouses, and industrial facilities throughout Broward and Palm Beach Counties. Our dual-licensed status (CGC1526236 & CCC1331464) allows us to handle both roofing and structural work that most contractors cannot perform.
               </p>
+
+              <div className="max-w-3xl mx-auto mb-8">
+                <EntitySummary
+                  title="Commercial Roofing Services Overview"
+                  items={[
+                    "Multi-family properties, condominiums, HOA buildings, and commercial facilities",
+                    "IB PVC, TPO, modified bitumen, metal, and tile roofing systems",
+                    "Dual-licensed (GC & Roofing) for structural repairs and code compliance",
+                    "Phased project scheduling to minimize tenant disruption",
+                    "HOA board presentations and property manager coordination",
+                    "10-20 year material warranties plus workmanship guarantees"
+                  ]}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-lg hover:bg-red-500 transition-all duration-200 shadow-lg shadow-red-900/50"
+                  aria-label="Request commercial roof assessment for HOA, condo, or commercial property"
                 >
                   <FileText className="w-5 h-5" />
                   Request a Commercial Roof Assessment
@@ -74,6 +131,7 @@ export default function CommercialRoofingPage() {
                 <a
                   href="tel:754-227-5605"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-200"
+                  aria-label="Call All Phase Construction for commercial roofing quote"
                 >
                   <Phone className="w-5 h-5" />
                   Call 754-227-5605
