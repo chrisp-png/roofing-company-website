@@ -1,118 +1,134 @@
-import { useState, useEffect } from 'react';
-
-interface GalleryImage {
-  file_path: string;
-  alt_text: string;
-}
-
-interface CustomerTestimonial {
+interface CustomerProject {
   id: string;
-  customer_name: string;
-  testimonial_quote: string;
-  project_type: string;
-  project_location: string;
-  images: GalleryImage;
+  name: string;
+  quote: string;
+  city: string;
+  roofType: string;
+  imageUrl: string;
+  alt: string;
+  rating: number;
 }
 
-const FALLBACK_ITEMS = [
+const customerProjects: CustomerProject[] = [
   {
     id: '1',
-    customer_name: 'The Martinez Family',
-    testimonial_quote: 'Our new tile roof is absolutely stunning. Worth every penny!',
-    project_type: 'tile',
-    project_location: 'Boca Raton',
-    images: {
-      file_path: '/images/hero-desktop-1920.jpg',
-      alt_text: 'All Phase Construction USA – Tile roof in Boca Raton, Florida'
-    }
+    name: 'The Martinez Family',
+    quote: 'Our new tile roof is absolutely stunning. Worth every penny!',
+    city: 'Boca Raton',
+    roofType: 'tile',
+    imageUrl: '/images/projects/project-1.jpg',
+    alt: 'Tile roof installation in Boca Raton, Florida',
+    rating: 5
   },
   {
     id: '2',
-    customer_name: 'David & Linda Chen',
-    testimonial_quote: 'Best roofing decision we made. Metal roof looks amazing!',
-    project_type: 'metal',
-    project_location: 'Fort Lauderdale',
-    images: {
-      file_path: '/images/hero-desktop-1280.jpg',
-      alt_text: 'All Phase Construction USA – Metal roof in Fort Lauderdale, Florida'
-    }
+    name: 'David & Linda Chen',
+    quote: 'Best roofing decision we made. Metal roof looks amazing!',
+    city: 'Fort Lauderdale',
+    roofType: 'metal',
+    imageUrl: '/images/projects/project-2.jpg',
+    alt: 'Metal roof installation in Fort Lauderdale, Florida',
+    rating: 5
   },
   {
     id: '3',
-    customer_name: 'Robert Wilson',
-    testimonial_quote: 'From old and damaged to beautiful and secure. Thank you!',
-    project_type: 'tile',
-    project_location: 'Delray Beach',
-    images: {
-      file_path: '/images/hero-desktop-1920.jpg',
-      alt_text: 'All Phase Construction USA – Tile roof in Delray Beach, Florida'
-    }
+    name: 'Robert Wilson',
+    quote: 'From old and damaged to beautiful and secure. Thank you!',
+    city: 'Delray Beach',
+    roofType: 'tile',
+    imageUrl: '/images/projects/project-3.jpg',
+    alt: 'Tile roof replacement in Delray Beach, Florida',
+    rating: 5
   },
   {
     id: '4',
-    customer_name: 'Jennifer Rodriguez',
-    testimonial_quote: 'Impact-rated shingles give us peace of mind during hurricane season.',
-    project_type: 'shingle',
-    project_location: 'Pompano Beach',
-    images: {
-      file_path: '/images/hero-desktop-1280.jpg',
-      alt_text: 'All Phase Construction USA – Shingle roof in Pompano Beach, Florida'
-    }
+    name: 'Jennifer Rodriguez',
+    quote: 'Impact-rated shingles give us peace of mind during hurricane season.',
+    city: 'Pompano Beach',
+    roofType: 'shingle',
+    imageUrl: '/images/projects/project-4.jpg',
+    alt: 'Shingle roof installation in Pompano Beach, Florida',
+    rating: 5
   },
   {
     id: '5',
-    customer_name: 'Coral Springs Business Park',
-    testimonial_quote: 'Our commercial flat roof installation was completed on time and on budget.',
-    project_type: 'flat',
-    project_location: 'Coral Springs',
-    images: {
-      file_path: '/images/hero-mobile.jpg',
-      alt_text: 'All Phase Construction USA – Flat roof in Coral Springs, Florida'
-    }
+    name: 'Coral Springs Business Park',
+    quote: 'Our commercial flat roof installation was completed on time and on budget.',
+    city: 'Coral Springs',
+    roofType: 'flat',
+    imageUrl: '/images/projects/project-5.jpg',
+    alt: 'Commercial flat roof in Coral Springs, Florida',
+    rating: 5
   },
   {
     id: '6',
-    customer_name: 'The Thompson Family',
-    testimonial_quote: 'The crew was fantastic and our roof looks incredible!',
-    project_type: 'shingle',
-    project_location: 'Palm Beach County',
-    images: {
-      file_path: '/images/hero-desktop-1920.jpg',
-      alt_text: 'All Phase Construction USA – Shingle roof in Palm Beach County, Florida'
-    }
+    name: 'The Thompson Family',
+    quote: 'The crew was fantastic and our roof looks incredible!',
+    city: 'Palm Beach County',
+    roofType: 'shingle',
+    imageUrl: '/images/projects/project-6.jpg',
+    alt: 'Shingle roof installation in Palm Beach County, Florida',
+    rating: 5
   },
   {
     id: '7',
-    customer_name: 'Estate in Boca Raton',
-    testimonial_quote: 'Aerial view shows the incredible craftsmanship of our tile roof.',
-    project_type: 'tile',
-    project_location: 'Boca Raton',
-    images: {
-      file_path: '/images/hero-desktop-1280.jpg',
-      alt_text: 'All Phase Construction USA – Tile roof in Boca Raton, Florida'
-    }
+    name: 'Estate in Boca Raton',
+    quote: 'Aerial view shows the incredible craftsmanship of our tile roof.',
+    city: 'Boca Raton',
+    roofType: 'tile',
+    imageUrl: '/images/projects/project-7.jpg',
+    alt: 'Luxury tile roof in Boca Raton, Florida',
+    rating: 5
   },
   {
     id: '8',
-    customer_name: 'Michael Stevens',
-    testimonial_quote: 'The foam adhesive attachment is a game-changer for wind resistance.',
-    project_type: 'tile',
-    project_location: 'Broward County',
-    images: {
-      file_path: '/images/hero-mobile.jpg',
-      alt_text: 'All Phase Construction USA – Tile roof installation in Broward County, Florida'
-    }
+    name: 'Michael Stevens',
+    quote: 'The foam adhesive attachment is a game-changer for wind resistance.',
+    city: 'Broward County',
+    roofType: 'tile',
+    imageUrl: '/images/projects/project-8.jpg',
+    alt: 'Hurricane-rated tile roof in Broward County, Florida',
+    rating: 5
   },
   {
     id: '9',
-    customer_name: 'Sarah Martinez',
-    testimonial_quote: 'Professional metal roof installation with attention to every detail.',
-    project_type: 'metal',
-    project_location: 'Palm Beach County',
-    images: {
-      file_path: '/images/hero-desktop-1920.jpg',
-      alt_text: 'All Phase Construction USA – Metal roof in Palm Beach County, Florida'
-    }
+    name: 'Sarah Martinez',
+    quote: 'Professional metal roof installation with attention to every detail.',
+    city: 'Palm Beach County',
+    roofType: 'metal',
+    imageUrl: '/images/projects/project-9.jpg',
+    alt: 'Standing seam metal roof in Palm Beach County, Florida',
+    rating: 5
+  },
+  {
+    id: '10',
+    name: 'James Patterson',
+    quote: 'The wind mitigation inspection saved us hundreds on insurance.',
+    city: 'Delray Beach',
+    roofType: 'wind_mitigation',
+    imageUrl: '/images/projects/project-10.jpg',
+    alt: 'Wind mitigation roof upgrade in Delray Beach, Florida',
+    rating: 5
+  },
+  {
+    id: '11',
+    name: 'Karen Williams',
+    quote: 'The commercial flat roof exceeded our expectations.',
+    city: 'Fort Lauderdale',
+    roofType: 'commercial',
+    imageUrl: '/images/projects/project-11.jpg',
+    alt: 'Commercial TPO roof in Fort Lauderdale, Florida',
+    rating: 5
+  },
+  {
+    id: '12',
+    name: 'The Anderson Family',
+    quote: 'Our HOA was impressed with the quality and professionalism.',
+    city: 'Parkland',
+    roofType: 'hoa',
+    imageUrl: '/images/projects/project-12.jpg',
+    alt: 'HOA multi-family roof replacement in Parkland, Florida',
+    rating: 5
   }
 ];
 
@@ -128,18 +144,6 @@ const PROJECT_TYPE_LABELS: Record<string, string> = {
 };
 
 export default function CustomerGallery() {
-  const [items, setItems] = useState<CustomerTestimonial[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setItems(FALLBACK_ITEMS);
-    setLoading(false);
-  }, []);
-
-  if (loading) {
-    return null;
-  }
-
   return (
     <section
       className="py-16 bg-neutral-950 border-t border-neutral-800"
@@ -156,8 +160,8 @@ export default function CustomerGallery() {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {items.map((item, index) => {
-            const projectTypeLabel = PROJECT_TYPE_LABELS[item.project_type] || item.project_type;
+          {customerProjects.map((item, index) => {
+            const projectTypeLabel = PROJECT_TYPE_LABELS[item.roofType] || item.roofType;
 
             return (
               <div
@@ -174,8 +178,8 @@ export default function CustomerGallery() {
 
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src={item.images.file_path}
-                    alt={item.images.alt_text}
+                    src={item.imageUrl}
+                    alt={item.alt}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     loading="lazy"
                   />
@@ -184,15 +188,15 @@ export default function CustomerGallery() {
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-white font-semibold text-base">
-                      {item.customer_name}
+                      {item.name}
                     </h3>
                     <div className="flex text-yellow-500 text-xs">
-                      {'⭐'.repeat(5)}
+                      {'⭐'.repeat(item.rating)}
                     </div>
                   </div>
 
                   <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                    <meta itemProp="ratingValue" content="5" />
+                    <meta itemProp="ratingValue" content={String(item.rating)} />
                     <meta itemProp="bestRating" content="5" />
                   </div>
 
@@ -200,14 +204,14 @@ export default function CustomerGallery() {
                     className="text-neutral-300 text-sm mb-3 line-clamp-2"
                     itemProp="reviewBody"
                   >
-                    "{item.testimonial_quote}"
+                    "{item.quote}"
                   </p>
 
                   <div className="flex items-center text-xs text-neutral-500 border-t border-neutral-800 pt-3">
                     <span itemProp="author" itemScope itemType="https://schema.org/Person">
-                      <meta itemProp="name" content={item.customer_name} />
+                      <meta itemProp="name" content={item.name} />
                     </span>
-                    <span className="font-medium">{item.project_location}</span>
+                    <span className="font-medium">{item.city}</span>
                     <span className="mx-2">•</span>
                     <span className="italic">{projectTypeLabel}</span>
                   </div>
