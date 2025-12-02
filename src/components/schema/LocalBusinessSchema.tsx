@@ -56,21 +56,12 @@ export default function LocalBusinessSchema({ cityName, citySlug }: LocalBusines
   const schema = {
     "@context": "https://schema.org",
     "@type": "RoofingContractor",
-    "@id": "https://chrisp-png-roofing-c-gxj0.bolt.host/#organization",
-    "name": "All Phase Construction USA, LLC",
-    "alternateName": "All Phase Construction",
-    "legalName": "All Phase Construction USA, LLC",
+    "@id": `https://www.allphaseusa.com/#${citySlug}-services`,
+    "name": `All Phase Construction USA - ${cityName}`,
     "description": buildingDescription,
-    "url": "https://chrisp-png-roofing-c-gxj0.bolt.host/",
-    "logo": "https://chrisp-png-roofing-c-gxj0.bolt.host/logo.png",
-    "image": "https://chrisp-png-roofing-c-gxj0.bolt.host/logo.png",
-    "telephone": "+1-754-227-5605",
-    "email": "info@allphaseusa.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": addressLocality,
-      "addressRegion": "FL",
-      "addressCountry": "US"
+    "parentOrganization": {
+      "@type": "LocalBusiness",
+      "@id": "https://www.allphaseusa.com/#localbusiness"
     },
     "areaServed": [
       {
@@ -98,8 +89,8 @@ export default function LocalBusinessSchema({ cityName, citySlug }: LocalBusines
             "description": serviceDescriptions.tile,
             "serviceType": "Roofing",
             "provider": {
-              "@type": "RoofingContractor",
-              "@id": "https://chrisp-png-roofing-c-gxj0.bolt.host/#organization"
+              "@type": "LocalBusiness",
+              "@id": "https://www.allphaseusa.com/#localbusiness"
             },
             "areaServed": {
               "@type": "City",
@@ -115,8 +106,8 @@ export default function LocalBusinessSchema({ cityName, citySlug }: LocalBusines
             "description": serviceDescriptions.metal,
             "serviceType": "Roofing",
             "provider": {
-              "@type": "RoofingContractor",
-              "@id": "https://chrisp-png-roofing-c-gxj0.bolt.host/#organization"
+              "@type": "LocalBusiness",
+              "@id": "https://www.allphaseusa.com/#localbusiness"
             },
             "areaServed": {
               "@type": "City",
@@ -132,8 +123,8 @@ export default function LocalBusinessSchema({ cityName, citySlug }: LocalBusines
             "description": serviceDescriptions.shingle,
             "serviceType": "Roofing",
             "provider": {
-              "@type": "RoofingContractor",
-              "@id": "https://chrisp-png-roofing-c-gxj0.bolt.host/#organization"
+              "@type": "LocalBusiness",
+              "@id": "https://www.allphaseusa.com/#localbusiness"
             },
             "areaServed": {
               "@type": "City",
@@ -149,8 +140,8 @@ export default function LocalBusinessSchema({ cityName, citySlug }: LocalBusines
             "description": serviceDescriptions.flat,
             "serviceType": "Roofing",
             "provider": {
-              "@type": "RoofingContractor",
-              "@id": "https://chrisp-png-roofing-c-gxj0.bolt.host/#organization"
+              "@type": "LocalBusiness",
+              "@id": "https://www.allphaseusa.com/#localbusiness"
             },
             "areaServed": {
               "@type": "City",
@@ -160,23 +151,6 @@ export default function LocalBusinessSchema({ cityName, citySlug }: LocalBusines
         }
       ]
     },
-    "priceRange": "$$$",
-    "paymentAccepted": "Cash, Check, Credit Card, Financing",
-    "currenciesAccepted": "USD",
-    "openingHours": "Mo-Fr 07:00-18:00, Sa 08:00-14:00",
-    "sameAs": [
-      "https://www.facebook.com/allphaseconstructionusa",
-      "https://www.linkedin.com/company/allphaseconstructionusa"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "slogan": "Dual-Licensed Roofing & General Contractor",
-    "foundingDate": "1999",
     "knowsAbout": knowsAboutList,
     "makesOffer": [
       {

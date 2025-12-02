@@ -4,13 +4,15 @@ export default function GlobalSchema() {
   useEffect(() => {
     const schema = {
       "@context": "https://schema.org",
-      "@type": "RoofingContractor",
-      "@id": "https://chrisp-png-roofing-c-gxj0.bolt.host/#organization",
-      "name": "All Phase Construction USA, LLC",
+      "@type": "LocalBusiness",
+      "@id": "https://www.allphaseusa.com/#localbusiness",
+      "name": "All Phase Construction USA",
+      "alternateName": "All Phase Construction USA, LLC",
       "legalName": "All Phase Construction USA, LLC",
-      "url": "https://chrisp-png-roofing-c-gxj0.bolt.host/",
-      "logo": "https://chrisp-png-roofing-c-gxj0.bolt.host/logo.png",
-      "description": "All Phase Construction USA is a dual-licensed roofing contractor and general contractor serving Broward and Palm Beach counties in South Florida. We specialize in residential and commercial roofing including tile, metal, shingle, and flat roof systems.",
+      "description": "All Phase Construction USA is a dual-licensed roofing and general contracting company serving Palm Beach and Broward Counties. Specializing in tile, metal, shingle, and flat roofing systems, roof repairs, HOA/COA roofing, and full reroofs compliant with Florida Building Code HVHZ requirements.",
+      "url": "https://www.allphaseusa.com",
+      "image": "https://www.allphaseusa.com/brand/allphase-logo.png",
+      "logo": "https://www.allphaseusa.com/brand/allphase-logo.png",
       "telephone": "+1-754-227-5605",
       "email": "info@allphaseusa.com",
       "address": {
@@ -23,84 +25,10 @@ export default function GlobalSchema() {
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "26.3185",
-        "longitude": "-80.0998"
+        "latitude": 26.3182,
+        "longitude": -80.0990
       },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Boca Raton",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Deerfield Beach",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Pompano Beach",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Fort Lauderdale",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Coral Springs",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Delray Beach",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "Boynton Beach",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "City",
-          "name": "West Palm Beach",
-          "containedIn": {
-            "@type": "State",
-            "name": "Florida"
-          }
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Broward County"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Palm Beach County"
-        }
-      ],
-      "priceRange": "$$",
+      "openingHours": "Mo,Tu,We,Th,Fr 08:00-17:00",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -109,10 +37,69 @@ export default function GlobalSchema() {
           "closes": "17:00"
         }
       ],
+      "priceRange": "$$",
+      "areaServed": [
+        { "@type": "City", "name": "Boca Raton", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Delray Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Boynton Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Deerfield Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Coconut Creek", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Coral Springs", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Parkland", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Pompano Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Lake Worth", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Lantana", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Highland Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Lighthouse Point", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Hillsboro Beach", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Tamarac", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Margate", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Wilton Manors", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Oakland Park", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Fort Lauderdale", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Sunrise", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "City", "name": "Lauderdale Lakes", "containedInPlace": { "@type": "State", "name": "Florida" } },
+        { "@type": "AdministrativeArea", "name": "Broward County" },
+        { "@type": "AdministrativeArea", "name": "Palm Beach County" }
+      ],
+      "knowsAbout": [
+        "Tile roofing",
+        "Metal roofing",
+        "Shingle roofing",
+        "Flat roofing",
+        "IB PVC roofing",
+        "Foam adhesive installation",
+        "HVHZ Florida Building Code",
+        "Insurance roofing claims",
+        "HOA and COA roofing",
+        "Solar-ready metal roofs",
+        "Underlayment systems",
+        "Roof repairs",
+        "Wind mitigation",
+        "Florida Building Code compliance"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "name": "Florida General Contractor License",
+          "identifier": "CGC1526236"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "license",
+          "name": "Florida Roofing Contractor License",
+          "identifier": "CCC1331464"
+        }
+      ],
       "sameAs": [
         "https://www.facebook.com/allphaseusa",
-        "https://www.instagram.com/allphaseusa"
+        "https://www.instagram.com/allphaseusa",
+        "https://www.youtube.com/allphaseusa",
+        "https://g.co/kgs/5gnq7v"
       ],
+      "slogan": "Dual-Licensed Roofing & General Contractor",
+      "foundingDate": "1999",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Roofing Services",
@@ -121,51 +108,73 @@ export default function GlobalSchema() {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Residential Roofing",
-              "description": "Complete residential roof replacement and installation services"
+              "serviceType": "RoofingService",
+              "name": "Tile Roofing Installation",
+              "description": "Concrete and clay tile roof installation with foam adhesive attachment for HVHZ compliance"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Commercial Roofing",
-              "description": "Commercial and multi-family roofing solutions"
+              "serviceType": "RoofingService",
+              "name": "Metal Roofing Installation",
+              "description": "Standing seam and mechanically seamed metal roofing with solar panel readiness"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Tile Roofing",
-              "description": "Concrete and clay tile roof installation"
+              "serviceType": "RoofingService",
+              "name": "Shingle Roofing Installation",
+              "description": "Architectural shingle roof installation with Class 4 impact ratings"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Metal Roofing",
-              "description": "Standing seam and mechanically seamed metal roofing"
+              "serviceType": "RoofingService",
+              "name": "Flat Roofing Systems",
+              "description": "TPO, modified bitumen, and IB PVC flat roofing for commercial and residential properties"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Shingle Roofing",
-              "description": "Architectural shingle roof installation"
+              "serviceType": "RoofingService",
+              "name": "HOA/COA Roofing",
+              "description": "Specialized roofing services for homeowner associations and condominium associations with architectural compliance"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flat Roofing",
-              "description": "TPO, modified bitumen, and IB PVC flat roofing systems"
+              "serviceType": "RoofingService",
+              "name": "Wind Mitigation Services",
+              "description": "Form 1802 wind mitigation inspections and installations for insurance premium reductions"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "serviceType": "RoofingService",
+              "name": "Roof Repairs",
+              "description": "Emergency and scheduled roof repair services for all roofing types"
             }
           }
         ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
       }
     };
 
