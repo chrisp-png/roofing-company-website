@@ -1,0 +1,1 @@
+import{j as r}from"./react-vendor-BlFHl-YS.js";function i({items:e}){const s={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:e.map((t,n)=>({"@type":"ListItem",position:n+1,name:t.name,item:t.url}))};return r.jsx("script",{type:"application/ld+json",dangerouslySetInnerHTML:{__html:JSON.stringify(s)}})}export{i as B};

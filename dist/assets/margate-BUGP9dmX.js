@@ -1,0 +1,1 @@
+import{j as t}from"./react-vendor-BlFHl-YS.js";import{C as o}from"./CityRoofCostTemplate-Cwi14Xvo.js";import"./SEO-yfRjJ4GC.js";import"./BreadcrumbSchema-BYTSrgJY.js";import"./EntitySummary-DFB46zhc.js";function s(){return t.jsx(o,{cityName:"Margate",citySlug:"margate",isCoastal:!1,hoaCommon:!0})}export{s as default};
