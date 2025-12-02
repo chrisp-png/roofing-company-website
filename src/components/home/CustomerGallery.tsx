@@ -22,7 +22,7 @@ const FALLBACK_ITEMS = [
     project_type: 'tile',
     project_location: 'Boca Raton',
     images: {
-      file_path: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1920.jpg',
       alt_text: 'All Phase Construction USA – Tile roof in Boca Raton, Florida'
     }
   },
@@ -33,7 +33,7 @@ const FALLBACK_ITEMS = [
     project_type: 'metal',
     project_location: 'Fort Lauderdale',
     images: {
-      file_path: 'https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1280.jpg',
       alt_text: 'All Phase Construction USA – Metal roof in Fort Lauderdale, Florida'
     }
   },
@@ -44,7 +44,7 @@ const FALLBACK_ITEMS = [
     project_type: 'tile',
     project_location: 'Delray Beach',
     images: {
-      file_path: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1920.jpg',
       alt_text: 'All Phase Construction USA – Tile roof in Delray Beach, Florida'
     }
   },
@@ -55,7 +55,7 @@ const FALLBACK_ITEMS = [
     project_type: 'shingle',
     project_location: 'Pompano Beach',
     images: {
-      file_path: 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1280.jpg',
       alt_text: 'All Phase Construction USA – Shingle roof in Pompano Beach, Florida'
     }
   },
@@ -66,7 +66,7 @@ const FALLBACK_ITEMS = [
     project_type: 'flat',
     project_location: 'Coral Springs',
     images: {
-      file_path: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-mobile.jpg',
       alt_text: 'All Phase Construction USA – Flat roof in Coral Springs, Florida'
     }
   },
@@ -77,7 +77,7 @@ const FALLBACK_ITEMS = [
     project_type: 'shingle',
     project_location: 'Palm Beach County',
     images: {
-      file_path: 'https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1920.jpg',
       alt_text: 'All Phase Construction USA – Shingle roof in Palm Beach County, Florida'
     }
   },
@@ -88,7 +88,7 @@ const FALLBACK_ITEMS = [
     project_type: 'tile',
     project_location: 'Boca Raton',
     images: {
-      file_path: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1280.jpg',
       alt_text: 'All Phase Construction USA – Tile roof in Boca Raton, Florida'
     }
   },
@@ -99,7 +99,7 @@ const FALLBACK_ITEMS = [
     project_type: 'tile',
     project_location: 'Broward County',
     images: {
-      file_path: 'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-mobile.jpg',
       alt_text: 'All Phase Construction USA – Tile roof installation in Broward County, Florida'
     }
   },
@@ -110,41 +110,8 @@ const FALLBACK_ITEMS = [
     project_type: 'metal',
     project_location: 'Palm Beach County',
     images: {
-      file_path: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=800',
+      file_path: '/images/hero-desktop-1920.jpg',
       alt_text: 'All Phase Construction USA – Metal roof in Palm Beach County, Florida'
-    }
-  },
-  {
-    id: '10',
-    customer_name: 'James Patterson',
-    testimonial_quote: 'The wind mitigation inspection saved us hundreds on insurance.',
-    project_type: 'wind_mitigation',
-    project_location: 'Delray Beach',
-    images: {
-      file_path: 'https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=800',
-      alt_text: 'All Phase Construction USA – Wind mitigation in Delray Beach, Florida'
-    }
-  },
-  {
-    id: '11',
-    customer_name: 'Karen Williams',
-    testimonial_quote: 'The commercial flat roof exceeded our expectations.',
-    project_type: 'commercial',
-    project_location: 'Fort Lauderdale',
-    images: {
-      file_path: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800',
-      alt_text: 'All Phase Construction USA – Commercial roof in Fort Lauderdale, Florida'
-    }
-  },
-  {
-    id: '12',
-    customer_name: 'The Anderson Family',
-    testimonial_quote: 'Our HOA was impressed with the quality and professionalism.',
-    project_type: 'hoa',
-    project_location: 'Parkland',
-    images: {
-      file_path: 'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=800',
-      alt_text: 'All Phase Construction USA – HOA roof in Parkland, Florida'
     }
   }
 ];
