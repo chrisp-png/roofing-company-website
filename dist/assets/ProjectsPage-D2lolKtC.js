@@ -1,1 +1,0 @@
-import{j as e}from"./react-vendor-BlFHl-YS.js";function t(){return e.jsxs("div",{className:"max-w-7xl mx-auto px-4 py-20",children:[e.jsx("h1",{className:"text-4xl font-bold mb-6",children:"Projects"}),e.jsx("p",{className:"text-neutral-400",children:"This is a placeholder for the Projects page."})]})}export{t as default};
