@@ -33,51 +33,59 @@ export default function CityRoofCostTemplate({
   const faqData: FAQItem[] = [
     {
       question: `How much does a roof cost in ${cityName}, FL?`,
-      answer: `Roof prices in ${cityName}, FL typically range from $12,000–$26,000 for shingle roofs, $32,000–$75,000 for tile roofs, $38,000–$85,000 for metal roofs, and $10,000–$32,000 for flat roofs, depending on size, materials, HOA requirements, and Florida Building Code.`,
+      answer: `Roof prices in ${cityName}, FL typically range from $12,000–$26,000 for shingle roofs, $32,000–$75,000 for tile roofs, $38,000–$85,000 for metal roofs, and $10,000–$32,000 for flat roofs, depending on size, materials, HOA requirements, and Florida Building Code compliance.`,
+    },
+    {
+      question: `Should I repair or replace my roof in ${cityName}?`,
+      answer: `If your roof is over 15-20 years old, has widespread damage, or requires frequent repairs, replacement is usually more cost-effective. All Phase Construction USA provides free assessments to help ${cityName} homeowners determine whether repair or replacement makes the most financial sense.`,
+    },
+    {
+      question: `How long does a roof replacement take in ${cityName}?`,
+      answer: `Most residential roof replacements in ${cityName} take 3-7 days from start to finish, depending on size, weather, and material type. Metal and tile roofs typically take longer than shingle installations. We coordinate permits, inspections, and HOA approvals to minimize delays.`,
+    },
+    {
+      question: `Do I need permits for roof replacement in ${cityName}?`,
+      answer: `Yes. All roof replacements in ${cityName}, FL require building permits and inspections to ensure compliance with Florida Building Code. All Phase Construction USA handles all permitting, inspections, and final approval documentation as part of our service.`,
+    },
+    {
+      question: `What roofing warranties are available in ${cityName}?`,
+      answer: `We offer manufacturer material warranties (20-50 years depending on product) plus our 5-10 year workmanship warranty on all installations in ${cityName}. For tile and metal roofs, extended warranties up to lifetime coverage are often available.`,
     },
     {
       question: `Are there HOA roofing requirements in ${cityName}?`,
       answer: hoaCommon
-        ? `Many neighborhoods in ${cityName} have specific roof requirements including tile profiles, colors, and approved materials. All Phase Construction USA assists with HOA submissions and ensures compliance.`
-        : `Some neighborhoods in ${cityName} have specific roof requirements including tile profiles, colors, and approved materials. All Phase Construction USA assists with HOA submissions when needed.`,
+        ? `Many neighborhoods in ${cityName} have specific roof requirements including tile profiles, colors, and approved materials. All Phase Construction USA assists with HOA submissions and ensures compliance with architectural review board standards.`
+        : `Some neighborhoods in ${cityName} have specific roof requirements including tile profiles, colors, and approved materials. All Phase Construction USA assists with HOA submissions when needed and can navigate architectural review processes.`,
+    },
+    {
+      question: `Can wind mitigation reduce my insurance costs in ${cityName}?`,
+      answer: `Yes. Installing code-compliant roofing with SWR underlayment and proper attachments can reduce insurance premiums by $500-$6,500 annually for ${cityName} homeowners. We provide documentation for Form 1802 wind mitigation inspections at project completion.`,
     },
     {
       question: `Do you offer roof financing in ${cityName}?`,
-      answer: `Yes. Financing options with low monthly payments are available for homeowners in ${cityName}, FL. We work with multiple lenders to find the best rates and terms for qualified homeowners.`,
+      answer: `Yes. Financing options with low monthly payments are available for homeowners in ${cityName}, FL. We work with multiple lenders to find the best rates and terms for qualified applicants. Most approvals are completed within 24-48 hours.`,
+    },
+    {
+      question: `What makes All Phase Construction different in ${cityName}?`,
+      answer: `All Phase Construction USA is dual-licensed as both a General Contractor (CGC1526236) and Roofing Contractor (CCC1331464), allowing us to handle structural repairs and complex projects that roofing-only contractors cannot perform in ${cityName}. We also provide transparent pricing, detailed contracts, and complete warranty documentation.`,
+    },
+    {
+      question: `Do you work on both homes and condos in ${cityName}?`,
+      answer: `Yes. We handle residential roofing for single-family homes, townhomes, and condominium buildings throughout ${cityName}. For multi-family and HOA properties, we coordinate with property managers and attend board meetings when requested.`,
     },
   ];
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": `How much does a roof cost in ${cityName}, FL?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Roof prices in ${cityName}, FL typically range from $12,000–$26,000 for shingle roofs, $32,000–$75,000 for tile roofs, $38,000–$85,000 for metal roofs, and $10,000–$32,000 for flat roofs, depending on size, materials, HOA requirements, and Florida Building Code.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `Are there HOA roofing requirements in ${cityName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": hoaCommon
-            ? `Many neighborhoods in ${cityName} have specific roof requirements including tile profiles, colors, and approved materials. All Phase Construction USA assists with HOA submissions.`
-            : `Some neighborhoods in ${cityName} have specific roof requirements including tile profiles, colors, and approved materials. All Phase Construction USA assists with HOA submissions.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `Do you offer roof financing in ${cityName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Yes. Financing options with low monthly payments are available for homeowners in ${cityName}, FL.`
-        }
+    "mainEntity": faqData.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
       }
-    ]
+    }))
   };
 
   const coastalDescription = isCoastal
@@ -114,17 +122,24 @@ export default function CityRoofCostTemplate({
                 How Much Does a Roof Cost in {cityName}, FL?
               </h1>
 
+              <div className="max-w-3xl mx-auto mb-8 p-6 bg-neutral-900/50 border border-neutral-800 rounded-xl">
+                <p className="text-lg text-neutral-200 leading-relaxed">
+                  <strong className="text-white">All Phase Construction USA</strong> is a dual-licensed roofing and general contractor serving <strong className="text-white">{cityName}, Florida</strong>. We specialize in residential and commercial roof installations including <Link to="/roof-types/tile" className="text-red-500 hover:text-red-400 font-semibold">tile</Link>, <Link to="/roof-types/metal" className="text-red-500 hover:text-red-400 font-semibold">metal</Link>, <Link to="/roof-types/shingle" className="text-red-500 hover:text-red-400 font-semibold">shingle</Link>, and <Link to="/roof-types/flat" className="text-red-500 hover:text-red-400 font-semibold">flat roofing</Link> systems with full Florida Building Code compliance and wind mitigation documentation.
+                </p>
+              </div>
+
               <div className="mb-6">
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-bold text-lg transition-colors"
+                  aria-label={`Request free roof estimate for ${cityName} home`}
                 >
                   Get a Free Roof Estimate for Your {cityName} Home →
                 </Link>
               </div>
 
               <p className="text-sm text-neutral-400 mb-6 font-medium">
-                Trusted by homeowners in {cityName}, FL
+                Licensed & Insured • CGC1526236 • CCC1331464 • Serving {cityName} Since 1999
               </p>
 
               <p className="text-xl text-neutral-300 leading-relaxed mb-6">
@@ -251,6 +266,102 @@ export default function CityRoofCostTemplate({
           </div>
         </section>
 
+        <section className="py-20 bg-neutral-950 border-t border-neutral-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Roof Replacement vs. Repair in {cityName}: When to Replace
+                </h2>
+                <p className="text-xl text-neutral-300">
+                  Understanding when repair makes sense—and when full replacement is the better investment
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div className="bg-black border border-neutral-800 rounded-xl p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                    When Repair May Work
+                  </h3>
+                  <ul className="space-y-4 text-neutral-300">
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Roof is less than 15 years old with isolated damage</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Minor leaks affecting a small area (less than 10% of roof)</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Storm damage limited to a few tiles, shingles, or metal panels</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Flashing or penetration issues that don't indicate systemic failure</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Manufacturer's warranty still covers materials and defects</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-black border border-red-500/30 rounded-xl p-8">
+                  <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <Shield className="w-6 h-6 text-red-500" />
+                    When Replacement Is Necessary
+                  </h3>
+                  <ul className="space-y-4 text-neutral-300">
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Roof is 20+ years old and showing signs of widespread wear</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Multiple leaks or water stains throughout the home</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Curled, cracked, or missing shingles across large sections</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Sagging decking, visible water damage, or structural concerns</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Frequent repairs costing more than 50% of replacement value</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="text-red-500 mt-1">•</span>
+                      <span>Outdated system lacking modern wind mitigation features</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8">
+                <h3 className="text-xl font-bold text-white mb-4">The Financial Calculation</h3>
+                <p className="text-neutral-300 leading-relaxed mb-4">
+                  For {cityName} homeowners, the decision often comes down to economics. If your roof requires repairs costing more than 30-40% of replacement value, and the roof is already past its midpoint lifespan, replacement typically offers better long-term value.
+                </p>
+                <p className="text-neutral-300 leading-relaxed mb-6">
+                  Additionally, new roofs with modern <Link to="/wind-mitigation" className="text-red-500 hover:text-red-400 font-semibold">wind mitigation features</Link> can reduce insurance premiums by <data value="500">$500</data>-<data value="6500">$6,500</data> annually, often paying for the difference between repair and replacement within 5-7 years.
+                </p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-500 transition-all"
+                  aria-label={`Request free roof assessment for ${cityName} property`}
+                >
+                  Schedule Free Assessment
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -281,7 +392,7 @@ export default function CityRoofCostTemplate({
                   <div>
                     <h3 className="text-lg font-bold text-white mb-2">Material Selection</h3>
                     <p className="text-neutral-300 leading-relaxed text-sm">
-                      Shingle, <Link to="/tile-roofing" className="text-red-500 hover:text-red-400">tile</Link>, <Link to="/metal-roofing" className="text-red-500 hover:text-red-400">metal</Link>, and flat roofs each have different material costs and installation requirements.
+                      <Link to="/roof-types/shingle" className="text-red-500 hover:text-red-400 font-semibold">Shingle roofing</Link>, <Link to="/roof-types/tile" className="text-red-500 hover:text-red-400 font-semibold">tile roofing</Link>, <Link to="/roof-types/metal" className="text-red-500 hover:text-red-400 font-semibold">metal roofing</Link>, and <Link to="/roof-types/flat" className="text-red-500 hover:text-red-400 font-semibold">flat roofing</Link> systems each have different material costs and installation requirements for {cityName} homes.
                     </p>
                   </div>
                 </div>
@@ -331,7 +442,7 @@ export default function CityRoofCostTemplate({
                   <div>
                     <h3 className="text-lg font-bold text-white mb-2">Insurance Savings</h3>
                     <p className="text-neutral-300 leading-relaxed text-sm">
-                      Installing code-compliant systems and providing wind mitigation reports at completion can help you qualify for insurance discounts.
+                      Installing code-compliant systems with <Link to="/wind-mitigation" className="text-red-500 hover:text-red-400 font-semibold">wind mitigation features</Link> can reduce {cityName} insurance premiums by $500-$6,500 annually. We provide Form 1802 documentation at completion.
                     </p>
                   </div>
                 </div>
