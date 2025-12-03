@@ -66,7 +66,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'The crew was fantastic and our roof looks incredible!',
     city: 'Palm Beach County',
     roofType: 'shingle',
-    imageUrl: '/images/projects/Coating crew .PNG',
+    imageUrl: '/images/projects/Graham and happy customer 2.jpg',
     alt: 'Shingle roof installation in Palm Beach County, Florida – The Thompson Family',
     rating: 5
   },
