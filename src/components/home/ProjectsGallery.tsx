@@ -15,17 +15,17 @@ export default function ProjectsGallery() {
     },
     {
       city: 'Fort Lauderdale',
-      image: '/images/projects/crew-flat-roof-commercial.jpg',
+      image: '/images/projects/Ttorch applied base sheet.jpg',
       description: 'Commercial flat roof replacement and coating',
     },
     {
       city: 'West Palm Beach',
-      image: '/images/projects/project-white-metalroof-street.jpg',
+      image: '/images/projects/Charcoal Gray standing seam metal roof.jpg',
       description: 'Architectural shingle roof with wind mitigation upgrades',
     },
     {
       city: 'Coral Springs',
-      image: '/images/projects/crew-team-photo-commercial.jpg',
+      image: '/images/projects/Tile roof loaded and ready for install.JPG',
       description: 'HOA multi-building roof replacement project',
     },
     {

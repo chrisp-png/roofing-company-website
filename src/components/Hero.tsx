@@ -8,7 +8,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: 'url(/images/projects/hero-modern-gray-metalroof.jpg)',
+          backgroundImage: 'url(/images/projects/Charcoal Gray standing seam metal roof.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

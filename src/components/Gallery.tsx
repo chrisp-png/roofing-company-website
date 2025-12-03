@@ -1,16 +1,16 @@
 const projects = [
   {
-    image: '/images/projects/project-modern-gray-sideview.jpg',
+    image: '/images/projects/Charcoal Gray standing seam metal roof.jpg',
     title: 'Modern Residential',
     category: 'Residential'
   },
   {
-    image: '/images/projects/project-commercial-flat-roof.jpg',
+    image: '/images/projects/Torch applying cap sheet.jpg',
     title: 'Commercial Complex',
     category: 'Commercial'
   },
   {
-    image: '/images/projects/project-luxury-tile-aerial-1.jpg',
+    image: '/images/projects/Clay tile drone shot-Boca Raton.JPG',
     title: 'Luxury Estate',
     category: 'Residential'
   },
@@ -20,12 +20,12 @@ const projects = [
     category: 'Residential'
   },
   {
-    image: '/images/projects/system-commercial-materials-staging.jpg',
+    image: '/images/projects/Working on single ply roof.JPG',
     title: 'Business Center',
     category: 'Commercial'
   },
   {
-    image: '/images/projects/project-metalroof-decorative-driveway.jpg',
+    image: '/images/projects/Standing seam metal roof.jpg',
     title: 'Metal Roof Home',
     category: 'Residential'
   }

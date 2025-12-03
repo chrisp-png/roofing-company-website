@@ -16,7 +16,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'Our new tile roof is absolutely stunning. Worth every penny!',
     city: 'Boca Raton',
     roofType: 'tile',
-    imageUrl: '/images/projects/crew-tile-staging-aerial.jpg',
+    imageUrl: '/images/projects/Clay tile install2- Boca Raton.JPG',
     alt: 'Tile roof installation in Boca Raton, Florida – The Martinez Family',
     rating: 5
   },
@@ -36,7 +36,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'From old and damaged to beautiful and secure. Thank you!',
     city: 'Delray Beach',
     roofType: 'tile',
-    imageUrl: '/images/projects/crew-tile-install-action.jpg',
+    imageUrl: '/images/projects/Tile install in progress.JPG',
     alt: 'Tile roof replacement in Delray Beach, Florida – Robert Wilson',
     rating: 5
   },
@@ -56,7 +56,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'Our commercial flat roof installation was completed on time and on budget.',
     city: 'Coral Springs',
     roofType: 'flat',
-    imageUrl: '/images/projects/crew-flat-roof-commercial.jpg',
+    imageUrl: '/images/projects/Torch applying cap sheet.jpg',
     alt: 'Commercial flat roof in Coral Springs, Florida – Coral Springs Business Park',
     rating: 5
   },
@@ -86,7 +86,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'The foam adhesive attachment is a game-changer for wind resistance.',
     city: 'Broward County',
     roofType: 'tile',
-    imageUrl: '/images/projects/crew-team-photo-commercial.jpg',
+    imageUrl: '/images/projects/clay tile install3-Boca Raton.JPG',
     alt: 'Hurricane-rated tile roof in Broward County, Florida – Michael Stevens',
     rating: 5
   },
@@ -116,7 +116,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'The commercial flat roof exceeded our expectations.',
     city: 'Fort Lauderdale',
     roofType: 'commercial',
-    imageUrl: '/images/projects/customer-testimonial-residential.jpg',
+    imageUrl: '/images/projects/Working on single ply roof.JPG',
     alt: 'Commercial TPO roof in Fort Lauderdale, Florida – Karen Williams',
     rating: 5
   },
@@ -126,7 +126,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'Our HOA was impressed with the quality and professionalism.',
     city: 'Parkland',
     roofType: 'hoa',
-    imageUrl: '/images/projects/customer-thumbsup-elderly-woman.jpg',
+    imageUrl: '/images/projects/Standing seam metal roof.jpg',
     alt: 'HOA multi-family roof replacement in Parkland, Florida – The Anderson Family',
     rating: 5
   }
