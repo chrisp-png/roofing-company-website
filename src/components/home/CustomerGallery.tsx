@@ -16,7 +16,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'Our new tile roof is absolutely stunning. Worth every penny!',
     city: 'Boca Raton',
     roofType: 'tile',
-    imageUrl: '/images/projects/Clay tile drone shot-Boca Raton.JPG',
+    imageUrl: '/images/projects/crew-tile-staging-aerial.jpg',
     alt: 'Tile roof installation in Boca Raton, Florida – The Martinez Family',
     rating: 5
   },
@@ -76,7 +76,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'Aerial view shows the incredible craftsmanship of our tile roof.',
     city: 'Boca Raton',
     roofType: 'tile',
-    imageUrl: '/images/projects/crew-tile-staging-aerial.jpg',
+    imageUrl: '/images/projects/Clay tile drone shot-Boca Raton.JPG',
     alt: 'Luxury tile roof in Boca Raton, Florida – Estate in Boca Raton',
     rating: 5
   },
