@@ -13,11 +13,11 @@ const customerProjects: CustomerProject[] = [
   {
     id: '1',
     name: 'The Martinez Family',
-    quote: 'Our new tile roof is absolutely stunning. Worth every penny!',
+    quote: 'Our new metal roof is absolutely stunning. Worth every penny!',
     city: 'Boca Raton',
-    roofType: 'tile',
+    roofType: 'metal',
     imageUrl: '/images/projects/Standing seam metal roof.jpg',
-    alt: 'Tile roof installation in Boca Raton, Florida – The Martinez Family',
+    alt: 'Metal roof installation in Boca Raton, Florida – The Martinez Family',
     rating: 5
   },
   {
