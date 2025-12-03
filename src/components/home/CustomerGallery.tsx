@@ -36,7 +36,7 @@ const customerProjects: CustomerProject[] = [
     quote: 'From old and damaged to beautiful and secure. Thank you!',
     city: 'Delray Beach',
     roofType: 'tile',
-    imageUrl: '/images/projects/Weldon house, Delray Beach.jpg',
+    imageUrl: '/images/projects/Weldon front of house.jpg',
     alt: 'Tile roof replacement in Delray Beach, Florida – Robert Wilson',
     rating: 5
   },
