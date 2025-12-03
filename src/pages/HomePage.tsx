@@ -6,6 +6,7 @@ import WhyChooseBar from '../components/home/WhyChooseBar';
 import TrustBar from '../components/home/TrustBar';
 import UrgencyBanner from '../components/home/UrgencyBanner';
 import ServicesGrid from '../components/home/ServicesGrid';
+import PalmBeachCaseStudy from '../components/home/PalmBeachCaseStudy';
 import AuthorityGroup from '../components/authority/AuthorityGroup';
 import CustomerGallery from '../components/home/CustomerGallery';
 import TestimonialsSection from '../components/home/TestimonialsSection';
@@ -61,6 +62,7 @@ export default function HomePage() {
       <TrustBar />
       <UrgencyBanner />
       <ServicesGrid />
+      <PalmBeachCaseStudy />
       <AuthorityGroup />
       <CustomerGallery />
       <TestimonialsSection />
