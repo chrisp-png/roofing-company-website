@@ -360,123 +360,123 @@ const PROJECT_GALLERY: ProjectGalleryItem[] = [
   },
   {
     id: 'p044',
-    imageSrc: '/images/projects/project-44.jpg',
-    alt: 'Tile roof in Palm Beach Gardens',
-    city: 'Palm Beach Gardens',
-    roofType: 'Flat Tile',
-    description: 'Contemporary flat tile system'
+    imageSrc: '/images/projects/016-davie-shingle-roof-replacement-all-phase-usa.jpg',
+    alt: 'Shingle roof replacement project in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Shingle Roof Replacement',
+    description: 'Shingle roof replacement improving durability and curb appeal.'
   },
   {
     id: 'p045',
-    imageSrc: '/images/projects/project-45.jpg',
-    alt: 'Commercial roof in Jupiter',
-    city: 'Jupiter',
-    roofType: 'TPO Single Ply',
-    description: 'Energy-efficient commercial roof'
+    imageSrc: '/images/projects/017-davie-flat-roof-coating-all-phase-usa.jpg',
+    alt: 'Flat roof coating application in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Flat Roof Coating',
+    description: 'Protective flat roof coating system applied to extend roof life.'
   },
   {
     id: 'p046',
-    imageSrc: '/images/projects/project-46.jpg',
-    alt: 'Shingle roof in Wellington',
-    city: 'Wellington',
-    roofType: 'Architectural Shingles',
-    description: 'Premium shingle installation'
+    imageSrc: '/images/projects/018-davie-commercial-roof-repair-all-phase-usa.jpg',
+    alt: 'Commercial roof repair performed in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Commercial Roof Repair',
+    description: 'Commercial roof repair restoring waterproofing integrity.'
   },
   {
     id: 'p047',
-    imageSrc: '/images/projects/project-47.jpg',
-    alt: 'Metal roof in Royal Palm Beach',
-    city: 'Royal Palm Beach',
-    roofType: 'Metal Shingles',
-    description: 'Metal shingle roofing system'
+    imageSrc: '/images/projects/019-davie-tile-roof-valley-repair-all-phase-usa.jpg',
+    alt: 'Tile roof valley repair in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Tile Roof Valley Repair',
+    description: 'Reconstruction of tile roof valley to improve drainage and prevent leaks.'
   },
   {
     id: 'p048',
-    imageSrc: '/images/projects/project-48.jpg',
-    alt: 'Tile roof replacement in Davie',
-    city: 'Davie',
-    roofType: 'S-Tile',
-    description: 'S-tile roof replacement'
+    imageSrc: '/images/projects/020-davie-tile-roof-ridge-repair-all-phase-usa.jpg',
+    alt: 'Tile roof ridge repair completed in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Tile Roof Ridge Repair',
+    description: 'Tile ridge repair ensuring proper sealing and weather protection.'
   },
   {
     id: 'p049',
-    imageSrc: '/images/projects/project-49.jpg',
-    alt: 'Flat roof in Hallandale Beach',
-    city: 'Hallandale Beach',
-    roofType: 'Built-Up Roof',
-    description: 'Multi-layer flat roof system'
+    imageSrc: '/images/projects/021-davie-broken-tile-replacement-all-phase-usa.jpg',
+    alt: 'Broken tile replacement in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Tile Roof Repair',
+    description: 'Replacement of cracked and broken tiles to restore roof integrity.'
   },
   {
     id: 'p050',
-    imageSrc: '/images/projects/project-50.jpg',
-    alt: 'Shingle roof in Miramar',
-    city: 'Miramar',
-    roofType: 'Impact Resistant',
-    description: 'Wind and impact rated shingles'
+    imageSrc: '/images/projects/022-davie-tile-roof-underlayment-repair-all-phase-usa.jpg',
+    alt: 'Tile roof underlayment repair in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Underlayment Repair',
+    description: 'Repair of damaged tile roof underlayment to prevent water intrusion.'
   },
   {
     id: 'p051',
-    imageSrc: '/images/projects/project-51.jpg',
-    alt: 'Metal roof in Pembroke Pines',
-    city: 'Pembroke Pines',
-    roofType: 'Corrugated Metal',
-    description: 'Modern corrugated metal roof'
+    imageSrc: '/images/projects/023-davie-gutter-repair-all-phase-usa.jpg',
+    alt: 'Gutter repair performed in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Gutter Repair',
+    description: 'Gutter repair ensuring proper drainage around the home.'
   },
   {
     id: 'p052',
-    imageSrc: '/images/projects/project-52.jpg',
-    alt: 'Tile roof in Weston',
-    city: 'Weston',
-    roofType: 'Eagle Tile',
-    description: 'Premium Eagle tile system'
+    imageSrc: '/images/projects/024-davie-gutter-cleaning-all-phase-usa.jpg',
+    alt: 'Gutter cleaning project in Davie, Florida by All Phase Construction USA.',
+    city: 'Davie, FL',
+    roofType: 'Gutter Cleaning',
+    description: 'Gutter cleaning service improving water flow and preventing overflow.'
   },
   {
     id: 'p053',
-    imageSrc: '/images/projects/project-53.jpg',
-    alt: 'Commercial roof in Aventura',
-    city: 'Aventura',
-    roofType: 'Green Roof System',
-    description: 'Sustainable green roof installation'
+    imageSrc: '/images/projects/025-parkland-metal-roof-installation-all-phase-usa.jpg',
+    alt: 'Metal roof installation completed in Parkland, Florida by All Phase Construction USA.',
+    city: 'Parkland, FL',
+    roofType: 'Metal Roof Installation',
+    description: 'Mechanically seamed metal roof installed for long-term performance.'
   },
   {
     id: 'p054',
-    imageSrc: '/images/projects/project-54.jpg',
-    alt: 'Shingle roof in Lauderhill',
-    city: 'Lauderhill',
-    roofType: '3-Tab Shingles',
-    description: 'Classic 3-tab shingle roof'
+    imageSrc: '/images/projects/026-parkland-metal-roof-flashing-all-phase-usa.jpg',
+    alt: 'Metal roof flashing work in Parkland, Florida by All Phase Construction USA.',
+    city: 'Parkland, FL',
+    roofType: 'Metal Roof Flashing',
+    description: 'Flashing installation improving waterproofing around penetrations.'
   },
   {
     id: 'p055',
-    imageSrc: '/images/projects/project-55.jpg',
-    alt: 'Metal roof in Cooper City',
-    city: 'Cooper City',
-    roofType: 'Stone-Coated Metal',
-    description: 'Stone-coated steel roofing'
+    imageSrc: '/images/projects/027-parkland-metal-roof-trim-install-all-phase-usa.jpg',
+    alt: 'Metal roof trim installation in Parkland, Florida by All Phase Construction USA.',
+    city: 'Parkland, FL',
+    roofType: 'Metal Roof Trim',
+    description: 'Installation of metal roof trim components for a finished look.'
   },
   {
     id: 'p056',
-    imageSrc: '/images/projects/project-56.jpg',
-    alt: 'Tile roof in Southwest Ranches',
-    city: 'Southwest Ranches',
-    roofType: 'Mission Tile',
-    description: 'Traditional mission tile roof'
+    imageSrc: '/images/projects/028-parkland-metal-roof-panels-all-phase-usa.jpg',
+    alt: 'Mechanically seamed metal roof panels installed in Parkland, Florida by All Phase Construction USA.',
+    city: 'Parkland, FL',
+    roofType: 'Metal Roof Panels',
+    description: 'Installation of metal roof panels with concealed fasteners.'
   },
   {
     id: 'p057',
-    imageSrc: '/images/projects/project-57.jpg',
-    alt: 'Flat roof in North Miami Beach',
-    city: 'North Miami Beach',
-    roofType: 'Spray Foam',
-    description: 'Spray polyurethane foam roof'
+    imageSrc: '/images/projects/029-parkland-metal-roof-seam-locking-all-phase-usa.jpg',
+    alt: 'Metal roof seam locking performed in Parkland, Florida by All Phase Construction USA.',
+    city: 'Parkland, FL',
+    roofType: 'Seam-Locked Metal Roof',
+    description: 'Mechanically seamed roof system locked in place for superior strength.'
   },
   {
     id: 'p058',
-    imageSrc: '/images/projects/project-58.jpg',
-    alt: 'Shingle roof in Lauderdale Lakes',
-    city: 'Lauderdale Lakes',
-    roofType: 'Laminated Shingles',
-    description: 'Multi-layer shingle system'
+    imageSrc: '/images/projects/030-parkland-metal-roof-finishing-all-phase-usa.jpg',
+    alt: 'Metal roof finishing work in Parkland, Florida by All Phase Construction USA.',
+    city: 'Parkland, FL',
+    roofType: 'Metal Roof Finishing',
+    description: 'Finishing details applied to complete the mechanically seamed metal roof.'
   },
   {
     id: 'p059',
