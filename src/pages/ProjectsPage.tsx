@@ -1,105 +1,243 @@
+import { useState, useEffect } from 'react';
 import SEO from '../components/SEO';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
-import { MapPin, Layers } from 'lucide-react';
+import { MapPin, Layers, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface ProjectGalleryItem {
-  id: string;
-  imageSrc: string;
+interface ProjectImage {
+  src: string;
   alt: string;
   city: string;
   roofType: string;
-  description?: string;
+  filename: string;
 }
 
-const PROJECT_GALLERY: ProjectGalleryItem[] = [
-  {
-    id: 'p001',
-    imageSrc: "/images/projects/001-lake-worth-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Tile roof installation in Lake Worth, FL by All Phase Construction USA.",
-    city: "Lake Worth, FL",
-    roofType: "Tile Roof",
-    description: "New tile roof installation in Lake Worth."
-  },
-  {
-    id: 'p002',
-    imageSrc: "/images/projects/002-wellington-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Tile roof installation in Wellington, FL by All Phase Construction USA.",
-    city: "Wellington, FL",
-    roofType: "Tile Roof",
-    description: "New tile roof system installed in Wellington."
-  },
-  {
-    id: 'p003',
-    imageSrc: "/images/projects/003-coconut-creek-shingle-roof-new-install-all-phase-usa.jpg",
-    alt: "Asphalt shingle roof installation in Coconut Creek, FL by All Phase Construction USA.",
-    city: "Coconut Creek, FL",
-    roofType: "Shingle Roof",
-    description: "Full shingle roof replacement in Coconut Creek."
-  },
-  {
-    id: 'p004',
-    imageSrc: "/images/projects/004-coral-springs-barrel-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Barrel tile roof installation in Coral Springs, FL by All Phase Construction USA.",
-    city: "Coral Springs, FL",
-    roofType: "Barrel Tile Roof",
-    description: "New barrel tile roof system installed in Coral Springs."
-  },
-  {
-    id: 'p005',
-    imageSrc: "/images/projects/005-parkland-flat-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Flat tile roof installation in Parkland, FL by All Phase Construction USA.",
-    city: "Parkland, FL",
-    roofType: "Flat Tile Roof",
-    description: "New flat tile roofing system installed in Parkland."
-  },
-  {
-    id: 'p006',
-    imageSrc: "/images/projects/006-boca-raton-tile-roof-replacement-all-phase-usa.jpg",
-    alt: "Tile roof replacement in Boca Raton, FL by All Phase Construction USA.",
-    city: "Boca Raton, FL",
-    roofType: "Tile Roof",
-    description: "Full tile roof replacement in Boca Raton."
-  },
-  {
-    id: 'p007',
-    imageSrc: "/images/projects/007-boynton-beach-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Tile roof installation in Boynton Beach, FL by All Phase Construction USA.",
-    city: "Boynton Beach, FL",
-    roofType: "Tile Roof",
-    description: "New tile roof installation in Boynton Beach."
-  },
-  {
-    id: 'p008',
-    imageSrc: "/images/projects/008-coral-springs-capistrano-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Capistrano tile roof installation in Coral Springs, FL by All Phase Construction USA.",
-    city: "Coral Springs, FL",
-    roofType: "Capistrano Tile Roof",
-    description: "New Capistrano-profile tile roof system installed in Coral Springs."
-  },
-  {
-    id: 'p009',
-    imageSrc: "/images/projects/009-fort-lauderdale-standing-seam-metal-roof-new-install-all-phase-usa.jpg",
-    alt: "Standing seam metal roof installation in Fort Lauderdale, FL by All Phase Construction USA.",
-    city: "Fort Lauderdale, FL",
-    roofType: "Standing Seam Metal Roof",
-    description: "New charcoal gray standing seam metal roof installed in Fort Lauderdale."
-  },
-  {
-    id: 'p010',
-    imageSrc: "/images/projects/010-boca-raton-clay-tile-roof-new-install-all-phase-usa.jpg",
-    alt: "Clay tile roof installation in Boca Raton, FL by All Phase Construction USA.",
-    city: "Boca Raton, FL",
-    roofType: "Clay Tile Roof",
-    description: "Drone shot of new clay tile roof installation in Boca Raton."
-  }
+const imageList = [
+  'Charcoal Gray standing seam metal roof.jpg',
+  'Clay tile drone shot-Boca Raton.JPG',
+  'Clay tile install2- Boca Raton.JPG',
+  'clay tile install3-Boca Raton.JPG',
+  'Coating crew .PNG',
+  'crew-flat-roof-commercial.jpg',
+  'crew-team-photo-commercial.jpg',
+  'crew-tile-install-action.jpg',
+  'crew-tile-staging-aerial.jpg',
+  'crew-training-warehouse.jpg',
+  'customer-testimonial-indoor.jpg',
+  'customer-testimonial-outdoor.jpg',
+  'customer-testimonial-residential.jpg',
+  'customer-thumbsup-elderly-woman.jpg',
+  'Graham and happy customer 2.jpg',
+  'Graham and happy customer 3.JPG',
+  'Graham and happy customer 4.JPG',
+  'Graham and happy customer.jpg',
+  'Graham and happy customers.jpg',
+  'hero-modern-gray-metalroof.jpg',
+  'Karl and happy customer 5.JPEG',
+  'Karl and Happy customer 6.JPEG',
+  'Karl and Happy customer 7.JPEG',
+  'Karl and Happy customer 8.JPEG',
+  'Karl and happy customer 9.JPEG',
+  'Morrison Tile Roof.jpg',
+  'project-commercial-flat-roof.jpg',
+  'project-luxury-tile-aerial-1.jpg',
+  'project-luxury-tile-aerial-2.jpg',
+  'project-metalroof-decorative-driveway.jpg',
+  'project-modern-gray-sideview.jpg',
+  'project-white-metalroof-street.jpg',
+  'Standing seam metal roof.jpg',
+  'system-commercial-materials-staging.jpg',
+  'system-roof-decking-insulation.jpg',
+  'system-titan-underlayment.jpg',
+  'Tile install in progress.JPG',
+  'Tile roof loaded and ready for install.JPG',
+  'Torch applying cap sheet.jpg',
+  'Ttorch applied base sheet.jpg',
+  'Weldon front of house.jpg',
+  'Weldon house, Delray Beach.jpg',
+  'Working on single ply roof.JPG'
 ];
 
+function parseImageMetadata(filename: string): { city: string; roofType: string; alt: string } {
+  const lower = filename.toLowerCase();
+
+  let city = 'South Florida';
+  const cityMatches = [
+    { keywords: ['boca-raton', 'boca raton'], name: 'Boca Raton, FL' },
+    { keywords: ['fort-lauderdale', 'fort lauderdale'], name: 'Fort Lauderdale, FL' },
+    { keywords: ['coral-springs', 'coral springs'], name: 'Coral Springs, FL' },
+    { keywords: ['pompano-beach', 'pompano beach'], name: 'Pompano Beach, FL' },
+    { keywords: ['deerfield-beach', 'deerfield beach'], name: 'Deerfield Beach, FL' },
+    { keywords: ['delray-beach', 'delray beach'], name: 'Delray Beach, FL' },
+    { keywords: ['boynton-beach', 'boynton beach'], name: 'Boynton Beach, FL' },
+    { keywords: ['coconut-creek', 'coconut creek'], name: 'Coconut Creek, FL' },
+    { keywords: ['parkland'], name: 'Parkland, FL' },
+    { keywords: ['lighthouse-point', 'lighthouse point'], name: 'Lighthouse Point, FL' },
+    { keywords: ['wellington'], name: 'Wellington, FL' },
+    { keywords: ['lake-worth', 'lake worth'], name: 'Lake Worth, FL' },
+    { keywords: ['margate'], name: 'Margate, FL' },
+    { keywords: ['hillsboro'], name: 'Hillsboro Beach, FL' }
+  ];
+
+  for (const match of cityMatches) {
+    if (match.keywords.some(kw => lower.includes(kw))) {
+      city = match.name;
+      break;
+    }
+  }
+
+  let roofType = 'Roofing Project';
+  if (lower.includes('metal') || lower.includes('standing-seam') || lower.includes('standing seam')) {
+    roofType = 'Metal Roof';
+  } else if (lower.includes('tile') || lower.includes('clay')) {
+    roofType = 'Tile Roof';
+  } else if (lower.includes('shingle')) {
+    roofType = 'Shingle Roof';
+  } else if (lower.includes('flat') || lower.includes('single-ply') || lower.includes('torch')) {
+    roofType = 'Flat Roof';
+  } else if (lower.includes('crew') || lower.includes('team')) {
+    roofType = 'Our Team';
+  } else if (lower.includes('customer') || lower.includes('testimonial')) {
+    roofType = 'Happy Customer';
+  } else if (lower.includes('system') || lower.includes('underlayment') || lower.includes('decking')) {
+    roofType = 'Roof System';
+  }
+
+  const cleanName = filename.replace(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/i, '')
+    .replace(/[-_]/g, ' ')
+    .replace(/\d+/g, '')
+    .trim();
+
+  const alt = `${roofType} installation in ${city} by All Phase Construction USA - ${cleanName}`;
+
+  return { city, roofType, alt };
+}
+
+function Lightbox({
+  images,
+  currentIndex,
+  onClose,
+  onNext,
+  onPrev
+}: {
+  images: ProjectImage[];
+  currentIndex: number;
+  onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
+}) {
+  const current = images[currentIndex];
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') onNext();
+      if (e.key === 'ArrowLeft') onPrev();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [onClose, onNext, onPrev]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-50 p-2 bg-neutral-900/80 hover:bg-neutral-800 rounded-full transition-colors"
+        aria-label="Close lightbox"
+      >
+        <X className="w-6 h-6 text-white" />
+      </button>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrev();
+        }}
+        className="absolute left-4 z-50 p-3 bg-neutral-900/80 hover:bg-neutral-800 rounded-full transition-colors"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="w-6 h-6 text-white" />
+      </button>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onNext();
+        }}
+        className="absolute right-4 z-50 p-3 bg-neutral-900/80 hover:bg-neutral-800 rounded-full transition-colors"
+        aria-label="Next image"
+      >
+        <ChevronRight className="w-6 h-6 text-white" />
+      </button>
+
+      <div
+        className="max-w-7xl max-h-[90vh] mx-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          src={current.src}
+          alt={current.alt}
+          className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg"
+        />
+        <div className="mt-4 text-center">
+          <div className="flex items-center justify-center gap-6 text-sm text-neutral-300">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
+              <span>{current.city}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Layers className="w-4 h-4" />
+              <span>{current.roofType}</span>
+            </div>
+            <span className="text-neutral-500">
+              {currentIndex + 1} / {images.length}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectsPage() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const projects: ProjectImage[] = imageList.map(filename => {
+    const metadata = parseImageMetadata(filename);
+    return {
+      src: `/images/projects/${filename}`,
+      filename,
+      ...metadata
+    };
+  });
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
   return (
     <>
       <SEO
-        title="Projects | All Phase Construction USA"
-        description="View real roofing projects completed by All Phase Construction USA across Broward and Palm Beach Counties, including tile, metal, flat roofs, waterproofing, and more."
+        title="Projects Gallery | All Phase Construction USA"
+        description="View real roofing projects completed by All Phase Construction USA across Broward and Palm Beach Counties, including tile, metal, flat roofs, and more."
         url="https://chrisp-png-roofing-c-gxj0.bolt.host/projects"
         canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/projects"
       />
@@ -111,59 +249,62 @@ export default function ProjectsPage() {
       />
 
       <div className="min-h-screen bg-neutral-950">
-        {/* Header Section */}
         <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border-b border-neutral-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Projects & Real Roofs
+                Our Projects Gallery
               </h1>
               <p className="text-lg md:text-xl text-neutral-300 max-w-3xl mx-auto">
                 Real projects, real roofs, real customers across Broward and Palm Beach Counties.
+              </p>
+              <p className="text-sm text-neutral-400 mt-4">
+                Click any image to view full size • {projects.length} projects
               </p>
             </div>
           </div>
         </div>
 
-        {/* Gallery Grid Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {PROJECT_GALLERY.map((project) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {projects.map((project, index) => (
               <div
-                key={project.id}
-                className="bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                key={project.filename}
+                className="bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-600 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+                onClick={() => openLightbox(index)}
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-neutral-800">
                   <img
-                    src={project.imageSrc}
+                    src={project.src}
                     alt={project.alt}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="flex items-center gap-2 text-neutral-400 text-sm">
-                      <MapPin className="w-4 h-4 flex-shrink-0" />
-                      <span className="font-medium">{project.city}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-blue-400 text-sm">
-                      <Layers className="w-4 h-4 flex-shrink-0" />
-                      <span className="text-right">{project.roofType}</span>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-white/90 text-neutral-900 px-4 py-2 rounded-full font-semibold text-sm">
+                        View Full Size
+                      </div>
                     </div>
                   </div>
-                  {project.description && (
-                    <p className="text-neutral-300 text-sm line-clamp-2">
-                      {project.description}
-                    </p>
-                  )}
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center justify-between gap-2 text-xs">
+                    <div className="flex items-center gap-1.5 text-neutral-400">
+                      <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                      <span className="font-medium truncate">{project.city}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-blue-400">
+                      <Layers className="w-3.5 h-3.5 flex-shrink-0" />
+                      <span className="truncate">{project.roofType}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Bottom CTA Section */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 border-t border-blue-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -189,6 +330,16 @@ export default function ProjectsPage() {
           </div>
         </div>
       </div>
+
+      {lightboxOpen && (
+        <Lightbox
+          images={projects}
+          currentIndex={currentImageIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNext={nextImage}
+          onPrev={prevImage}
+        />
+      )}
     </>
   );
 }
