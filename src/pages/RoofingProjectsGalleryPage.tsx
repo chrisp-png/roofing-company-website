@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import SEO from '../components/SEO';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import ImageGallerySchema from '../components/schema/ImageGallerySchema';
+import FAQSchema from '../components/schema/FAQSchema';
+import ServiceAreaSchema from '../components/schema/ServiceAreaSchema';
+import { getAllServiceAreas } from '../data/serviceAreas';
 import { MapPin, Layers, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ProjectImage {
@@ -249,6 +253,33 @@ function Lightbox({
   );
 }
 
+const roofingFAQs = [
+  {
+    question: "How much does a new roof cost in South Florida?",
+    answer: "Roof replacement costs in South Florida vary by material and size. Asphalt shingle roofs typically range from $8,000-$15,000 for an average home. Tile roofs cost $15,000-$30,000+. Metal roofs range from $18,000-$35,000+. Flat roofs for commercial properties cost $3-$7 per square foot. All Phase Construction USA provides free inspections and detailed quotes for properties throughout Boca Raton, Delray Beach, Fort Lauderdale, Pompano Beach, Coral Springs, and all Broward and Palm Beach County cities."
+  },
+  {
+    question: "What is the best roof for hurricanes in Florida?",
+    answer: "Metal roofs and concrete tile roofs are the best options for hurricane protection in South Florida. Standing seam metal roofs can withstand winds up to 160 mph when properly installed. Concrete and clay tile roofs offer excellent wind resistance and impact protection. All Phase Construction USA installs hurricane-rated roofing systems that meet Florida Building Code requirements for high-velocity hurricane zones in Broward and Palm Beach Counties."
+  },
+  {
+    question: "How long does a tile roof last in Florida?",
+    answer: "Concrete tile roofs in Florida typically last 40-50 years, while clay tile roofs can last 50-100 years with proper maintenance. South Florida's climate, including UV exposure, salt air, and heavy rain, requires quality installation and periodic maintenance. All Phase Construction USA has installed thousands of tile roofs throughout Boca Raton, Delray Beach, Parkland, Wellington, and surrounding areas with full warranty protection."
+  },
+  {
+    question: "Do I need a permit to replace my roof in Florida?",
+    answer: "Yes, roof replacement in Florida requires building permits in all cities including Boca Raton, Delray Beach, Fort Lauderdale, Pompano Beach, Coral Springs, and other Broward and Palm Beach County municipalities. All Phase Construction USA handles all permit applications, inspections, and ensures compliance with Florida Building Code and local requirements. Our licensed contractors (CCC1333268 & CGC1519065) manage the entire permitting process."
+  },
+  {
+    question: "How long does it take to replace a roof in South Florida?",
+    answer: "Most residential roof replacements in South Florida take 2-5 days depending on size, complexity, and weather. Simple shingle roof replacements may take 1-2 days. Tile roof installations typically require 3-7 days. Flat roof systems can take 2-4 days. All Phase Construction USA coordinates with homeowners to minimize disruption and works efficiently while maintaining the highest quality standards throughout Broward and Palm Beach Counties."
+  },
+  {
+    question: "What areas does All Phase Construction USA serve?",
+    answer: "All Phase Construction USA serves all of Broward County and Palm Beach County, including Boca Raton, Delray Beach, Boynton Beach, Fort Lauderdale, Pompano Beach, Deerfield Beach, Coral Springs, Coconut Creek, Parkland, Plantation, Sunrise, Margate, Wellington, West Palm Beach, Lake Worth Beach, and surrounding South Florida communities. We are licensed and insured to work throughout the region with over 30 years of local experience."
+  }
+];
+
 export default function RoofingProjectsGalleryPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -261,6 +292,15 @@ export default function RoofingProjectsGalleryPage() {
       ...metadata
     };
   });
+
+  const serviceAreas = getAllServiceAreas();
+
+  const imageGalleryData = projects.map(project => ({
+    url: `https://chrisp-png-roofing-c-gxj0.bolt.host${project.src}`,
+    caption: project.alt,
+    city: project.city,
+    roofType: project.roofType
+  }));
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -278,10 +318,13 @@ export default function RoofingProjectsGalleryPage() {
   return (
     <>
       <SEO
-        title="Roofing Projects Gallery – All Phase Construction USA"
-        description="Browse our complete gallery of roofing projects across Broward and Palm Beach Counties. See tile, metal, shingle, and flat roof installations by All Phase Construction USA."
+        title="Roofing Projects Gallery | Boca Raton, Delray Beach, Fort Lauderdale | All Phase Construction USA"
+        description="View 71+ real roofing projects in Boca Raton, Delray Beach, Fort Lauderdale, Pompano Beach, Coral Springs & South Florida. Tile, metal, shingle & flat roof installations by licensed contractor CCC1333268 & CGC1519065."
         url="https://chrisp-png-roofing-c-gxj0.bolt.host/roofing-projects"
         canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/roofing-projects"
+        ogTitle="South Florida Roofing Projects | 71+ Real Installations | All Phase Construction"
+        ogDescription="Browse verified roofing projects across Broward & Palm Beach Counties. See tile, metal, shingle & flat roof installations in Boca Raton, Delray Beach, Fort Lauderdale & more."
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/images/projects/Clay tile drone shot-Boca Raton.JPG"
       />
       <BreadcrumbSchema
         items={[
@@ -289,6 +332,13 @@ export default function RoofingProjectsGalleryPage() {
           { name: 'Roofing Projects Gallery', url: 'https://chrisp-png-roofing-c-gxj0.bolt.host/roofing-projects' }
         ]}
       />
+      <ImageGallerySchema
+        images={imageGalleryData}
+        name="All Phase Construction USA Roofing Projects Gallery"
+        description="Complete gallery of residential and commercial roofing projects throughout South Florida including Boca Raton, Delray Beach, Fort Lauderdale, and Palm Beach County"
+      />
+      <FAQSchema faqs={roofingFAQs} />
+      <ServiceAreaSchema serviceAreas={serviceAreas} />
 
       <div className="min-h-screen bg-neutral-950">
         <div className="bg-gradient-to-br from-neutral-900 to-neutral-950 border-b border-neutral-800">
@@ -335,8 +385,11 @@ export default function RoofingProjectsGalleryPage() {
                   <img
                     src={project.src}
                     alt={project.alt}
+                    title={`${project.roofType} in ${project.city} - Click to view full size`}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
+                    width="400"
+                    height="300"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -363,13 +416,94 @@ export default function RoofingProjectsGalleryPage() {
           </div>
         </div>
 
+        <div className="bg-neutral-900/80 border-y border-neutral-800 py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+              Roofing Projects Across South Florida
+            </h2>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                <h3 className="text-xl font-bold text-white mb-3">Boca Raton Roofing</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  Serving East Boca, West Boca, Mizner Park, Town Center Mall area, Broken Sound, Royal Palm Yacht & Country Club, St. Andrews Country Club, and luxury estates throughout Boca Raton (33427, 33428, 33431, 33432, 33433, 33434, 33486, 33487, 33488, 33496, 33497, 33498).
+                </p>
+              </div>
+
+              <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                <h3 className="text-xl font-bold text-white mb-3">Delray Beach Roofing</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  Expert installations near Atlantic Avenue, Pineapple Grove, Seagate, Seven Bridges, Del-Trail, and waterfront properties along the Intracoastal. Protecting homes in the Village by the Sea (33444, 33445, 33446, 33447, 33448, 33482, 33483, 33484).
+                </p>
+              </div>
+
+              <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                <h3 className="text-xl font-bold text-white mb-3">Fort Lauderdale Roofing</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  Professional service for Victoria Park, Las Olas, Colee Hammock, Rio Vista, Harbor Beach, Coral Ridge, and properties throughout the Venice of America. Waterfront specialists (33301, 33304, 33305, 33306, 33308, 33309, 33311, 33312, 33315, 33316, 33317, 33319).
+                </p>
+              </div>
+
+              <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                <h3 className="text-xl font-bold text-white mb-3">Pompano Beach Roofing</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  Coastal roofing experts serving Hillsboro Shores, Lighthouse Point, Palm Aire, Cresthaven, and beachfront properties near Pompano Pier. Saltwater-resistant installations throughout 33060-33077 zip codes with hurricane-rated materials.
+                </p>
+              </div>
+
+              <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                <h3 className="text-xl font-bold text-white mb-3">Coral Springs Roofing</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  Trusted contractor for Eagle Trace, Heron Bay, Wyndham Lakes, Coral Springs Country Club, Ramblewood, and master-planned communities. Tile and shingle specialists in this award-winning city (33065, 33071, 33073, 33075, 33076, 33077).
+                </p>
+              </div>
+
+              <div className="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                <h3 className="text-xl font-bold text-white mb-3">Parkland & Wellington</h3>
+                <p className="text-neutral-300 text-sm leading-relaxed">
+                  Premium roofing for luxury estates in Parkland Golf & Country Club, Heron Bay, Wellington equestrian properties, Olympia, Grand Isles, and Versailles. High-end tile and barrel tile installations for discriminating homeowners.
+                </p>
+              </div>
+            </div>
+
+            <div className="prose prose-invert prose-lg max-w-none">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                Additional Service Areas in Broward & Palm Beach Counties
+              </h2>
+              <p className="text-neutral-300 leading-relaxed mb-4">
+                All Phase Construction USA proudly serves homeowners and businesses throughout <strong>Boynton Beach</strong> (Ocean Ridge, Aberdeen, Canyon Lakes, Hunter's Run), <strong>Coconut Creek</strong> (Wynmoor Village, Banyan Trails), <strong>Deerfield Beach</strong> (Century Village, Kings Point), <strong>Lake Worth Beach</strong> (College Park, Parrot Cove), <strong>West Palm Beach</strong> (CityPlace, Northwood, Ibis, Frenchman's Creek), <strong>Margate</strong>, <strong>Plantation</strong>, <strong>Sunrise</strong>, <strong>Tamarac</strong>, <strong>Hollywood</strong>, and all surrounding communities.
+              </p>
+              <p className="text-neutral-300 leading-relaxed">
+                With dual licenses (CCC1333268 Certified Roofing Contractor & CGC1519065 General Contractor), we handle residential and commercial projects of any size across South Florida. From small repairs to complete re-roofs, our team delivers superior craftsmanship backed by comprehensive warranties.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-neutral-950 py-16 border-y border-neutral-800">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+              Frequently Asked Questions About Roofing in South Florida
+            </h2>
+
+            <div className="space-y-6">
+              {roofingFAQs.map((faq, index) => (
+                <div key={index} className="bg-neutral-900/50 p-6 rounded-lg border border-neutral-800">
+                  <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
+                  <p className="text-neutral-300 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="bg-gradient-to-r from-blue-600 to-blue-800 border-t border-blue-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Start Your Roofing Project?
             </h2>
             <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-              Get a free inspection and quote from All Phase Construction USA. Licensed, insured, and trusted across South Florida.
+              Get a free inspection and quote from All Phase Construction USA. Licensed (CCC1333268 & CGC1519065), insured, and trusted across South Florida for over 30 years.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
