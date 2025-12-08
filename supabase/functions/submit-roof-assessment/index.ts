@@ -103,7 +103,7 @@ Submitted: ${formData.submittedAt || new Date().toISOString()}
         },
         body: JSON.stringify({
           from: 'All Phase Roofing <noreply@allphaseusa.com>',
-          to: ['leads@allphaseusa.com'],
+          to: [LEADS_EMAIL],
           subject: `New Roof Assessment Request - ${formData.city}`,
           text: emailBody,
         }),
