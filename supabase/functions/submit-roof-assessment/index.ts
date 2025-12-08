@@ -6,6 +6,9 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Client-Info, Apikey',
 };
 
+const LEADS_EMAIL =
+  Deno.env.get('LEADS_EMAIL') ?? 'leads@allphaseusa.com';
+
 interface AssessmentFormData {
   fullName: string;
   phone: string;
