@@ -1,1 +1,0 @@
-import{j as o}from"./react-vendor-BeKCafXp.js";import{C as t}from"./CityRoofCostTemplate-CnoeGOOq.js";import"./SEO-BVfQZE4j.js";import"./BreadcrumbSchema-DAItLg2p.js";import"./EntitySummary-DCUy_qbe.js";function p(){return o.jsx(t,{cityName:"Coral Springs",citySlug:"coral-springs",isCoastal:!1,hoaCommon:!0})}export{p as default};
