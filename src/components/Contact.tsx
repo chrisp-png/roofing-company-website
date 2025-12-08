@@ -18,7 +18,7 @@ export default function Contact() {
             <div className="mb-4 text-sm text-neutral-300">
               Your message will be sent to <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a> and a team member from All Phase Construction USA will follow up with you promptly.
             </div>
-            <form name="contact" method="POST" action="/contact-success" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
+            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
               <input type="hidden" name="form-name" value="contact" />
               <p className="hidden">
                 <label>
