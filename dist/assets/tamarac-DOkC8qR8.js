@@ -1,0 +1,1 @@
+import{j as a}from"./react-vendor-BeKCafXp.js";import{C as o}from"./CityRoofCostTemplate-CnoeGOOq.js";import"./SEO-BVfQZE4j.js";import"./BreadcrumbSchema-DAItLg2p.js";import"./EntitySummary-DCUy_qbe.js";function e(){return a.jsx(o,{cityName:"Tamarac",citySlug:"tamarac",isCoastal:!1,hoaCommon:!0})}export{e as default};

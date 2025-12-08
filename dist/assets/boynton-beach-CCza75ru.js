@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-BeKCafXp.js";import{C as t}from"./CityRoofCostTemplate-CnoeGOOq.js";import"./SEO-BVfQZE4j.js";import"./BreadcrumbSchema-DAItLg2p.js";import"./EntitySummary-DCUy_qbe.js";function n(){return o.jsx(t,{cityName:"Boynton Beach",citySlug:"boynton-beach",isCoastal:!0,hoaCommon:!0})}export{n as default};

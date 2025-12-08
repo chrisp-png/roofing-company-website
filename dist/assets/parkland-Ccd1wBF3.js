@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-BeKCafXp.js";import{C as t}from"./CityRoofCostTemplate-CnoeGOOq.js";import"./SEO-BVfQZE4j.js";import"./BreadcrumbSchema-DAItLg2p.js";import"./EntitySummary-DCUy_qbe.js";function e(){return o.jsx(t,{cityName:"Parkland",citySlug:"parkland",isCoastal:!1,hoaCommon:!0})}export{e as default};
