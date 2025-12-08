@@ -12,13 +12,14 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
-            if (id.includes('jspdf')) {
+            if (id.includes('jspdf') || id.includes('html2canvas')) {
               return 'pdf-vendor';
             }
             if (id.includes('react-router-dom') || id.includes('react-router')) {
@@ -30,12 +31,15 @@ export default defineConfig({
             if (id.includes('scheduler')) {
               return 'react-vendor';
             }
+            if (id.includes('lucide-react')) {
+              return 'index.es';
+            }
           }
         },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
           const ext = info[info.length - 1];
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(ext)) {
             return `assets/images/[name]-[hash][extname]`;
           } else if (/woff|woff2|ttf|eot/i.test(ext)) {
             return `assets/fonts/[name]-[hash][extname]`;
@@ -49,6 +53,13 @@ export default defineConfig({
     cssCodeSplit: true,
     minify: 'esbuild',
     assetsInlineLimit: 4096,
-    target: 'es2015',
+    target: 'es2020',
+    reportCompressedSize: false,
+    chunkSizeWarningLimit: 1000,
+  },
+  server: {
+    warmup: {
+      clientFiles: ['./src/main.tsx', './src/pages/HomePage.tsx'],
+    },
   },
 });
