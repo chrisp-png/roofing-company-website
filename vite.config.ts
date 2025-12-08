@@ -56,6 +56,15 @@ export default defineConfig({
     target: 'es2020',
     reportCompressedSize: false,
     chunkSizeWarningLimit: 1000,
+    sourcemap: false,
+    cssMinify: true,
+  },
+  esbuild: {
+    legalComments: 'none',
+    minifyIdentifiers: true,
+    minifySyntax: true,
+    minifyWhitespace: true,
+    treeShaking: true,
   },
   server: {
     warmup: {
