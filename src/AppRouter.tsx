@@ -17,6 +17,7 @@ const FinancingCalculatorPage = lazy(() => import('./pages/FinancingCalculatorPa
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const RoofingProjectsGalleryPage = lazy(() => import('./pages/RoofingProjectsGalleryPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const ContactSuccessPage = lazy(() => import('./pages/ContactSuccessPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 const ServiceAreasPage = lazy(() => import('./pages/ServiceAreasPage'));
@@ -78,6 +79,7 @@ export default function AppRouter() {
             <Route path="roofing-projects" element={<RoofingProjectsGalleryPage />} />
             <Route path="projects-gallery" element={<RoofingProjectsGalleryPage />} />
             <Route path="contact" element={<ContactPage />} />
+            <Route path="contact-success" element={<ContactSuccessPage />} />
             <Route path="roof-cost-calculator" element={<RoofCalculatorPage />} />
 
           <Route path="roof-cost/boca-raton" element={<BocaRatonRoofCostPage />} />
