@@ -93,10 +93,23 @@ export default function ContactPage() {
         submittedAt: new Date().toISOString(),
       };
 
-      // TODO: Wire this to send email to leads@allphaseusa.com or JobNimbus webhook in production
-      console.log('Form submission:', payload);
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-roof-assessment`;
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      const result = await response.json();
+      console.log('Form submitted successfully:', result);
 
       setSubmitStatus('success');
       setFormData({
