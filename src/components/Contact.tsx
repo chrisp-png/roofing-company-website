@@ -15,96 +15,56 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <div className="mb-4 text-sm text-neutral-300">
-              Your message will be sent to <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a> and a team member from All Phase Construction USA will follow up with you promptly.
-            </div>
-            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
+            <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-8 mb-8">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Ready to Get Started?
+              </h3>
+              <p className="text-neutral-300 mb-6 leading-relaxed">
+                Contact All Phase Construction USA today for a free roof assessment. We'll provide you with a detailed evaluation and transparent pricing.
               </p>
-
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-white mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                  placeholder="(555) 123-4567"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-white mb-2">
-                  Service Needed
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+              <div className="space-y-4">
+                <a
+                  href="/contact"
+                  className="block w-full px-8 py-4 bg-red-600 text-white text-center rounded-lg font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  <option>Select a service</option>
-                  <option>Residential Roofing</option>
-                  <option>Commercial Roofing</option>
-                  <option>Roof Repair</option>
-                  <option>Maintenance</option>
-                  <option>Emergency Service</option>
-                </select>
+                  Request Free Roof Assessment
+                </a>
+                <a
+                  href="tel:754-227-5605"
+                  className="block w-full px-8 py-4 border-2 border-white text-white text-center rounded-lg font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                >
+                  Call Now: 754-227-5605
+                </a>
               </div>
+            </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Tell us about your project..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-8 py-4 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-              >
-                Request Consultation with All Phase
-              </button>
-            </form>
+            <div className="bg-black border border-neutral-800 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-white mb-4">
+                Why Choose All Phase Construction USA?
+              </h3>
+              <ul className="space-y-3 text-neutral-300">
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">✓</span>
+                  <span>Dual licensed General Contractor & Roofing Contractor</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">✓</span>
+                  <span>HVHZ Florida Building Code compliance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">✓</span>
+                  <span>Manufacturer-certified installations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">✓</span>
+                  <span>Comprehensive warranties on all work</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">✓</span>
+                  <span>Serving Broward & Palm Beach Counties</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div className="space-y-8">
