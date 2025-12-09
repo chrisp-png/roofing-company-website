@@ -18,14 +18,7 @@ export default function Contact() {
             <div className="mb-4 text-sm text-neutral-300">
               Your message will be sent to <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a> and a team member from All Phase Construction USA will follow up with you promptly.
             </div>
-            <form name="contact" method="POST" action="/contact-success" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </p>
-
+            <form action="mailto:leads@allphaseusa.com" method="POST" encType="text/plain" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                   Full Name
@@ -33,8 +26,6 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  required
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="John Doe"
                 />
@@ -47,8 +38,6 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  required
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="john@example.com"
                 />
@@ -61,7 +50,6 @@ export default function Contact() {
                 <input
                   type="tel"
                   id="phone"
-                  name="phone"
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="(555) 123-4567"
                 />
@@ -73,7 +61,6 @@ export default function Contact() {
                 </label>
                 <select
                   id="service"
-                  name="service"
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                 >
                   <option>Select a service</option>
@@ -91,7 +78,6 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
-                  name="message"
                   rows={4}
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="Tell us about your project..."

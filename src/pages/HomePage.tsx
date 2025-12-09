@@ -15,7 +15,6 @@ import HomeLocalBusinessSchema from '../components/HomeLocalBusinessSchema';
 import RoofGuideFaqSchema from '../components/RoofGuideFaqSchema';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
 import ReviewSchema from '../components/schema/ReviewSchema';
-import ComprehensiveFAQSchema from '../components/schema/ComprehensiveFAQSchema';
 
 export default function HomePage() {
   const testimonialReviews = [
@@ -44,15 +43,15 @@ export default function HomePage() {
       <SEO
         title="All Phase Construction USA | Roofing Contractor in South Florida"
         description="Licensed roofing and general contractor serving Broward and Palm Beach counties. Expert tile, metal, shingle, and flat roof installation. Free estimates & financing available."
-        url="/"
-        canonical="/"
+        url="https://chrisp-png-roofing-c-gxj0.bolt.host/"
+        canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/"
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg"
       />
       <HomeLocalBusinessSchema />
       <RoofGuideFaqSchema />
-      <ComprehensiveFAQSchema />
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://www.allphaseusa.com/" }
+          { name: "Home", url: "https://chrisp-png-roofing-c-gxj0.bolt.host/" }
         ]}
       />
       <ReviewSchema reviews={testimonialReviews} />

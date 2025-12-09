@@ -37,43 +37,36 @@ export default function SEO({
       meta.setAttribute('content', content);
     };
 
-    const baseUrl = 'https://www.allphaseusa.com';
-
     updateOrCreateMeta('description', description);
-    updateOrCreateMeta('robots', 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1');
+    updateOrCreateMeta('robots', 'index,follow');
 
-    updateOrCreateMeta('og:site_name', 'All Phase Construction USA', true);
-    updateOrCreateMeta('og:locale', 'en_US', true);
     updateOrCreateMeta('og:title', ogTitle || title, true);
     updateOrCreateMeta('og:description', ogDescription || description, true);
     updateOrCreateMeta('og:type', 'website', true);
 
-    const fullUrl = url ? (url.startsWith('http') ? url : `${baseUrl}${url}`) : window.location.href;
-    updateOrCreateMeta('og:url', fullUrl, true);
+    if (url) {
+      updateOrCreateMeta('og:url', url, true);
+    }
 
-    const imageUrl = ogImageUrl || ogImage || `${baseUrl}/images/hero-desktop-1920.jpg`;
+    const imageUrl = ogImageUrl || ogImage || 'https://chrisp-png-roofing-c-gxj0.bolt.host/og-image.jpg';
     updateOrCreateMeta('og:image', imageUrl, true);
-    updateOrCreateMeta('og:image:width', '1920', true);
-    updateOrCreateMeta('og:image:height', '1080', true);
-    updateOrCreateMeta('og:image:alt', title, true);
+    updateOrCreateMeta('og:image:width', '1200', true);
+    updateOrCreateMeta('og:image:height', '630', true);
 
     updateOrCreateMeta('twitter:card', 'summary_large_image');
-    updateOrCreateMeta('twitter:site', '@allphaseusa');
     updateOrCreateMeta('twitter:title', ogTitle || title);
     updateOrCreateMeta('twitter:description', ogDescription || description);
     updateOrCreateMeta('twitter:image', imageUrl);
-    updateOrCreateMeta('twitter:image:alt', title);
 
-    const canonicalUrl = canonical || url || window.location.pathname;
-    const fullCanonicalUrl = canonicalUrl.startsWith('http') ? canonicalUrl : `${baseUrl}${canonicalUrl}`;
-
-    let linkCanonical = document.querySelector('link[rel="canonical"]');
-    if (!linkCanonical) {
-      linkCanonical = document.createElement('link');
-      linkCanonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(linkCanonical);
+    if (canonical || url) {
+      let linkCanonical = document.querySelector('link[rel="canonical"]');
+      if (!linkCanonical) {
+        linkCanonical = document.createElement('link');
+        linkCanonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(linkCanonical);
+      }
+      linkCanonical.setAttribute('href', canonical || url || '');
     }
-    linkCanonical.setAttribute('href', fullCanonicalUrl);
 
     let schemaScript = document.querySelector('script[data-schema="true"]');
     if (schemaJson) {

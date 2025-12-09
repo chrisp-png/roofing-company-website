@@ -1,245 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Main Pages -->
   <url>
-    <loc>https://www.allphaseusa.com/</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost-calculator</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost-calculator</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/residential-roofing</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/residential-roofing</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/commercial-roofing</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/commercial-roofing</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Roof Types -->
   <url>
-    <loc>https://www.allphaseusa.com/roof-types/shingle</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/shingle</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-types/tile</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/tile</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-types/metal</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/metal</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-types/flat</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-types/flat</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Service Areas -->
   <url>
-    <loc>https://www.allphaseusa.com/service-areas</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/service-areas</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- Additional Pages -->
   <url>
-    <loc>https://www.allphaseusa.com/contact</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/contact</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/projects</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/projects</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roofing-projects</loc>
-    <lastmod>2025-12-08</lastmod>
-    <priority>0.7</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.allphaseusa.com/financing</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/financing</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/wind-mitigation</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/wind-mitigation</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- City Roof Cost Pages -->
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/boca-raton</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/boca-raton</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/deerfield-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/deerfield-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/pompano-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/pompano-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/lighthouse-point</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/lighthouse-point</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/highland-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/highland-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/delray-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/delray-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/boynton-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/boynton-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/lake-worth-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/lake-worth-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/west-palm-beach</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/west-palm-beach</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/coral-springs</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/coral-springs</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/coconut-creek</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/coconut-creek</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/parkland</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/parkland</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/margate</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/margate</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/tamarac</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/tamarac</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/fort-lauderdale</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/fort-lauderdale</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/wilton-manors</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/wilton-manors</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/oakland-park</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/oakland-park</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/sunrise</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/sunrise</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/plantation</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/plantation</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.allphaseusa.com/roof-cost/hollywood</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://chrisp-png-roofing-c-gxj0.bolt.host/roof-cost/hollywood</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
