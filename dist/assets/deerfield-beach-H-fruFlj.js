@@ -1,0 +1,1 @@
+import{j as e}from"./react-vendor-DBrt8w0m.js";import{C as o}from"./CityRoofCostTemplate-C8DroxBC.js";import"./SEO-DLJi-D2L.js";import"./schema-pKIi8G3B.js";import"./EntitySummary-BlRKFD4E.js";function s(){return e.jsx(o,{cityName:"Deerfield Beach",citySlug:"deerfield-beach",isCoastal:!0,hoaCommon:!1})}export{s as default};

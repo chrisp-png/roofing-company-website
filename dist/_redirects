@@ -1,0 +1,18 @@
+# 301 Redirects for SEO - Old roof cost URLs to new structure
+/roof-cost-boca-raton           /roof-cost/boca-raton           301
+/roof-cost-deerfield-beach      /roof-cost/deerfield-beach      301
+/roof-cost-pompano-beach        /roof-cost/pompano-beach        301
+/roof-cost-delray-beach         /roof-cost/delray-beach         301
+/roof-cost-boynton-beach        /roof-cost/boynton-beach        301
+/roof-cost-lake-worth-beach     /roof-cost/lake-worth-beach     301
+/roof-cost-west-palm-beach      /roof-cost/west-palm-beach      301
+/roof-cost-coral-springs        /roof-cost/coral-springs        301
+/roof-cost-coconut-creek        /roof-cost/coconut-creek        301
+/roof-cost-parkland             /roof-cost/parkland             301
+/roof-cost-margate              /roof-cost/margate              301
+/roof-cost-tamarac              /roof-cost/tamarac              301
+/roof-cost-fort-lauderdale      /roof-cost/fort-lauderdale      301
+/roof-cost-lighthouse-point     /roof-cost/lighthouse-point     301
+
+# SPA fallback - must be last
+/*    /index.html   200

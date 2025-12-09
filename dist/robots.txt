@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+Sitemap: https://www.allphaseusa.com/sitemap.xml
+
+# Additional search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
