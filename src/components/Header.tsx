@@ -19,6 +19,7 @@ export default function Header() {
     { name: 'Residential', href: '/residential-roofing' },
     { name: 'Commercial', href: '/commercial-roofing' },
     { name: 'Service Areas', href: '/service-areas' },
+    { name: 'View All Projects', href: '/roofing-projects' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];

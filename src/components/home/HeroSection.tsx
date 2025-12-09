@@ -11,6 +11,8 @@ export default function HeroSection() {
           src="/images/projects/Clay tile drone shot-Boca Raton.JPG"
           alt="All Phase Construction USA luxury tile roof installation in Boca Raton, Florida - aerial view of completed roofing project"
           className="w-full h-full object-cover opacity-40"
+          width="1920"
+          height="1080"
           fetchpriority="high"
           loading="eager"
           decoding="async"
