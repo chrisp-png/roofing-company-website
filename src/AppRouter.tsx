@@ -2,8 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
-
-const HomePage = lazy(() => import('./pages/HomePage'));
+import HomePage from './pages/HomePage';
 const RoofCalculatorPage = lazy(() => import('./pages/RoofCalculatorPage'));
 const ResidentialRoofingPage = lazy(() => import('./pages/ResidentialRoofingPage'));
 const CommercialRoofingPage = lazy(() => import('./pages/CommercialRoofingPage'));
@@ -50,10 +49,17 @@ const LoadingFallback = () => (
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100vh',
-    background: '#000',
-    color: '#fff'
+    background: '#1a1a1a',
+    color: '#fff',
+    fontSize: '18px',
+    fontWeight: 'bold'
   }}>
-    Loading...
+    <div style={{ textAlign: 'center' }}>
+      <div>Loading All Phase Construction...</div>
+      <div style={{ fontSize: '14px', marginTop: '10px', opacity: 0.7 }}>
+        Please wait
+      </div>
+    </div>
   </div>
 );
 
