@@ -1,0 +1,1 @@
+import{j as t}from"./react-vendor-Cqn0pE0P.js";import{C as o}from"./CityRoofCostTemplate-CudoENoQ.js";import"./index-B5E2xVJm.js";import"./calculator-BefNcXl6.js";import"./schema-BARgB8o3.js";function s(){return t.jsx(o,{cityName:"Plantation",citySlug:"plantation",isCoastal:!1,hoaCommon:!0})}export{s as default};

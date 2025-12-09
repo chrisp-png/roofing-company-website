@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-Cqn0pE0P.js";import{C as t}from"./CityRoofCostTemplate-CudoENoQ.js";import"./index-B5E2xVJm.js";import"./calculator-BefNcXl6.js";import"./schema-BARgB8o3.js";function l(){return o.jsx(t,{cityName:"Hollywood",citySlug:"hollywood",isCoastal:!0,hoaCommon:!0})}export{l as default};
