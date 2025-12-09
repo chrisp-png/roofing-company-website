@@ -1,1 +1,0 @@
-import{j as t}from"./react-vendor-B_ApOyoX.js";import{C as o}from"./CityRoofCostTemplate-DMqOZ50N.js";import"./SEO-BBNqDRXa.js";import"./schema-D9CRrw5I.js";import"./EntitySummary-CjJc6JdW.js";function i(){return t.jsx(o,{cityName:"West Palm Beach",citySlug:"west-palm-beach",isCoastal:!0,hoaCommon:!0})}export{i as default};
