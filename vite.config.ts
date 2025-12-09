@@ -72,4 +72,9 @@ export default defineConfig({
     minifyWhitespace: true,
     treeShaking: true,
   },
+  server: {
+    warmup: {
+      clientFiles: ['./src/main.tsx', './src/pages/HomePage.tsx'],
+    },
+  },
 });
