@@ -2,6 +2,7 @@ import { useState, FormEvent } from 'react';
 import SEO from '../components/SEO';
 import { Phone, Mail, MapPin, CheckCircle, AlertCircle, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 import BreadcrumbSchema from '../components/schema/BreadcrumbSchema';
+import { supabase } from '../lib/supabase';
 
 interface FormData {
   fullName: string;
@@ -87,16 +88,29 @@ export default function ContactPage() {
 
     try {
       const payload = {
-        ...formData,
+        full_name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        street_address: formData.streetAddress,
+        city: formData.city,
+        zip_code: formData.zipCode,
+        heard_about_us: formData.heardAboutUs,
+        property_type: formData.propertyType,
+        preferred_contact_method: formData.preferredContactMethod,
+        preferred_time_of_day: formData.preferredTimeOfDay,
+        message: formData.message,
         source: 'Website Roof Assessment Form',
-        pageUrl: '/contact',
-        submittedAt: new Date().toISOString(),
+        page_url: '/contact',
+        submitted_at: new Date().toISOString(),
       };
 
-      // TODO: Wire this to send email to leads@allphaseusa.com or JobNimbus webhook in production
-      console.log('Form submission:', payload);
+      const { error } = await supabase
+        .from('roof_assessments')
+        .insert([payload]);
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (error) {
+        throw error;
+      }
 
       setSubmitStatus('success');
       setFormData({

@@ -1,6 +1,77 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { useState, FormEvent } from 'react';
+import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('idle');
+    setIsSubmitting(true);
+
+    try {
+      const payload = {
+        full_name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        street_address: '',
+        city: '',
+        zip_code: '',
+        heard_about_us: '',
+        property_type: formData.service || 'Not specified',
+        preferred_contact_method: 'Phone Call',
+        preferred_time_of_day: '',
+        message: formData.message,
+        source: 'Website Contact Form',
+        page_url: window.location.pathname,
+        submitted_at: new Date().toISOString(),
+      };
+
+      const { error } = await supabase
+        .from('roof_assessments')
+        .insert([payload]);
+
+      if (error) {
+        throw error;
+      }
+
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: '',
+      });
+
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
     <section id="contact" className="py-20 bg-black border-b border-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,17 +86,34 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-900/20 border border-green-500/30 rounded-lg flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Message Sent!</h3>
+                  <p className="text-sm text-neutral-300">
+                    Thank you! We'll contact you shortly.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-900/20 border border-red-500/30 rounded-lg flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-white mb-1">Error</h3>
+                  <p className="text-sm text-neutral-300">
+                    Something went wrong. Please call us at 754-227-5605.
+                  </p>
+                </div>
+              </div>
+            )}
+
             <div className="mb-4 text-sm text-neutral-300">
               Your message will be sent to <a href="mailto:leads@allphaseusa.com" className="text-red-500 hover:text-red-400 transition-colors duration-200">leads@allphaseusa.com</a> and a team member from All Phase Construction USA will follow up with you promptly.
             </div>
-            <form name="contact" method="POST" action="/contact-success" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-6">
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
-              </p>
-
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                   Full Name
@@ -35,6 +123,8 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="John Doe"
                 />
@@ -49,6 +139,8 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="john@example.com"
                 />
@@ -62,6 +154,8 @@ export default function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="(555) 123-4567"
                 />
@@ -74,14 +168,16 @@ export default function Contact() {
                 <select
                   id="service"
                   name="service"
+                  value={formData.service}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                 >
-                  <option>Select a service</option>
-                  <option>Residential Roofing</option>
-                  <option>Commercial Roofing</option>
-                  <option>Roof Repair</option>
-                  <option>Maintenance</option>
-                  <option>Emergency Service</option>
+                  <option value="">Select a service</option>
+                  <option value="Residential Roofing">Residential Roofing</option>
+                  <option value="Commercial Roofing">Commercial Roofing</option>
+                  <option value="Roof Repair">Roof Repair</option>
+                  <option value="Maintenance">Maintenance</option>
+                  <option value="Emergency Service">Emergency Service</option>
                 </select>
               </div>
 
@@ -93,6 +189,8 @@ export default function Contact() {
                   id="message"
                   name="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 bg-neutral-950 border border-neutral-700 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   placeholder="Tell us about your project..."
                 ></textarea>
@@ -100,9 +198,10 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                disabled={isSubmitting}
+                className="w-full px-8 py-4 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Request Consultation with All Phase
+                {isSubmitting ? 'Sending...' : 'Request Consultation with All Phase'}
               </button>
             </form>
           </div>
