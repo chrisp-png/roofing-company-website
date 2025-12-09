@@ -15,18 +15,18 @@ interface ProjectImage {
 }
 
 const imageList = [
-  'hero-modern-gray-metalroof.jpg',
-  'project-luxury-tile-aerial-1.jpg',
-  'project-luxury-tile-aerial-2.jpg',
-  'Charcoal Gray standing seam metal roof.jpg',
-  'Clay tile drone shot-Boca Raton.JPG',
-  'Morrison Tile Roof.jpg',
-  'project-commercial-flat-roof.jpg',
-  'project-metalroof-decorative-driveway.jpg',
-  'project-white-metalroof-street.jpg',
-  'Weldon house, Delray Beach.jpg',
+  '001-lake-worth-tile-roof-new-install-all-phase-usa.jpg.jpg',
+  '002-wellington-tile-roof-new-install-all-phase-usa.jpg.jpg',
+  '004-coral-springs-barrel-tile-roof-new-install-all-phase-usa.jpg.jpg',
+  '006-boca-raton-tile-roof-new-install-all-phase-usa.jpg.jpeg',
+  '012-deerfield-beach-single-ply-flat-roof-new-install-all-phase-usa.jpg.jpg',
+  '031-fwave-synthetic-shingle-roof-install-boca-raton-all-phase-usa.jpg.jpg',
+  '052-lighthouse-point-metal-roof-new-install-all-phase-usa.jpg.jpg',
+  '060-lighthouse-point-standing-seam-metal-roof-new-install-all-phase-usa.jpg.jpg',
   '073-fort-lauderdale-new-shingle-roof-install-all-phase-usa.jpg.jpg',
-  '087-completed-tile-roof-delray-beach-all-phase-usa.jpg.jpg'
+  '078-boynton-beach-green-standing-seam-metal-roof-install-all-phase-usa.jpg.jpg',
+  '087-completed-tile-roof-delray-beach-all-phase-usa.jpg.jpg',
+  '088-tile-roof-completed-boynton-beach-all-phase-usa.jpg.jpg'
 ];
 
 function parseImageMetadata(filename: string): { city: string; roofType: string; alt: string } {
@@ -223,7 +223,7 @@ export default function ProjectsPage() {
         canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/projects"
         ogTitle="Featured Roofing Projects | South Florida's Premier Roofing Contractor"
         ogDescription="Browse our showcase of luxury tile roofs, standing seam metal roofs, and premium installations across Broward & Palm Beach Counties."
-        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/images/projects/Morrison Tile Roof.jpg"
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/images/projects/001-lake-worth-tile-roof-new-install-all-phase-usa.jpg.jpg"
       />
       <BreadcrumbSchema
         items={[
@@ -339,7 +339,7 @@ export default function ProjectsPage() {
                 href="/roofing-projects"
                 className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                View Complete Gallery (71+ Projects)
+                View Complete Gallery (50+ Projects)
               </a>
             </div>
           </div>

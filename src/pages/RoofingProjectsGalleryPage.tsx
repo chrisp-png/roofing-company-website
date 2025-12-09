@@ -67,31 +67,7 @@ const allProjectImages = [
   '094-torch-applied-base-sheet-pompano-beach-all-phase-usa.jpg.jpg',
   '095-torch-applying-cap-sheet-pompano-beach-all-phase-usa.jpg_(1).jpg',
   '096-townhome-tile-roof-delray-beach-all-phase-usa.jpg.jpg',
-  '097-weighted-roller-adhesion-boca-raton-tile-roof-all-phase-usa.jpg.jpg',
-  'Charcoal Gray standing seam metal roof.jpg',
-  'Clay tile drone shot-Boca Raton.JPG',
-  'Clay tile install2- Boca Raton.JPG',
-  'clay tile install3-Boca Raton.JPG',
-  'Coating crew .PNG',
-  'Graham and happy customer 2.jpg',
-  'Graham and happy customer 3.JPG',
-  'Graham and happy customer 4.JPG',
-  'Graham and happy customer.jpg',
-  'Graham and happy customers.jpg',
-  'Karl and happy customer 5.JPEG',
-  'Karl and Happy customer 6.JPEG',
-  'Karl and Happy customer 7.JPEG',
-  'Karl and Happy customer 8.JPEG',
-  'Karl and happy customer 9.JPEG',
-  'Morrison Tile Roof.jpg',
-  'Standing seam metal roof.jpg',
-  'Tile install in progress.JPG',
-  'Tile roof loaded and ready for install.JPG',
-  'Torch applying cap sheet.jpg',
-  'Ttorch applied base sheet.jpg',
-  'Weldon front of house.jpg',
-  'Weldon house, Delray Beach.jpg',
-  'Working on single ply roof.JPG'
+  '097-weighted-roller-adhesion-boca-raton-tile-roof-all-phase-usa.jpg.jpg'
 ];
 
 function parseImageMetadata(filename: string): { city: string; roofType: string; alt: string } {
@@ -319,12 +295,12 @@ export default function RoofingProjectsGalleryPage() {
     <>
       <SEO
         title="Roofing Projects Gallery | Boca Raton, Delray Beach, Fort Lauderdale | All Phase Construction USA"
-        description="View 71+ real roofing projects in Boca Raton, Delray Beach, Fort Lauderdale, Pompano Beach, Coral Springs & South Florida. Tile, metal, shingle & flat roof installations by licensed contractor CCC1333268 & CGC1519065."
+        description="View 50+ real roofing projects in Boca Raton, Delray Beach, Fort Lauderdale, Pompano Beach, Coral Springs & South Florida. Tile, metal, shingle & flat roof installations by licensed contractor CCC1333268 & CGC1519065."
         url="https://chrisp-png-roofing-c-gxj0.bolt.host/roofing-projects"
         canonical="https://chrisp-png-roofing-c-gxj0.bolt.host/roofing-projects"
-        ogTitle="South Florida Roofing Projects | 71+ Real Installations | All Phase Construction"
+        ogTitle="South Florida Roofing Projects | 50+ Real Installations | All Phase Construction"
         ogDescription="Browse verified roofing projects across Broward & Palm Beach Counties. See tile, metal, shingle & flat roof installations in Boca Raton, Delray Beach, Fort Lauderdale & more."
-        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/images/projects/Clay tile drone shot-Boca Raton.JPG"
+        ogImage="https://chrisp-png-roofing-c-gxj0.bolt.host/images/projects/006-boca-raton-tile-roof-new-install-all-phase-usa.jpg.jpeg"
       />
       <BreadcrumbSchema
         items={[
