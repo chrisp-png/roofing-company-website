@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-DoWvHprT.js";import{C as t}from"./CityRoofCostTemplate-BSQOlVq8.js";import"./index-g9TkdKuH.js";import"./calculator-CW8hzRDQ.js";import"./schema-DhR-azNR.js";function n(){return o.jsx(t,{cityName:"Wilton Manors",citySlug:"wilton-manors",isCoastal:!1,hoaCommon:!1})}export{n as default};
