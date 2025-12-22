@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-B9TUqL2f.js";import{C as t}from"./CityRoofCostTemplate-DIckfxeo.js";import"./index-_gasbi-W.js";import"./calculator-DOO1FktO.js";import"./schema-CuPNk2it.js";function e(){return o.jsx(t,{cityName:"Parkland",citySlug:"parkland",isCoastal:!1,hoaCommon:!0})}export{e as default};
