@@ -1,1 +1,0 @@
-import{j as o}from"./react-vendor-DoWvHprT.js";import{C as t}from"./CityRoofCostTemplate-BSQOlVq8.js";import"./index-g9TkdKuH.js";import"./calculator-CW8hzRDQ.js";import"./schema-DhR-azNR.js";function s(){return o.jsx(t,{cityName:"Boca Raton",citySlug:"boca-raton",isCoastal:!0,hoaCommon:!0})}export{s as default};

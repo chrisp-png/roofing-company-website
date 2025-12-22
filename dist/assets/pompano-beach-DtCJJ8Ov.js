@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-DoWvHprT.js";import{C as t}from"./CityRoofCostTemplate-B0qylUHB.js";import"./index-DuqYyI2C.js";import"./calculator-CW8hzRDQ.js";import"./schema-DhR-azNR.js";function i(){return o.jsx(t,{cityName:"Pompano Beach",citySlug:"pompano-beach",isCoastal:!0,hoaCommon:!1})}export{i as default};
