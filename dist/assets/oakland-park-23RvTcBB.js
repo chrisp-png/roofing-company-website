@@ -1,1 +1,0 @@
-import{j as a}from"./react-vendor-DoWvHprT.js";import{C as o}from"./CityRoofCostTemplate-B0qylUHB.js";import"./index-DuqYyI2C.js";import"./calculator-CW8hzRDQ.js";import"./schema-DhR-azNR.js";function e(){return a.jsx(o,{cityName:"Oakland Park",citySlug:"oakland-park",isCoastal:!1,hoaCommon:!1})}export{e as default};
