@@ -1,0 +1,1 @@
+import{j as o}from"./react-vendor-DoWvHprT.js";import{C as t}from"./CityRoofCostTemplate-Cv4F7ysD.js";import"./index-D2HpuuH1.js";import"./calculator-CW8hzRDQ.js";import"./schema-DhR-azNR.js";function s(){return o.jsx(t,{cityName:"Fort Lauderdale",citySlug:"fort-lauderdale",isCoastal:!0,hoaCommon:!0})}export{s as default};
