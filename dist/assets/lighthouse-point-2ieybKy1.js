@@ -1,1 +1,0 @@
-import{j as o}from"./react-vendor-B9TUqL2f.js";import{C as t}from"./CityRoofCostTemplate-DIckfxeo.js";import"./index-_gasbi-W.js";import"./calculator-DOO1FktO.js";import"./schema-CuPNk2it.js";function a(){return o.jsx(t,{cityName:"Lighthouse Point",citySlug:"lighthouse-point",isCoastal:!0,hoaCommon:!0})}export{a as default};
