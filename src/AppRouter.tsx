@@ -64,57 +64,66 @@ const LoadingFallback = () => (
 );
 
 export default function AppRouter() {
-  return (
-    <Router>
-      <ScrollToTop />
-      <Suspense fallback={<LoadingFallback />}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="residential-roofing" element={<ResidentialRoofingPage />} />
-            <Route path="commercial-roofing" element={<CommercialRoofingPage />} />
-            <Route path="roof-types/shingle" element={<ShingleRoofingPage />} />
-            <Route path="roof-types/tile" element={<TileRoofingPage />} />
-            <Route path="roof-types/metal" element={<MetalRoofingPage />} />
-            <Route path="roof-types/flat" element={<FlatRoofingPage />} />
-            <Route path="wind-mitigation" element={<WindMitigationPage />} />
-            <Route path="financing" element={<FinancingPage />} />
-            <Route path="financing-calculator" element={<FinancingCalculatorPage />} />
-            <Route path="projects" element={<ProjectsPage />} />
-            <Route path="gallery" element={<ProjectsPage />} />
-            <Route path="roofing-projects" element={<RoofingProjectsGalleryPage />} />
-            <Route path="projects-gallery" element={<RoofingProjectsGalleryPage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="contact-success" element={<ContactSuccessPage />} />
-            <Route path="roof-cost-calculator" element={<RoofCalculatorPage />} />
+  try {
+    return (
+      <Router>
+        <ScrollToTop />
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="residential-roofing" element={<ResidentialRoofingPage />} />
+              <Route path="commercial-roofing" element={<CommercialRoofingPage />} />
+              <Route path="roof-types/shingle" element={<ShingleRoofingPage />} />
+              <Route path="roof-types/tile" element={<TileRoofingPage />} />
+              <Route path="roof-types/metal" element={<MetalRoofingPage />} />
+              <Route path="roof-types/flat" element={<FlatRoofingPage />} />
+              <Route path="wind-mitigation" element={<WindMitigationPage />} />
+              <Route path="financing" element={<FinancingPage />} />
+              <Route path="financing-calculator" element={<FinancingCalculatorPage />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="gallery" element={<ProjectsPage />} />
+              <Route path="roofing-projects" element={<RoofingProjectsGalleryPage />} />
+              <Route path="projects-gallery" element={<RoofingProjectsGalleryPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="contact-success" element={<ContactSuccessPage />} />
+              <Route path="roof-cost-calculator" element={<RoofCalculatorPage />} />
 
-          <Route path="roof-cost/boca-raton" element={<BocaRatonRoofCostPage />} />
-          <Route path="roof-cost/deerfield-beach" element={<DeerfieldBeachRoofCostPage />} />
-          <Route path="roof-cost/pompano-beach" element={<PompanoBeachRoofCostPage />} />
-          <Route path="roof-cost/lighthouse-point" element={<LighthousePointRoofCostPage />} />
-          <Route path="roof-cost/highland-beach" element={<HighlandBeachRoofCostPage />} />
-          <Route path="roof-cost/delray-beach" element={<DelrayBeachRoofCostPage />} />
-          <Route path="roof-cost/boynton-beach" element={<BoyntonBeachRoofCostPage />} />
-          <Route path="roof-cost/lake-worth-beach" element={<LakeWorthBeachRoofCostPage />} />
-          <Route path="roof-cost/west-palm-beach" element={<WestPalmBeachRoofCostPage />} />
-          <Route path="roof-cost/coral-springs" element={<CoralSpringsRoofCostPage />} />
-          <Route path="roof-cost/coconut-creek" element={<CoconutCreekRoofCostPage />} />
-          <Route path="roof-cost/parkland" element={<ParklandRoofCostPage />} />
-          <Route path="roof-cost/margate" element={<MargateRoofCostPage />} />
-          <Route path="roof-cost/tamarac" element={<TamaracRoofCostPage />} />
-          <Route path="roof-cost/fort-lauderdale" element={<FortLauderdaleRoofCostPage />} />
-          <Route path="roof-cost/wilton-manors" element={<WiltonManorsRoofCostPage />} />
-          <Route path="roof-cost/oakland-park" element={<OaklandParkRoofCostPage />} />
-          <Route path="roof-cost/sunrise" element={<SunriseRoofCostPage />} />
-          <Route path="roof-cost/plantation" element={<PlantationRoofCostPage />} />
-          <Route path="roof-cost/hollywood" element={<HollywoodRoofCostPage />} />
-          <Route path="service-areas" element={<ServiceAreasPage />} />
-          <Route path="service-areas/:city" element={<ServiceAreaDetailPage />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/:slug" element={<BlogDetailPage />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </Router>
-  );
+            <Route path="roof-cost/boca-raton" element={<BocaRatonRoofCostPage />} />
+            <Route path="roof-cost/deerfield-beach" element={<DeerfieldBeachRoofCostPage />} />
+            <Route path="roof-cost/pompano-beach" element={<PompanoBeachRoofCostPage />} />
+            <Route path="roof-cost/lighthouse-point" element={<LighthousePointRoofCostPage />} />
+            <Route path="roof-cost/highland-beach" element={<HighlandBeachRoofCostPage />} />
+            <Route path="roof-cost/delray-beach" element={<DelrayBeachRoofCostPage />} />
+            <Route path="roof-cost/boynton-beach" element={<BoyntonBeachRoofCostPage />} />
+            <Route path="roof-cost/lake-worth-beach" element={<LakeWorthBeachRoofCostPage />} />
+            <Route path="roof-cost/west-palm-beach" element={<WestPalmBeachRoofCostPage />} />
+            <Route path="roof-cost/coral-springs" element={<CoralSpringsRoofCostPage />} />
+            <Route path="roof-cost/coconut-creek" element={<CoconutCreekRoofCostPage />} />
+            <Route path="roof-cost/parkland" element={<ParklandRoofCostPage />} />
+            <Route path="roof-cost/margate" element={<MargateRoofCostPage />} />
+            <Route path="roof-cost/tamarac" element={<TamaracRoofCostPage />} />
+            <Route path="roof-cost/fort-lauderdale" element={<FortLauderdaleRoofCostPage />} />
+            <Route path="roof-cost/wilton-manors" element={<WiltonManorsRoofCostPage />} />
+            <Route path="roof-cost/oakland-park" element={<OaklandParkRoofCostPage />} />
+            <Route path="roof-cost/sunrise" element={<SunriseRoofCostPage />} />
+            <Route path="roof-cost/plantation" element={<PlantationRoofCostPage />} />
+            <Route path="roof-cost/hollywood" element={<HollywoodRoofCostPage />} />
+            <Route path="service-areas" element={<ServiceAreasPage />} />
+            <Route path="service-areas/:city" element={<ServiceAreaDetailPage />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="blog/:slug" element={<BlogDetailPage />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </Router>
+    );
+  } catch (error) {
+    console.error('AppRouter error:', error);
+    return (
+      <div style={{ background: 'red', color: 'white', padding: '20px' }}>
+        ERROR: {error instanceof Error ? error.message : 'Unknown error'}
+      </div>
+    );
+  }
 }
