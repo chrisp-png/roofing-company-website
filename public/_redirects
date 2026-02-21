@@ -13,6 +13,6 @@
 /roof-cost-tamarac              /roof-cost/tamarac              301
 /roof-cost-fort-lauderdale      /roof-cost/fort-lauderdale      301
 /roof-cost-lighthouse-point     /roof-cost/lighthouse-point     301
-
+/calculator /roof-cost-calculator 301
 # SPA fallback - must be last
 /*    /index.html   200
